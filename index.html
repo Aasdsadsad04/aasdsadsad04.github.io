@@ -412,9 +412,9 @@ const GPU_IDX=[[/5070\s?Ti/,205],[/5070/,160],[/5060\s?Ti\s?16/,124],[/5060\s?Ti
 const CPU_IDX=[[/9800X3D/,112],[/7800X3D/,100],[/14900K/,95],[/14700K\b/,90],[/14700F/,86],[/14600K/,85],[/13700F/,84],[/13600K/,82],[/9600X/,82],[/12700KF/,80],[/7700\b/,80],[/7500F/,76],[/14400F/,72],[/12600KF/,72],[/8700F/,70],[/13400F/,68],[/8400F/,62],[/14100/,60],[/5700/,58],[/13100F/,58],[/12100/,55],[/11400F/,56],[/10400F/,50]];
 const idx=(tbl,s,def)=>{for(const[r,v] of tbl)if(r.test(s||""))return v;return def};
 // игра: [название, кадры на 1 ед. индекса видеокарты, кадры на 1 ед. индекса процессора, пороги уровней 3/2/1]
-const GAMES=[["CS2",3.5,5.0,[240,144,90]],["Valorant",5,7,[300,165,100]],["Dota 2",2.2,2.6,[165,100,60]],["PUBG",1.6,2.0,[144,90,60]],["GTA V",1.5,1.6,[120,80,50]],["Warzone",1.2,1.8,[120,80,50]],["Escape from Tarkov",1.1,1.0,[100,70,45]],["Cyberpunk 2077",0.85,1.4,[100,60,40]]];
+const GAMES=[["CS2",3.5,6.5,[240,144,90]],["Valorant",5,9.5,[300,165,100]],["Dota 2",2.2,3.4,[165,100,60]],["PUBG",1.6,2.7,[144,90,60]],["GTA V",1.5,2.1,[120,80,50]],["Warzone",1.2,2.5,[120,80,50]],["Escape from Tarkov",1.1,1.5,[100,70,45]],["Cyberpunk 2077",0.85,2.1,[100,60,40]]];
 const LV=["Низкие настройки","Средние настройки","Высокие, комфортно","Максимум, очень плавно"];
-function gameFps(cpu,gpu){const g=/Без видео|Встроен/.test(gpu)?8:idx(GPU_IDX,gpu,100),c=idx(CPU_IDX,cpu,70);return GAMES.map(([n,gk,ck,t])=>{const f=Math.min(g*gk,c*ck);return{n,f,l:f>=t[0]?3:f>=t[1]?2:f>=t[2]?1:0}})}
+function gameFps(cpu,gpu){const g=/Без видео|Встроен/.test(gpu)?8:idx(GPU_IDX,gpu,100),c=idx(CPU_IDX,cpu,70);return GAMES.map(([n,gk,ck,t])=>{const G1=g*gk,C1=c*ck,f=Math.pow(Math.pow(G1,-4)+Math.pow(C1,-4),-0.25);return{n,f,l:f>=t[0]?3:f>=t[1]?2:f>=t[2]?1:0}})}
 function curParts(b){
   const st=SEL[b.i]||{},G=Object.fromEntries((b.opts||[]).map(g=>[g.id,g]));
   const cpu=G.cpu&&st.cpu>=0?G.cpu.items[st.cpu].label:b.cpu, gpu=G.gpu&&st.gpu>=0?G.gpu.items[st.gpu].label:b.gpu;
