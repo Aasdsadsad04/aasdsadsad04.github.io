@@ -280,11 +280,19 @@ const grid=document.getElementById("grid"),q=document.getElementById("q"),sort=d
 const st={type:"all",budget:"0-0",gpu:"all",cpu:"all",ram:"all",ssd:"all"};
 const G={
   gpu:b=>b.gpu.replace(/ \d+GB$/,"").replace(/^RTX /,"RTX "),
-  cpu:b=>{if(/Apple/.test(b.cpu))return "Apple";if(/Celeron|Pentium|Athlon|\bN\d{3}/.test(b.cpu))return "Celeron / Pentium";let m=b.cpu.match(/(?:^|Core\s?)i(\d)\b/);if(m)return "Intel i"+m[1];m=b.cpu.match(/Core Ultra (\d)/);if(m)return "Intel Core Ultra "+m[1];m=b.cpu.match(/Core (\d)\b/);if(m)return "Intel Core "+m[1];m=b.cpu.match(/Ryzen (?:AI )?(\d)/);return m?"Ryzen "+m[1]:(b.cpu||"")},
+  cpu:b=>{const c=b.cpu||"";let m;
+    if(!c)return "";
+    if(/Apple/i.test(c))return "Apple";
+    if(/Celeron|Pentium|Athlon|\bN\d{3}\b/i.test(c))return "Celeron / Pentium";
+    if(m=c.match(/\bi([3579])\b|\bi([3579])[- ]?\d/i))return "Intel i"+(m[1]||m[2]);
+    if(m=c.match(/Ultra\s?X?(\d)|Core\s?U(\d)|^U(\d)\b/i))return "Intel Core Ultra "+(m[1]||m[2]||m[3]);
+    if(m=c.match(/Core\s?(\d)\b/i))return "Intel Core "+m[1];
+    if(m=c.match(/Ryzen\s?(?:AI\s?)?(\d)|AMD\s?AI\s?(\d)/i))return "Ryzen "+(m[1]||m[2]);
+    return "Другие";},
   ram:b=>b.ram.split(" ")[0],
   ssd:b=>b.ssd.split(" ")[0]
 };
-const ORDER={cpu:["Celeron / Pentium","Intel i3","Intel i5","Intel i7","Intel i9","Intel Core 5","Intel Core 7","Intel Core Ultra 7","Intel Core Ultra 9","Ryzen 3","Ryzen 5","Ryzen 7","Ryzen 9","Apple"]};
+const ORDER={cpu:["Celeron / Pentium","Intel i3","Intel i5","Intel i7","Intel i9","Intel Core 3","Intel Core 5","Intel Core 7","Intel Core Ultra 5","Intel Core Ultra 7","Intel Core Ultra 9","Ryzen 3","Ryzen 5","Ryzen 7","Ryzen 9","Apple","Другие"]};
 function buildChips(){
   document.querySelectorAll("[data-dyn]").forEach(box=>{
     const key=box.dataset.g,f=G[key];
