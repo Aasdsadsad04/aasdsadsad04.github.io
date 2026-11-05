@@ -296,7 +296,7 @@ function card(b){
       <div class="title"><span class="type${b.type==="kit"?" kit":""}">${b.type==="kit"?"Полный комплект":"Системный блок"}</span><strong>${name}</strong></div></div>
     <dl class="spec"><dt>CPU</dt><dd>${b.cpu}</dd><dt>GPU</dt><dd>${b.gpu}</dd><dt>RAM</dt><dd>${b.ram}</dd><dt>SSD</dt><dd>${b.ssd}</dd></dl>
     ${b.kit?`<div class="inkit"><b>В комплекте</b>${b.kit}</div>`:""}
-    ${b.opts&&b.opts.length?`<div class="cfgwrap"><button class="cfg" data-i="${b.i}" aria-expanded="false"><span>Изменить комплектацию<small>видеокарта, память, SSD, плата, блок питания${b.type==="block"?", монитор":""}</small></span><span class="arr" aria-hidden="true">▾</span></button><div class="cfgp" id="p${b.i}" hidden></div></div>`:""}
+    ${b.opts&&b.opts.length?`<div class="cfgwrap"><button class="cfg" data-i="${b.i}" aria-expanded="false"><span>Изменить комплектацию: дешевле или мощнее<small>процессор, видеокарта, память, SSD, плата, блок питания${b.type==="block"?", монитор":""}</small></span><span class="arr" aria-hidden="true">▾</span></button><div class="cfgp" id="p${b.i}" hidden></div></div>`:""}
     <div class="price">
       <div class="row"><span class="k">Наличные / QR</span><span class="cash" id="c${b.i}">${fmt(b.cash)}</span></div>
       <div class="row"><span class="k">Рассрочка Kaspi</span><span class="inst" id="r${b.i}">${fmt(b.inst)}</span></div>
@@ -350,12 +350,13 @@ sort.addEventListener("change",render);
 
 
 const KI=1.1792,KM=1.15;
+const sgn=d=>d>0?"+"+fmt(d):d<0?"−"+fmt(-d):"без доплаты";
 function panel(b){
   const st=SEL[b.i]||(SEL[b.i]={});
   const groups=b.type==="block"?[...b.opts,{id:"mon",title:"Монитор",current:"Без монитора",items:MON.map(m=>({label:m.name+" · "+m.spec.split(" · ").slice(0,3).join(" "),delta:m.price}))}]:b.opts;
   return groups.map(g=>{
     const sel=st[g.id]??-1;
-    const opts=[`<option value="-1">${g.id==="ssd2"||g.id==="mon"?g.current:"Как есть: "+g.current}</option>`].concat(g.items.map((o,k)=>`<option value="${k}" ${k===sel?"selected":""}>${o.label} (${o.delta?"+"+fmt(o.delta):"без доплаты"})</option>`));
+    const opts=[`<option value="-1">${g.id==="ssd2"||g.id==="mon"?g.current:"Как есть: "+g.current}</option>`].concat(g.items.map((o,k)=>`<option value="${k}" ${k===sel?"selected":""}>${o.label} (${sgn(o.delta)})</option>`));
     return `<div class="opt"><label for="s${b.i}_${g.id}">${g.title}</label><select id="s${b.i}_${g.id}" data-i="${b.i}" data-g="${g.id}">${opts.join("")}</select>${g.id==="psu"?`<small id="ps${b.i}"></small>`:""}</div>`;
   }).join("");
 }
@@ -365,14 +366,14 @@ function recalc(b){
   const G=Object.fromEntries(groupsOf(b).map(g=>[g.id,g]));
   // блок питания под видеокарту
   const gsel=G.gpu&&st.gpu>=0?G.gpu.items[st.gpu]:null;
-  const need=gsel&&gsel.psu||0;
+  const need=gsel?(gsel.psu||0):(G.psu&&G.psu.min||0);
   const psuSel=document.getElementById(`s${b.i}_psu`), note=document.getElementById(`ps${b.i}`);
   if(G.psu&&psuSel){
     const curW=G.psu.watt;
     [...psuSel.options].forEach(op=>{const k=+op.value;const w=k<0?curW:G.psu.items[k].watt;op.disabled=need>0&&w<need;});
     const chosenW=st.psu>=0?G.psu.items[st.psu].watt:curW;
     if(need&&chosenW<need){const k=G.psu.items.findIndex(o=>o.watt>=need);if(k>=0){st.psu=k;psuSel.value=String(k);}}
-    if(note)note.textContent=need&&curW<need?`Для этой видеокарты нужен блок от ${need}W — поставили автоматически.`:"";
+    if(note)note.textContent=need&&curW<need?`Для этой видеокарты нужен блок от ${need}W — поставили автоматически.`:(need?`Для этой видеокарты блок питания не ниже ${need}W.`:"");
   }
   let add=0,mon=0;const changes=[];
   for(const[id,k] of Object.entries(st)){if(k<0||!G[id])continue;const o=G[id].items[k];if(id==="mon"){mon+=o.delta}else add+=o.delta;changes.push(id==="mon"?"монитор "+o.label:o.label)}
@@ -380,7 +381,7 @@ function recalc(b){
   b.cur={cash,inst,changes};
   const set=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=v};
   set("c"+b.i,fmt(cash));set("r"+b.i,fmt(inst));set("m"+b.i,fmt(month));
-  set("d"+b.i,changes.length?`С изменениями: +${fmt(add+mon)}`:"");
+  set("d"+b.i,changes.length?`С изменениями: ${sgn(add+mon)}`:"");
   return b.cur;
 }
 grid.addEventListener("click",e=>{
