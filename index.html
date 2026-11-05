@@ -178,6 +178,10 @@ dl.spec dd s{font-size:12px;color:var(--muted)}
 .srow.open .arr{transform:rotate(180deg)}
 .specx .olist{margin:0 0 6px}
 .shint{display:block;margin:0 8px 4px;font-size:12px;line-height:1.35}
+.kithd{margin:8px 8px 2px;font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.07em}
+.srow .rmv{color:var(--muted);font-style:italic}
+.srow.rm{background:var(--chip)}
+.srow.rm .sk{color:var(--muted)}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none}
 
 .bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:12px;border-bottom:1px solid var(--line)}
@@ -410,7 +414,7 @@ function card(b){
     ${b.opts&&b.opts.length?`<p class="tapnote">Нажмите на строку, чтобы заменить — дешевле или мощнее</p><div class="specx" id="sp${b.i}"></div>`:`<dl class="spec" id="sp${b.i}"><dt>CPU</dt><dd>${b.cpu}</dd><dt>GPU</dt><dd>${b.gpu}</dd><dt>RAM</dt><dd>${b.ram}</dd><dt>SSD</dt><dd>${b.ssd}</dd></dl>`}
     <button class="fpsbtn" data-f="${b.i}" aria-expanded="false"><span>FPS в играх: низкие, высокие, ультра, 2K</span><span class="arr" aria-hidden="true">▾</span></button>
     <div class="fps" id="f${b.i}" hidden></div>
-    ${b.kit?`<div class="inkit"><b>В комплекте</b>${b.kit}</div>`:""}
+    ${b.kit&&!(b.opts||[]).some(g=>g.id.startsWith("k_"))?`<div class="inkit"><b>В комплекте</b>${b.kit}</div>`:""}
     <div class="price">
       <div class="row"><span class="k">Наличные / QR</span><span class="cash" id="c${b.i}">${fmt(b.cash)}</span></div>
       <div class="row"><span class="k">Рассрочка Kaspi</span><span class="inst" id="r${b.i}">${fmt(b.inst)}</span></div>
@@ -543,19 +547,22 @@ function hintFor(b,id){
   if(id==="gpu"&&p>0&&!noGpu(b.gpu)){const pot=Math.round((idx(GPU_IDX,gpu,100)/idx(GPU_IDX,b.gpu,100)-1)*100);if(p<pot*0.6)return`Процессор сдерживает эту видеокарту: с более мощным процессором было бы до ${pctTxt(pot)} FPS.`;}
   return"";
 }
-const SROWS=[["cpu","CPU"],["gpu","GPU"],["ram","RAM"],["ssd","SSD"],["ssd2","Диск 2"],["mb","Плата"],["psu","БП"],["mon","Монитор"]];
+const SROWS=[["cpu","CPU"],["gpu","GPU"],["ram","RAM"],["ssd","SSD"],["ssd2","Диск 2"],["mb","Плата"],["psu","БП"],["mon","Монитор"],["k_mon","Монитор"],["k_kb","Клава"],["k_combo","Клава+мышь"],["k_ms","Мышь"],["k_hp","Наушники"],["k_mat","Коврик"]];
 const clean=(id,v)=>id==="ssd2"?v.replace(/^\+\s*/,""):id==="psu"?v.replace(/^БП\s*/,""):v;
 function renderSpec(b){
   const el=document.getElementById("sp"+b.i);if(!el||!el.classList.contains("specx"))return;
   const st=SEL[b.i]||(SEL[b.i]={}),groups=groupsOf(b),G=Object.fromEntries(groups.map(g=>[g.id,g])),need=psuNeed(b,G,st);
   const baseV={cpu:b.cpu,gpu:b.gpu,ram:b.ram,ssd:b.ssd,mb:G.mb&&G.mb.current,psu:G.psu&&clean("psu",G.psu.current)};
+  groups.forEach(g=>{if(g.id.startsWith("k_"))baseV[g.id]=g.current});
+  let kitHead=false;
   el.innerHTML=SROWS.filter(([id])=>G[id]||baseV[id]).map(([id,dt])=>{
     const g=G[id];
+    const hd=id.startsWith("k_")&&!kitHead?(kitHead=true,`<div class="kithd">В комплекте — можно заменить или убрать</div>`):"";
     if(!g)return `<div class="srow static"><span class="sk">${dt}</span><span class="sv">${baseV[id]}</span></div>`;
     const sel=st[id]??-1,open=OPEN[b.i]===id,perf=id==="cpu"||id==="gpu"||id==="ram",add=id==="ssd2"||id==="mon";
     const o=sel>=0?g.items[sel]:null,base=baseV[id];
     const fpsCur=perf&&o?optPerf(b,id,sel):0;
-    const val=o?`<mark>${clean(id,o.label)}</mark>${base?`<s>${base}</s>`:""}`:(add?`<span class="addv">добавить</span>`:base);
+    const val=o?(o.remove?`<span class="rmv">не нужен</span><s>${base}</s>`:`<mark>${clean(id,o.label)}</mark>${base?`<s>${base}</s>`:""}`):(add?`<span class="addv">добавить</span>`:base);
     let rows="";
     if(open){
       const all=[{k:-1,label:add?"Не нужно":base,delta:0,base:!add}].concat(g.items.map((x,k)=>({k,...x})));
@@ -564,26 +571,29 @@ function renderSpec(b){
         const fp=perf?optPerf(b,id,x.k):0;
         return `<button class="orow${x.k===sel?" on":""}" role="radio" aria-checked="${x.k===sel}" data-i="${b.i}" data-g="${id}" data-k="${x.k}"${dis?" disabled":""}>
           <span class="ock">${x.k===sel?ICON_CHK:""}</span>
-          <span class="on2"><span>${x.k<0?x.label:clean(id,x.label)}</span>${x.base?`<small>как в сборке</small>`:x.sub?`<small>${x.sub}</small>`:""}${perf&&x.k>=0&&fp?`<em class="${fp>0?"fu":"fd"}">${pctTxt(fp)} FPS</em>`:""}${dis?`<small>нужен блок от ${need}W</small>`:""}</span>
+          <span class="on2"><span>${x.k<0?x.label:clean(id,x.label)}</span>${x.base?`<small>${id.startsWith("k_")?"как в комплекте":"как в сборке"}</small>`:x.remove?`<small>убрать из комплекта</small>`:x.sub?`<small>${x.sub}</small>`:""}${perf&&x.k>=0&&fp?`<em class="${fp>0?"fu":"fd"}">${pctTxt(fp)} FPS</em>`:""}${dis?`<small>нужен блок от ${need}W</small>`:""}</span>
           <span class="od ${x.delta<0?"neg":x.delta>0?"pos":""}">${x.k<0?"":sgn(x.delta)}</span>
         </button>`}).join("")+`</div>`;
     }
     const h=perf?hintFor(b,id):"";
     const pn=id==="psu"&&need&&G.psu.watt<need&&st.psu>=0?`Для этой видеокарты нужен блок от ${need}W — поставили автоматически.`:"";
-    return `<button class="srow${o?" ch":""}${open?" open":""}" data-i="${b.i}" data-og="${id}" aria-expanded="${open}" aria-label="${g.title}: заменить">
+    return hd+`<button class="srow${o?" ch":""}${open?" open":""}${o&&o.remove?" rm":""}" data-i="${b.i}" data-og="${id}" aria-expanded="${open}" aria-label="${g.title}: заменить">
         <span class="sk">${dt}</span><span class="sv">${val}${fpsCur?`<em class="${fpsCur>0?"fu":"fd"}">${pctTxt(fpsCur)} FPS</em>`:""}</span>
         ${o?`<span class="od ${o.delta<0?"neg":"pos"}">${sgn(o.delta)}</span>`:""}<span class="arr" aria-hidden="true">▾</span>
       </button>${rows}${h&&!open?`<small class="hint shint">${h}</small>`:""}${pn&&!open?`<small class="hint shint">${pn}</small>`:""}`;
   }).join("");
   const{cpu,gpu}=curParts(b),t=document.getElementById("t"+b.i);
   if(t)t.textContent=`${short(cpu)} + ${short(gpu)}`;
+  const kg=groups.filter(g=>g.id.startsWith("k_"));
+  if(kg.length&&t){const ty=t.parentNode.querySelector(".type"),all=kg.every(g=>st[g.id]>=0&&g.items[st[g.id]].remove);
+    ty.textContent=all?"Только системный блок":kg.some(g=>st[g.id]>=0&&g.items[st[g.id]].remove)?"Комплект (изменён)":"Полный комплект";}
 }
 function recalc(b){
   const st=SEL[b.i]||(SEL[b.i]={}),G=Object.fromEntries(groupsOf(b).map(g=>[g.id,g]));
   const need=psuNeed(b,G,st);
   if(G.psu&&need){const w=st.psu>=0?G.psu.items[st.psu].watt:G.psu.watt;if(w<need){const k=G.psu.items.findIndex(o=>o.watt>=need);if(k>=0)st.psu=k;}}
   let add=0,mon=0;const changes=[];
-  for(const[id,k] of Object.entries(st)){if(k<0||!G[id])continue;const o=G[id].items[k];if(id==="mon"){mon+=o.delta}else add+=o.delta;changes.push(id==="mon"?"монитор "+o.label:o.label)}
+  for(const[id,k] of Object.entries(st)){if(k<0||!G[id])continue;const o=G[id].items[k];if(id==="mon"){mon+=o.delta}else add+=o.delta;changes.push(o.remove?"без: "+G[id].current:id==="mon"?"монитор "+o.label:id.startsWith("k_")?G[id].title.toLowerCase()+" "+o.label:o.label)}
   const cash=b.cash+add+mon, inst=Math.ceil(((b.cash+add)*KI+mon*KM)/1000)*1000, month=Math.ceil(inst/24/100)*100;
   const{cpu,gpu,ram}=curParts(b);
   b.perfPct=(cpu!==b.cpu||gpu!==b.gpu||ram!==b.ram)?Math.round((avgRatio(gameFps(b.cpu,b.gpu,FP,false,b.ram),gameFps(cpu,gpu,FP,false,ram))-1)*100):0;
@@ -657,7 +667,8 @@ grid.addEventListener("click",e=>{
   if(b.type==="laptop"){addCart({title:(b.gaming?"Игровой ноутбук ":"Ноутбук ")+b.title,desc:[b.cpu,b.gpu,b.ram,b.ssd].filter(Boolean).join(", ")+" · под заказ 3–5 дней",cash:b.cash,inst:b.inst});return}
   const c=b.cur||recalc(b);
   const label=b.n?`№${b.n}`:"новинка";
-  addCart({title:`${b.type==="kit"?"Комплект":"Сборка"} ${label}: ${b.cpu} + ${b.gpu}`,desc:c.changes.length?"изменения: "+c.changes.join(", "):`${b.ram}, ${b.ssd}`,cash:c.cash,inst:c.inst});
+  const ty=(document.getElementById("t"+b.i)?.parentNode.querySelector(".type")?.textContent)||"";
+  addCart({title:`${/Только/.test(ty)?"Системный блок из комплекта":b.type==="kit"?"Комплект":"Сборка"} ${label}: ${b.cpu} + ${b.gpu}`,desc:c.changes.length?"изменения: "+c.changes.join(", "):`${b.ram}, ${b.ssd}`,cash:c.cash,inst:c.inst});
 });
 document.getElementById("cb_open").addEventListener("click",()=>{drawer.hidden=false;ev("korzina-otkryli","Открыли корзину");});
 document.getElementById("cart_send").addEventListener("click",()=>{const t=totals();ev("zakaz-whatsapp","Заказ в WhatsApp: "+CART.length+" поз., "+fmt(t.cash));});

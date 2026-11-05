@@ -182,6 +182,156 @@
        "watt": 850
       }
      ]
+    },
+    {
+     "id": "k_mon",
+     "title": "Монитор",
+     "current": "AOC 25G4SXU",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -90000,
+       "remove": true
+      },
+      {
+       "label": "SANC M2453FKG",
+       "sub": "23.8″ · Full HD · IPS · 120 Гц · 1 мс",
+       "delta": -45000
+      },
+      {
+       "label": "Acer CB242Y",
+       "sub": "23.8″ · Full HD · IPS · 120 Гц · 1 мс",
+       "delta": -35000
+      },
+      {
+       "label": "SANC M2444PC",
+       "sub": "23.8″ · Full HD · IPS · 200 Гц · 1 мс",
+       "delta": -30000
+      },
+      {
+       "label": "SANC 24.5″",
+       "sub": "24.5″ · Full HD · IPS · 240 Гц · 1 мс",
+       "delta": -25000
+      },
+      {
+       "label": "SANC M2753FPF",
+       "sub": "27″ · Full HD · IPS · 200 Гц · 1 мс",
+       "delta": -20000
+      },
+      {
+       "label": "SANC 27″",
+       "sub": "27″ · Full HD · IPS · 240 Гц · 1 мс",
+       "delta": -15000
+      },
+      {
+       "label": "Lenovo Legion 25-10",
+       "sub": "24.5″ · Full HD · IPS · 320 Гц",
+       "delta": -10000
+      },
+      {
+       "label": "Lenovo Legion 27″",
+       "sub": "27″ · 2K QHD 2560×1440 · IPS · 300 Гц · 0.5 мс",
+       "delta": 20000
+      },
+      {
+       "label": "GIGABYTE G27Q3",
+       "sub": "27″ · 2K QHD 2560×1440 · Super Speed IPS · 320 Гц · HDR400",
+       "delta": 25000
+      },
+      {
+       "label": "ASUS TUF 24.5″",
+       "sub": "24.5″ · Full HD · IPS · 310 Гц",
+       "delta": 30000
+      }
+     ]
+    },
+    {
+     "id": "k_kb",
+     "title": "Клавиатура",
+     "current": "AULA F75 White / Ice Blue",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -20000,
+       "remove": true
+      },
+      {
+       "label": "AULA F75 Pro Side Printed Black",
+       "sub": "Механическая · беспроводная · RGB",
+       "delta": 2000
+      },
+      {
+       "label": "Ajazz AK820 White / Grey",
+       "sub": "Механическая",
+       "delta": -10000
+      },
+      {
+       "label": "Ajazz AK820 Black",
+       "sub": "Механическая",
+       "delta": -10000
+      },
+      {
+       "label": "Mchose Ace 68 White",
+       "sub": "Механическая · 65%",
+       "delta": 0
+      }
+     ]
+    },
+    {
+     "id": "k_ms",
+     "title": "Мышь",
+     "current": "AULA SC580 Wireless Black",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -8000,
+       "remove": true
+      },
+      {
+       "label": "Logitech G102 Lightsync White",
+       "sub": "Проводная · RGB",
+       "delta": 3000
+      },
+      {
+       "label": "AULA SC580 Wireless Red",
+       "sub": "Беспроводная",
+       "delta": 0
+      },
+      {
+       "label": "Mchose A7 V2 Pro",
+       "sub": "Беспроводная · лёгкая игровая",
+       "delta": 13000
+      }
+     ]
+    },
+    {
+     "id": "k_hp",
+     "title": "Наушники",
+     "current": "AULA G7",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -8000,
+       "remove": true
+      },
+      {
+       "label": "AULA G7 PRO",
+       "sub": "Беспроводная гарнитура · RGB",
+       "delta": 5000
+      }
+     ]
+    },
+    {
+     "id": "k_mat",
+     "title": "Коврик",
+     "current": "Коврик",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -3000,
+       "remove": true
+      }
+     ]
     }
    ]
   },
@@ -364,6 +514,156 @@
        "label": "БП 850W",
        "delta": 18000,
        "watt": 850
+      }
+     ]
+    },
+    {
+     "id": "k_mon",
+     "title": "Монитор",
+     "current": "SANC 24.5″",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -65000,
+       "remove": true
+      },
+      {
+       "label": "SANC M2453FKG",
+       "sub": "23.8″ · Full HD · IPS · 120 Гц · 1 мс",
+       "delta": -20000
+      },
+      {
+       "label": "Acer CB242Y",
+       "sub": "23.8″ · Full HD · IPS · 120 Гц · 1 мс",
+       "delta": -10000
+      },
+      {
+       "label": "SANC M2444PC",
+       "sub": "23.8″ · Full HD · IPS · 200 Гц · 1 мс",
+       "delta": -5000
+      },
+      {
+       "label": "SANC M2753FPF",
+       "sub": "27″ · Full HD · IPS · 200 Гц · 1 мс",
+       "delta": 5000
+      },
+      {
+       "label": "SANC 27″",
+       "sub": "27″ · Full HD · IPS · 240 Гц · 1 мс",
+       "delta": 10000
+      },
+      {
+       "label": "Lenovo Legion 25-10",
+       "sub": "24.5″ · Full HD · IPS · 320 Гц",
+       "delta": 15000
+      },
+      {
+       "label": "AOC 25G4SXU",
+       "sub": "24.5″ · Full HD · IPS · 310 Гц",
+       "delta": 25000
+      },
+      {
+       "label": "Lenovo Legion 27″",
+       "sub": "27″ · 2K QHD 2560×1440 · IPS · 300 Гц · 0.5 мс",
+       "delta": 45000
+      },
+      {
+       "label": "GIGABYTE G27Q3",
+       "sub": "27″ · 2K QHD 2560×1440 · Super Speed IPS · 320 Гц · HDR400",
+       "delta": 50000
+      },
+      {
+       "label": "ASUS TUF 24.5″",
+       "sub": "24.5″ · Full HD · IPS · 310 Гц",
+       "delta": 55000
+      }
+     ]
+    },
+    {
+     "id": "k_kb",
+     "title": "Клавиатура",
+     "current": "Ajazz AK820 Black",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -13000,
+       "remove": true
+      },
+      {
+       "label": "AULA F75 White / Ice Blue",
+       "sub": "Механическая · беспроводная",
+       "delta": 10000
+      },
+      {
+       "label": "AULA F75 Pro Side Printed Black",
+       "sub": "Механическая · беспроводная · RGB",
+       "delta": 12000
+      },
+      {
+       "label": "Ajazz AK820 White / Grey",
+       "sub": "Механическая",
+       "delta": 0
+      },
+      {
+       "label": "Mchose Ace 68 White",
+       "sub": "Механическая · 65%",
+       "delta": 10000
+      }
+     ]
+    },
+    {
+     "id": "k_ms",
+     "title": "Мышь",
+     "current": "AULA SC580 Wireless Black",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -8000,
+       "remove": true
+      },
+      {
+       "label": "Logitech G102 Lightsync White",
+       "sub": "Проводная · RGB",
+       "delta": 3000
+      },
+      {
+       "label": "AULA SC580 Wireless Red",
+       "sub": "Беспроводная",
+       "delta": 0
+      },
+      {
+       "label": "Mchose A7 V2 Pro",
+       "sub": "Беспроводная · лёгкая игровая",
+       "delta": 13000
+      }
+     ]
+    },
+    {
+     "id": "k_hp",
+     "title": "Наушники",
+     "current": "AULA G7",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -8000,
+       "remove": true
+      },
+      {
+       "label": "AULA G7 PRO",
+       "sub": "Беспроводная гарнитура · RGB",
+       "delta": 5000
+      }
+     ]
+    },
+    {
+     "id": "k_mat",
+     "title": "Коврик",
+     "current": "Коврик",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -3000,
+       "remove": true
       }
      ]
     }
@@ -550,6 +850,92 @@
        "watt": 850
       }
      ]
+    },
+    {
+     "id": "k_mon",
+     "title": "Монитор",
+     "current": "SANC M2444PC",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -60000,
+       "remove": true
+      },
+      {
+       "label": "SANC M2453FKG",
+       "sub": "23.8″ · Full HD · IPS · 120 Гц · 1 мс",
+       "delta": -15000
+      },
+      {
+       "label": "Acer CB242Y",
+       "sub": "23.8″ · Full HD · IPS · 120 Гц · 1 мс",
+       "delta": -5000
+      },
+      {
+       "label": "SANC 24.5″",
+       "sub": "24.5″ · Full HD · IPS · 240 Гц · 1 мс",
+       "delta": 5000
+      },
+      {
+       "label": "SANC M2753FPF",
+       "sub": "27″ · Full HD · IPS · 200 Гц · 1 мс",
+       "delta": 10000
+      },
+      {
+       "label": "SANC 27″",
+       "sub": "27″ · Full HD · IPS · 240 Гц · 1 мс",
+       "delta": 15000
+      },
+      {
+       "label": "Lenovo Legion 25-10",
+       "sub": "24.5″ · Full HD · IPS · 320 Гц",
+       "delta": 20000
+      },
+      {
+       "label": "AOC 25G4SXU",
+       "sub": "24.5″ · Full HD · IPS · 310 Гц",
+       "delta": 30000
+      },
+      {
+       "label": "Lenovo Legion 27″",
+       "sub": "27″ · 2K QHD 2560×1440 · IPS · 300 Гц · 0.5 мс",
+       "delta": 50000
+      },
+      {
+       "label": "GIGABYTE G27Q3",
+       "sub": "27″ · 2K QHD 2560×1440 · Super Speed IPS · 320 Гц · HDR400",
+       "delta": 55000
+      },
+      {
+       "label": "ASUS TUF 24.5″",
+       "sub": "24.5″ · Full HD · IPS · 310 Гц",
+       "delta": 60000
+      }
+     ]
+    },
+    {
+     "id": "k_combo",
+     "title": "Клавиатура и мышь",
+     "current": "X-Game",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -5000,
+       "remove": true
+      }
+     ]
+    },
+    {
+     "id": "k_mat",
+     "title": "Коврик",
+     "current": "Коврик",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -3000,
+       "remove": true
+      }
+     ]
     }
    ]
   },
@@ -732,6 +1118,156 @@
        "label": "БП 850W",
        "delta": 9000,
        "watt": 850
+      }
+     ]
+    },
+    {
+     "id": "k_mon",
+     "title": "Монитор",
+     "current": "SANC M2753FPF",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -70000,
+       "remove": true
+      },
+      {
+       "label": "SANC M2453FKG",
+       "sub": "23.8″ · Full HD · IPS · 120 Гц · 1 мс",
+       "delta": -25000
+      },
+      {
+       "label": "Acer CB242Y",
+       "sub": "23.8″ · Full HD · IPS · 120 Гц · 1 мс",
+       "delta": -15000
+      },
+      {
+       "label": "SANC M2444PC",
+       "sub": "23.8″ · Full HD · IPS · 200 Гц · 1 мс",
+       "delta": -10000
+      },
+      {
+       "label": "SANC 24.5″",
+       "sub": "24.5″ · Full HD · IPS · 240 Гц · 1 мс",
+       "delta": -5000
+      },
+      {
+       "label": "SANC 27″",
+       "sub": "27″ · Full HD · IPS · 240 Гц · 1 мс",
+       "delta": 5000
+      },
+      {
+       "label": "Lenovo Legion 25-10",
+       "sub": "24.5″ · Full HD · IPS · 320 Гц",
+       "delta": 10000
+      },
+      {
+       "label": "AOC 25G4SXU",
+       "sub": "24.5″ · Full HD · IPS · 310 Гц",
+       "delta": 20000
+      },
+      {
+       "label": "Lenovo Legion 27″",
+       "sub": "27″ · 2K QHD 2560×1440 · IPS · 300 Гц · 0.5 мс",
+       "delta": 40000
+      },
+      {
+       "label": "GIGABYTE G27Q3",
+       "sub": "27″ · 2K QHD 2560×1440 · Super Speed IPS · 320 Гц · HDR400",
+       "delta": 45000
+      },
+      {
+       "label": "ASUS TUF 24.5″",
+       "sub": "24.5″ · Full HD · IPS · 310 Гц",
+       "delta": 50000
+      }
+     ]
+    },
+    {
+     "id": "k_kb",
+     "title": "Клавиатура",
+     "current": "AULA F75 White / Ice Blue",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -20000,
+       "remove": true
+      },
+      {
+       "label": "AULA F75 Pro Side Printed Black",
+       "sub": "Механическая · беспроводная · RGB",
+       "delta": 2000
+      },
+      {
+       "label": "Ajazz AK820 White / Grey",
+       "sub": "Механическая",
+       "delta": -10000
+      },
+      {
+       "label": "Ajazz AK820 Black",
+       "sub": "Механическая",
+       "delta": -10000
+      },
+      {
+       "label": "Mchose Ace 68 White",
+       "sub": "Механическая · 65%",
+       "delta": 0
+      }
+     ]
+    },
+    {
+     "id": "k_ms",
+     "title": "Мышь",
+     "current": "AULA SC580 Wireless Black",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -8000,
+       "remove": true
+      },
+      {
+       "label": "Logitech G102 Lightsync White",
+       "sub": "Проводная · RGB",
+       "delta": 3000
+      },
+      {
+       "label": "AULA SC580 Wireless Red",
+       "sub": "Беспроводная",
+       "delta": 0
+      },
+      {
+       "label": "Mchose A7 V2 Pro",
+       "sub": "Беспроводная · лёгкая игровая",
+       "delta": 13000
+      }
+     ]
+    },
+    {
+     "id": "k_hp",
+     "title": "Наушники",
+     "current": "AULA G7",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -8000,
+       "remove": true
+      },
+      {
+       "label": "AULA G7 PRO",
+       "sub": "Беспроводная гарнитура · RGB",
+       "delta": 5000
+      }
+     ]
+    },
+    {
+     "id": "k_mat",
+     "title": "Коврик",
+     "current": "Коврик",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -3000,
+       "remove": true
       }
      ]
     }
@@ -918,6 +1454,139 @@
        "watt": 850
       }
      ]
+    },
+    {
+     "id": "k_mon",
+     "title": "Монитор",
+     "current": "Lenovo Legion 25-10",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -80000,
+       "remove": true
+      },
+      {
+       "label": "SANC M2453FKG",
+       "sub": "23.8″ · Full HD · IPS · 120 Гц · 1 мс",
+       "delta": -35000
+      },
+      {
+       "label": "Acer CB242Y",
+       "sub": "23.8″ · Full HD · IPS · 120 Гц · 1 мс",
+       "delta": -25000
+      },
+      {
+       "label": "SANC M2444PC",
+       "sub": "23.8″ · Full HD · IPS · 200 Гц · 1 мс",
+       "delta": -20000
+      },
+      {
+       "label": "SANC 24.5″",
+       "sub": "24.5″ · Full HD · IPS · 240 Гц · 1 мс",
+       "delta": -15000
+      },
+      {
+       "label": "SANC M2753FPF",
+       "sub": "27″ · Full HD · IPS · 200 Гц · 1 мс",
+       "delta": -10000
+      },
+      {
+       "label": "SANC 27″",
+       "sub": "27″ · Full HD · IPS · 240 Гц · 1 мс",
+       "delta": -5000
+      },
+      {
+       "label": "AOC 25G4SXU",
+       "sub": "24.5″ · Full HD · IPS · 310 Гц",
+       "delta": 10000
+      },
+      {
+       "label": "Lenovo Legion 27″",
+       "sub": "27″ · 2K QHD 2560×1440 · IPS · 300 Гц · 0.5 мс",
+       "delta": 30000
+      },
+      {
+       "label": "GIGABYTE G27Q3",
+       "sub": "27″ · 2K QHD 2560×1440 · Super Speed IPS · 320 Гц · HDR400",
+       "delta": 35000
+      },
+      {
+       "label": "ASUS TUF 24.5″",
+       "sub": "24.5″ · Full HD · IPS · 310 Гц",
+       "delta": 40000
+      }
+     ]
+    },
+    {
+     "id": "k_kb",
+     "title": "Клавиатура",
+     "current": "AULA F75 White / Ice Blue",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -20000,
+       "remove": true
+      },
+      {
+       "label": "AULA F75 Pro Side Printed Black",
+       "sub": "Механическая · беспроводная · RGB",
+       "delta": 2000
+      },
+      {
+       "label": "Ajazz AK820 White / Grey",
+       "sub": "Механическая",
+       "delta": -10000
+      },
+      {
+       "label": "Ajazz AK820 Black",
+       "sub": "Механическая",
+       "delta": -10000
+      },
+      {
+       "label": "Mchose Ace 68 White",
+       "sub": "Механическая · 65%",
+       "delta": 0
+      }
+     ]
+    },
+    {
+     "id": "k_ms",
+     "title": "Мышь",
+     "current": "AULA SC580 Wireless Black",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -8000,
+       "remove": true
+      },
+      {
+       "label": "Logitech G102 Lightsync White",
+       "sub": "Проводная · RGB",
+       "delta": 3000
+      },
+      {
+       "label": "AULA SC580 Wireless Red",
+       "sub": "Беспроводная",
+       "delta": 0
+      },
+      {
+       "label": "Mchose A7 V2 Pro",
+       "sub": "Беспроводная · лёгкая игровая",
+       "delta": 13000
+      }
+     ]
+    },
+    {
+     "id": "k_mat",
+     "title": "Коврик",
+     "current": "Коврик",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -3000,
+       "remove": true
+      }
+     ]
     }
    ]
   },
@@ -1100,6 +1769,139 @@
        "label": "БП 850W",
        "delta": 9000,
        "watt": 850
+      }
+     ]
+    },
+    {
+     "id": "k_mon",
+     "title": "Монитор",
+     "current": "Lenovo Legion 25-10",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -80000,
+       "remove": true
+      },
+      {
+       "label": "SANC M2453FKG",
+       "sub": "23.8″ · Full HD · IPS · 120 Гц · 1 мс",
+       "delta": -35000
+      },
+      {
+       "label": "Acer CB242Y",
+       "sub": "23.8″ · Full HD · IPS · 120 Гц · 1 мс",
+       "delta": -25000
+      },
+      {
+       "label": "SANC M2444PC",
+       "sub": "23.8″ · Full HD · IPS · 200 Гц · 1 мс",
+       "delta": -20000
+      },
+      {
+       "label": "SANC 24.5″",
+       "sub": "24.5″ · Full HD · IPS · 240 Гц · 1 мс",
+       "delta": -15000
+      },
+      {
+       "label": "SANC M2753FPF",
+       "sub": "27″ · Full HD · IPS · 200 Гц · 1 мс",
+       "delta": -10000
+      },
+      {
+       "label": "SANC 27″",
+       "sub": "27″ · Full HD · IPS · 240 Гц · 1 мс",
+       "delta": -5000
+      },
+      {
+       "label": "AOC 25G4SXU",
+       "sub": "24.5″ · Full HD · IPS · 310 Гц",
+       "delta": 10000
+      },
+      {
+       "label": "Lenovo Legion 27″",
+       "sub": "27″ · 2K QHD 2560×1440 · IPS · 300 Гц · 0.5 мс",
+       "delta": 30000
+      },
+      {
+       "label": "GIGABYTE G27Q3",
+       "sub": "27″ · 2K QHD 2560×1440 · Super Speed IPS · 320 Гц · HDR400",
+       "delta": 35000
+      },
+      {
+       "label": "ASUS TUF 24.5″",
+       "sub": "24.5″ · Full HD · IPS · 310 Гц",
+       "delta": 40000
+      }
+     ]
+    },
+    {
+     "id": "k_kb",
+     "title": "Клавиатура",
+     "current": "AULA F75 White / Ice Blue",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -20000,
+       "remove": true
+      },
+      {
+       "label": "AULA F75 Pro Side Printed Black",
+       "sub": "Механическая · беспроводная · RGB",
+       "delta": 2000
+      },
+      {
+       "label": "Ajazz AK820 White / Grey",
+       "sub": "Механическая",
+       "delta": -10000
+      },
+      {
+       "label": "Ajazz AK820 Black",
+       "sub": "Механическая",
+       "delta": -10000
+      },
+      {
+       "label": "Mchose Ace 68 White",
+       "sub": "Механическая · 65%",
+       "delta": 0
+      }
+     ]
+    },
+    {
+     "id": "k_ms",
+     "title": "Мышь",
+     "current": "AULA SC580 Wireless Black",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -8000,
+       "remove": true
+      },
+      {
+       "label": "Logitech G102 Lightsync White",
+       "sub": "Проводная · RGB",
+       "delta": 3000
+      },
+      {
+       "label": "AULA SC580 Wireless Red",
+       "sub": "Беспроводная",
+       "delta": 0
+      },
+      {
+       "label": "Mchose A7 V2 Pro",
+       "sub": "Беспроводная · лёгкая игровая",
+       "delta": 13000
+      }
+     ]
+    },
+    {
+     "id": "k_mat",
+     "title": "Коврик",
+     "current": "Коврик",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -3000,
+       "remove": true
       }
      ]
     }
@@ -3860,6 +4662,156 @@
        "watt": 850
       }
      ]
+    },
+    {
+     "id": "k_mon",
+     "title": "Монитор",
+     "current": "SANC M2753FPF",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -70000,
+       "remove": true
+      },
+      {
+       "label": "SANC M2453FKG",
+       "sub": "23.8″ · Full HD · IPS · 120 Гц · 1 мс",
+       "delta": -25000
+      },
+      {
+       "label": "Acer CB242Y",
+       "sub": "23.8″ · Full HD · IPS · 120 Гц · 1 мс",
+       "delta": -15000
+      },
+      {
+       "label": "SANC M2444PC",
+       "sub": "23.8″ · Full HD · IPS · 200 Гц · 1 мс",
+       "delta": -10000
+      },
+      {
+       "label": "SANC 24.5″",
+       "sub": "24.5″ · Full HD · IPS · 240 Гц · 1 мс",
+       "delta": -5000
+      },
+      {
+       "label": "SANC 27″",
+       "sub": "27″ · Full HD · IPS · 240 Гц · 1 мс",
+       "delta": 5000
+      },
+      {
+       "label": "Lenovo Legion 25-10",
+       "sub": "24.5″ · Full HD · IPS · 320 Гц",
+       "delta": 10000
+      },
+      {
+       "label": "AOC 25G4SXU",
+       "sub": "24.5″ · Full HD · IPS · 310 Гц",
+       "delta": 20000
+      },
+      {
+       "label": "Lenovo Legion 27″",
+       "sub": "27″ · 2K QHD 2560×1440 · IPS · 300 Гц · 0.5 мс",
+       "delta": 40000
+      },
+      {
+       "label": "GIGABYTE G27Q3",
+       "sub": "27″ · 2K QHD 2560×1440 · Super Speed IPS · 320 Гц · HDR400",
+       "delta": 45000
+      },
+      {
+       "label": "ASUS TUF 24.5″",
+       "sub": "24.5″ · Full HD · IPS · 310 Гц",
+       "delta": 50000
+      }
+     ]
+    },
+    {
+     "id": "k_kb",
+     "title": "Клавиатура",
+     "current": "AULA F75 White / Ice Blue",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -20000,
+       "remove": true
+      },
+      {
+       "label": "AULA F75 Pro Side Printed Black",
+       "sub": "Механическая · беспроводная · RGB",
+       "delta": 2000
+      },
+      {
+       "label": "Ajazz AK820 White / Grey",
+       "sub": "Механическая",
+       "delta": -10000
+      },
+      {
+       "label": "Ajazz AK820 Black",
+       "sub": "Механическая",
+       "delta": -10000
+      },
+      {
+       "label": "Mchose Ace 68 White",
+       "sub": "Механическая · 65%",
+       "delta": 0
+      }
+     ]
+    },
+    {
+     "id": "k_ms",
+     "title": "Мышь",
+     "current": "AULA SC580 Wireless Black",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -8000,
+       "remove": true
+      },
+      {
+       "label": "Logitech G102 Lightsync White",
+       "sub": "Проводная · RGB",
+       "delta": 3000
+      },
+      {
+       "label": "AULA SC580 Wireless Red",
+       "sub": "Беспроводная",
+       "delta": 0
+      },
+      {
+       "label": "Mchose A7 V2 Pro",
+       "sub": "Беспроводная · лёгкая игровая",
+       "delta": 13000
+      }
+     ]
+    },
+    {
+     "id": "k_hp",
+     "title": "Наушники",
+     "current": "AULA G7",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -8000,
+       "remove": true
+      },
+      {
+       "label": "AULA G7 PRO",
+       "sub": "Беспроводная гарнитура · RGB",
+       "delta": 5000
+      }
+     ]
+    },
+    {
+     "id": "k_mat",
+     "title": "Коврик",
+     "current": "Коврик",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -3000,
+       "remove": true
+      }
+     ]
     }
    ]
   },
@@ -4042,6 +4994,144 @@
        "label": "БП 850W",
        "delta": 18000,
        "watt": 850
+      }
+     ]
+    },
+    {
+     "id": "k_mon",
+     "title": "Монитор",
+     "current": "SANC 24.5″",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -65000,
+       "remove": true
+      },
+      {
+       "label": "SANC M2453FKG",
+       "sub": "23.8″ · Full HD · IPS · 120 Гц · 1 мс",
+       "delta": -20000
+      },
+      {
+       "label": "Acer CB242Y",
+       "sub": "23.8″ · Full HD · IPS · 120 Гц · 1 мс",
+       "delta": -10000
+      },
+      {
+       "label": "SANC M2444PC",
+       "sub": "23.8″ · Full HD · IPS · 200 Гц · 1 мс",
+       "delta": -5000
+      },
+      {
+       "label": "SANC M2753FPF",
+       "sub": "27″ · Full HD · IPS · 200 Гц · 1 мс",
+       "delta": 5000
+      },
+      {
+       "label": "SANC 27″",
+       "sub": "27″ · Full HD · IPS · 240 Гц · 1 мс",
+       "delta": 10000
+      },
+      {
+       "label": "Lenovo Legion 25-10",
+       "sub": "24.5″ · Full HD · IPS · 320 Гц",
+       "delta": 15000
+      },
+      {
+       "label": "AOC 25G4SXU",
+       "sub": "24.5″ · Full HD · IPS · 310 Гц",
+       "delta": 25000
+      },
+      {
+       "label": "Lenovo Legion 27″",
+       "sub": "27″ · 2K QHD 2560×1440 · IPS · 300 Гц · 0.5 мс",
+       "delta": 45000
+      },
+      {
+       "label": "GIGABYTE G27Q3",
+       "sub": "27″ · 2K QHD 2560×1440 · Super Speed IPS · 320 Гц · HDR400",
+       "delta": 50000
+      },
+      {
+       "label": "ASUS TUF 24.5″",
+       "sub": "24.5″ · Full HD · IPS · 310 Гц",
+       "delta": 55000
+      }
+     ]
+    },
+    {
+     "id": "k_kb",
+     "title": "Клавиатура",
+     "current": "AULA F75 White / Ice Blue",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -20000,
+       "remove": true
+      },
+      {
+       "label": "AULA F75 Pro Side Printed Black",
+       "sub": "Механическая · беспроводная · RGB",
+       "delta": 2000
+      },
+      {
+       "label": "Ajazz AK820 White / Grey",
+       "sub": "Механическая",
+       "delta": -10000
+      },
+      {
+       "label": "Ajazz AK820 Black",
+       "sub": "Механическая",
+       "delta": -10000
+      },
+      {
+       "label": "Mchose Ace 68 White",
+       "sub": "Механическая · 65%",
+       "delta": 0
+      }
+     ]
+    },
+    {
+     "id": "k_ms",
+     "title": "Мышь",
+     "current": "AULA SC580 Wireless Black",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -8000,
+       "remove": true
+      },
+      {
+       "label": "Logitech G102 Lightsync White",
+       "sub": "Проводная · RGB",
+       "delta": 3000
+      },
+      {
+       "label": "AULA SC580 Wireless Red",
+       "sub": "Беспроводная",
+       "delta": 0
+      },
+      {
+       "label": "Mchose A7 V2 Pro",
+       "sub": "Беспроводная · лёгкая игровая",
+       "delta": 13000
+      }
+     ]
+    },
+    {
+     "id": "k_hp",
+     "title": "Наушники",
+     "current": "AULA G7",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -8000,
+       "remove": true
+      },
+      {
+       "label": "AULA G7 PRO",
+       "sub": "Беспроводная гарнитура · RGB",
+       "delta": 5000
       }
      ]
     }
@@ -5123,6 +6213,80 @@
        "label": "БП 850W",
        "delta": 18000,
        "watt": 850
+      }
+     ]
+    },
+    {
+     "id": "k_mon",
+     "title": "Монитор",
+     "current": "SANC M2453FKG",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -45000,
+       "remove": true
+      },
+      {
+       "label": "Acer CB242Y",
+       "sub": "23.8″ · Full HD · IPS · 120 Гц · 1 мс",
+       "delta": 10000
+      },
+      {
+       "label": "SANC M2444PC",
+       "sub": "23.8″ · Full HD · IPS · 200 Гц · 1 мс",
+       "delta": 15000
+      },
+      {
+       "label": "SANC 24.5″",
+       "sub": "24.5″ · Full HD · IPS · 240 Гц · 1 мс",
+       "delta": 20000
+      },
+      {
+       "label": "SANC M2753FPF",
+       "sub": "27″ · Full HD · IPS · 200 Гц · 1 мс",
+       "delta": 25000
+      },
+      {
+       "label": "SANC 27″",
+       "sub": "27″ · Full HD · IPS · 240 Гц · 1 мс",
+       "delta": 30000
+      },
+      {
+       "label": "Lenovo Legion 25-10",
+       "sub": "24.5″ · Full HD · IPS · 320 Гц",
+       "delta": 35000
+      },
+      {
+       "label": "AOC 25G4SXU",
+       "sub": "24.5″ · Full HD · IPS · 310 Гц",
+       "delta": 45000
+      },
+      {
+       "label": "Lenovo Legion 27″",
+       "sub": "27″ · 2K QHD 2560×1440 · IPS · 300 Гц · 0.5 мс",
+       "delta": 65000
+      },
+      {
+       "label": "GIGABYTE G27Q3",
+       "sub": "27″ · 2K QHD 2560×1440 · Super Speed IPS · 320 Гц · HDR400",
+       "delta": 70000
+      },
+      {
+       "label": "ASUS TUF 24.5″",
+       "sub": "24.5″ · Full HD · IPS · 310 Гц",
+       "delta": 75000
+      }
+     ]
+    },
+    {
+     "id": "k_combo",
+     "title": "Клавиатура и мышь",
+     "current": "простая",
+     "items": [
+      {
+       "label": "Не нужен",
+       "delta": -2000,
+       "remove": true
       }
      ]
     }
