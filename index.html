@@ -144,12 +144,15 @@ footer .phone{font-family:var(--f-num);color:var(--ink);user-select:all}
     <div class="group">
       <span class="glabel">Бюджет</span>
       <div class="chips" data-g="budget">
-        <button class="chip" data-v="0" aria-pressed="true">Любой</button>
-        <button class="chip" data-v="400000" aria-pressed="false">До 400 000</button>
-        <button class="chip" data-v="500000" aria-pressed="false">До 500 000</button>
-        <button class="chip" data-v="600000" aria-pressed="false">До 600 000</button>
-        <button class="chip" data-v="700000" aria-pressed="false">До 700 000</button>
-        <button class="chip" data-v="900000" aria-pressed="false">До 900 000</button>
+        <button class="chip" data-v="0-0" aria-pressed="true">Любой</button>
+        <button class="chip" data-v="200000-300000" aria-pressed="false">200–300 тыс.</button>
+        <button class="chip" data-v="300000-400000" aria-pressed="false">300–400 тыс.</button>
+        <button class="chip" data-v="400000-500000" aria-pressed="false">400–500 тыс.</button>
+        <button class="chip" data-v="500000-600000" aria-pressed="false">500–600 тыс.</button>
+        <button class="chip" data-v="600000-700000" aria-pressed="false">600–700 тыс.</button>
+        <button class="chip" data-v="700000-900000" aria-pressed="false">700–900 тыс.</button>
+        <button class="chip" data-v="900000-1200000" aria-pressed="false">900 тыс. – 1,2 млн</button>
+        <button class="chip" data-v="1200000-0" aria-pressed="false">от 1,2 млн</button>
       </div>
     </div>
     <div class="group">
@@ -161,7 +164,6 @@ footer .phone{font-family:var(--f-num);color:var(--ink);user-select:all}
         <button class="chip" data-v="x3d" aria-pressed="false">Ryzen X3D</button>
         <button class="chip" data-v="5060" aria-pressed="false">RTX 5060</button>
         <button class="chip" data-v="top" aria-pressed="false">RTX 5060 Ti и выше</button>
-        <button class="chip" data-v="stock" aria-pressed="false">Только в наличии</button>
       </div>
     </div>
   </div>
@@ -179,7 +181,7 @@ const IGURL=c=>`https://www.instagram.com/p/${c}/`;
 const fmt=v=>v.toLocaleString("ru-RU").replace(/ /g," ")+" ₸";
 const short=s=>s.replace(/^Ryzen \d /,"R").replace(/ \d+GB$/,"");
 const grid=document.getElementById("grid"),q=document.getElementById("q"),sort=document.getElementById("sort"),count=document.getElementById("count"),reset=document.getElementById("reset");
-const st={type:"all",budget:0,hw:"all"};
+const st={type:"all",budget:"0-0",hw:"all"};
 let D=[];
 
 function card(b){
@@ -196,7 +198,7 @@ function card(b){
       <div class="row"><span class="k">Рассрочка Kaspi</span><span class="inst">${fmt(b.inst)}</span></div>
       <div class="month">от <b>${fmt(b.month)}</b> в месяц</div>
     </div>
-    <div class="foot"><span class="stock ${b.stock?"in":"order"}">${b.stock?"В наличии":"Сборка 1–3 дня"}</span>
+    <div class="foot">
       <div class="acts">${b.post?`<a class="ig" href="${IGURL(b.post)}" target="_blank" rel="noopener">Фото в Instagram</a>`:""}<a class="wa" href="https://wa.me/77473458952?text=${msg}" target="_blank" rel="noopener">Заказать в WhatsApp</a></div></div>
   </article>`;
 }
@@ -205,21 +207,22 @@ function render(){
   const t=q.value.trim().toLowerCase();
   let list=D.filter(b=>{
     if(st.type!=="all"&&b.type!==st.type)return false;
-    if(st.budget&&b.cash>st.budget)return false;
+    const [lo,hi]=st.budget.split("-").map(Number);
+    if(lo&&b.cash<lo)return false;
+    if(hi&&b.cash>hi)return false;
     const h=st.hw;
     if(h==="intel"&&!/^i\d/.test(b.cpu))return false;
     if(h==="amd"&&!/Ryzen/.test(b.cpu))return false;
     if(h==="x3d"&&!/X3D/.test(b.cpu))return false;
     if(h==="5060"&&!/RTX 5060 8GB/.test(b.gpu))return false;
     if(h==="top"&&!/5060 Ti|5070/.test(b.gpu))return false;
-    if(h==="stock"&&!b.stock)return false;
     if(t){const hay=((b.n||"")+" "+b.cpu+" "+b.gpu+" "+b.ram+" "+b.kit).toLowerCase();if(!hay.includes(t))return false}
     return true;
   });
   if(sort.value==="asc")list.sort((a,b)=>a.cash-b.cash);
   else if(sort.value==="desc")list.sort((a,b)=>b.cash-a.cash);
   else list.sort((a,b)=>a.i-b.i);
-  const any=st.type!=="all"||st.budget||st.hw!=="all"||t;
+  const any=st.type!=="all"||st.budget!=="0-0"||st.hw!=="all"||t;
   grid.innerHTML=list.length?list.map(card).join(""):`<div class="empty">Под эти условия готовых сборок нет. Напишите в WhatsApp — соберём под ваш бюджет.</div>`;
   const kits=list.filter(b=>b.type==="kit").length;
   count.textContent=`Найдено: ${list.length}`+(kits&&kits<list.length?` (комплектов: ${kits})`:"");
@@ -230,12 +233,12 @@ function render(){
 
 document.querySelectorAll("[data-g]").forEach(g=>g.addEventListener("click",e=>{
   const btn=e.target.closest("button");if(!btn)return;
-  const key=g.dataset.g; st[key]=key==="budget"?Number(btn.dataset.v):btn.dataset.v;
+  const key=g.dataset.g; st[key]=btn.dataset.v;
   g.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===btn?"true":"false"));
   render();
 }));
 reset.addEventListener("click",()=>{
-  st.type="all";st.budget=0;st.hw="all";q.value="";
+  st.type="all";st.budget="0-0";st.hw="all";q.value="";
   document.querySelectorAll("[data-g]").forEach(g=>g.querySelectorAll("button").forEach((x,i)=>x.setAttribute("aria-pressed",i===0?"true":"false")));
   render();
 });
