@@ -295,7 +295,7 @@ const SEL={};
 function lapCard(b){
   return `<article class="card">
     <div class="head"><div class="num nb">NB</div>
-      <div class="title"><span class="type lap">Ноутбук · под заказ 1–3 дня</span><strong>${b.title}</strong></div></div>
+      <div class="title"><span class="type lap">Ноутбук · под заказ 3–5 дней</span><strong>${b.title}</strong></div></div>
     <dl class="spec">${b.screen?`<dt>Экран</dt><dd>${b.screen}</dd>`:""}<dt>CPU</dt><dd>${b.cpu||"—"}</dd><dt>GPU</dt><dd>${b.gpu}</dd>${b.ram?`<dt>RAM</dt><dd>${b.ram}</dd>`:""}${b.ssd?`<dt>SSD</dt><dd>${b.ssd}</dd>`:""}<dt>ОС</dt><dd>${b.no_os?"без Windows (можем установить)":"Windows 11"}</dd></dl>
     <div class="price">
       <div class="row"><span class="k">Наличные / QR</span><span class="cash">${fmt(b.cash)}</span></div>
@@ -449,7 +449,7 @@ function addCart(item){
 grid.addEventListener("click",e=>{
   const x=e.target.closest(".buy[data-b]");if(!x)return;
   const b=D[+x.dataset.b];
-  if(b.type==="laptop"){addCart({title:"Ноутбук "+b.title,desc:[b.cpu,b.gpu,b.ram,b.ssd].filter(Boolean).join(", ")+" · под заказ",cash:b.cash,inst:b.inst});return}
+  if(b.type==="laptop"){addCart({title:"Ноутбук "+b.title,desc:[b.cpu,b.gpu,b.ram,b.ssd].filter(Boolean).join(", ")+" · под заказ 3–5 дней",cash:b.cash,inst:b.inst});return}
   const c=b.cur||recalc(b);
   const label=b.n?`№${b.n}`:"новинка";
   addCart({title:`${b.type==="kit"?"Комплект":"Сборка"} ${label}: ${b.cpu} + ${b.gpu}`,desc:c.changes.length?"изменения: "+c.changes.join(", "):`${b.ram}, ${b.ssd}`,cash:c.cash,inst:c.inst});
