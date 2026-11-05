@@ -69,6 +69,32 @@ h1{font-family:var(--f-display);font-weight:600;font-size:clamp(22px,4.6vw,34px)
 .opt select:focus-visible{outline:2px solid var(--red);outline-offset:1px}
 .opt small{font-size:12px;color:var(--muted)}
 .chg{font-size:12px;color:var(--red);text-align:right;min-height:0}
+.cfg{border:1.5px solid var(--red)!important;background:transparent!important;color:var(--red)!important}
+.cfg small{display:block;font-weight:500;font-size:12px;color:var(--muted)}
+.cfgwrap{padding:0 14px 12px;display:grid;gap:10px}
+.buy{font:700 15px var(--f-body);border:0;border-radius:9px;padding:11px 14px;background:var(--red);color:var(--red-ink);cursor:pointer;flex:1}
+.buy:focus-visible,.cartbar button:focus-visible,.drawer button:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.buy.in{background:var(--ok-bg);color:var(--ok)}
+.mon .pr .buy{flex:none;font-size:13px;padding:7px 10px}
+.cartbar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--ink);color:var(--bg);padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:flex;align-items:center;gap:12px;justify-content:space-between;box-shadow:0 -4px 20px rgba(0,0,0,.25)}
+.cartbar b{font-family:var(--f-num);font-size:17px}
+.cartbar span{font-size:13px;opacity:.8}
+.cartbar button{font:700 14px var(--f-body);border:0;border-radius:9px;padding:10px 14px;background:var(--red);color:var(--red-ink);cursor:pointer}
+.drawer{position:fixed;inset:0;z-index:30;background:rgba(0,0,0,.5);display:flex;align-items:flex-end;justify-content:center}
+.sheet{background:var(--surface);color:var(--ink);width:100%;max-width:560px;max-height:85vh;overflow:auto;border-radius:16px 16px 0 0;padding:18px max(16px,env(safe-area-inset-right,0px)) calc(18px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:grid;gap:12px}
+.sheet h2{font-family:var(--f-display);font-weight:600;font-size:20px;margin:0;display:flex;justify-content:space-between;align-items:center}
+.sheet h2 button{font:600 14px var(--f-body);background:none;border:0;color:var(--muted);cursor:pointer}
+.ci{display:grid;grid-template-columns:1fr auto auto;gap:4px 10px;align-items:start;border-bottom:1px solid var(--line);padding-bottom:10px}
+.ci b{font-size:14px}
+.ci small{grid-column:1/2;font-size:12px;color:var(--muted)}
+.ci .p{font:700 15px var(--f-num);white-space:nowrap}
+.ci button{background:none;border:0;color:var(--muted);font-size:18px;cursor:pointer;padding:0 4px}
+.tot{display:grid;gap:4px}
+.tot .row b{font:700 20px var(--f-num)}
+.send{display:block;text-align:center;font:700 16px var(--f-body);text-decoration:none;color:#fff;background:var(--wa);padding:13px;border-radius:10px}
+.clear{font:500 13px var(--f-body);background:none;border:0;color:var(--muted);text-decoration:underline;cursor:pointer;justify-self:center}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(80px + env(safe-area-inset-bottom,0px));z-index:25;background:var(--ok);color:#fff;font-weight:600;font-size:14px;padding:9px 14px;border-radius:999px}
+body.hascart{padding-bottom:76px}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none}
 
 .bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:12px;border-bottom:1px solid var(--line)}
@@ -212,6 +238,24 @@ footer .phone{font-family:var(--f-num);color:var(--ink);user-select:all}
   </section>
 </main>
 
+<div class="cartbar" id="cartbar" hidden>
+  <div><span id="cb_n"></span><br><b id="cb_sum"></b></div>
+  <button id="cb_open">Открыть корзину</button>
+</div>
+<div class="toast" id="toast" hidden></div>
+<div class="drawer" id="drawer" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="cart_t">
+    <h2 id="cart_t">Корзина <button id="cart_close">Закрыть</button></h2>
+    <div id="cart_items"></div>
+    <div class="tot">
+      <div class="row"><span class="k">Наличные / QR</span><b id="cart_cash"></b></div>
+      <div class="row"><span class="k">Рассрочка Kaspi</span><span class="inst" id="cart_inst"></span></div>
+      <div class="month">от <b id="cart_month"></b> в месяц</div>
+    </div>
+    <a class="send" id="cart_send" href="#" target="_blank" rel="noopener">Отправить заказ в WhatsApp</a>
+    <button class="clear" id="cart_clear">Очистить корзину</button>
+  </div>
+</div>
 <div class="wrap"><footer>
   <div>Астана, ул. Петрова 18/1 · Гарантия 12 месяцев · Доставка по Казахстану 1–2 дня</div>
   <div>WhatsApp и звонки: <span class="phone">+7 747 345 89 52</span></div>
@@ -240,18 +284,18 @@ function buildChips(){
     box.innerHTML=`<button class="chip" data-v="all" aria-pressed="true">Любой</button>`+vals.map(v=>`<button class="chip" data-v="${v}" aria-pressed="false">${v}</button>`).join("");
   });
 }
-let D=[],MON=[];
+let D=[],MON=[],EXTRAS=[];
 const SEL={};
 
 function card(b){
   const name=`${short(b.cpu)} + ${short(b.gpu)}`;
   const label=b.n?`№${b.n}`:"новинка";
-  const msg=encodeURIComponent(`Здравствуйте! Интересует ${b.type==="kit"?"комплект":"сборка"} ${label} (${b.cpu} + ${b.gpu}) за ${fmt(b.cash)}`);
   return `<article class="card" ${b.n?`id="b${b.n}"`:""}>
     <div class="head"><div class="num${b.n?"":" new"}">${b.n||"NEW"}</div>
       <div class="title"><span class="type${b.type==="kit"?" kit":""}">${b.type==="kit"?"Полный комплект":"Системный блок"}</span><strong>${name}</strong></div></div>
     <dl class="spec"><dt>CPU</dt><dd>${b.cpu}</dd><dt>GPU</dt><dd>${b.gpu}</dd><dt>RAM</dt><dd>${b.ram}</dd><dt>SSD</dt><dd>${b.ssd}</dd></dl>
     ${b.kit?`<div class="inkit"><b>В комплекте</b>${b.kit}</div>`:""}
+    ${b.opts&&b.opts.length?`<div class="cfgwrap"><button class="cfg" data-i="${b.i}" aria-expanded="false"><span>Изменить комплектацию<small>видеокарта, память, SSD, плата, блок питания${b.type==="block"?", монитор":""}</small></span><span aria-hidden="true">▾</span></button><div class="cfgp" id="p${b.i}" hidden></div></div>`:""}
     <div class="price">
       <div class="row"><span class="k">Наличные / QR</span><span class="cash" id="c${b.i}">${fmt(b.cash)}</span></div>
       <div class="row"><span class="k">Рассрочка Kaspi</span><span class="inst" id="r${b.i}">${fmt(b.inst)}</span></div>
@@ -259,8 +303,7 @@ function card(b){
       <div class="chg" id="d${b.i}"></div>
     </div>
     <div class="foot">
-      ${b.opts&&b.opts.length?`<button class="cfg" data-i="${b.i}" aria-expanded="false">Настроить сборку <span aria-hidden="true">▾</span></button><div class="cfgp" id="p${b.i}" hidden></div>`:""}
-      <div class="acts">${b.post?`<a class="ig" href="${IGURL(b.post)}" target="_blank" rel="noopener">Фото в Instagram</a>`:""}<a class="wa" id="w${b.i}" href="https://wa.me/77473458952?text=${msg}" target="_blank" rel="noopener">Заказать в WhatsApp</a></div></div>
+      <div class="acts"><button class="buy" data-b="${b.i}">В корзину</button>${b.post?`<a class="ig" href="${IGURL(b.post)}" target="_blank" rel="noopener">Фото в Instagram</a>`:""}</div></div>
   </article>`;
 }
 
@@ -333,13 +376,11 @@ function recalc(b){
   let add=0,mon=0;const changes=[];
   for(const[id,k] of Object.entries(st)){if(k<0||!G[id])continue;const o=G[id].items[k];if(id==="mon"){mon+=o.delta}else add+=o.delta;changes.push(id==="mon"?"монитор "+o.label:o.label)}
   const cash=b.cash+add+mon, inst=Math.ceil(((b.cash+add)*KI+mon*KM)/1000)*1000, month=Math.ceil(inst/24/100)*100;
-  document.getElementById("c"+b.i).textContent=fmt(cash);
-  document.getElementById("r"+b.i).textContent=fmt(inst);
-  document.getElementById("m"+b.i).textContent=fmt(month);
-  document.getElementById("d"+b.i).textContent=changes.length?`С изменениями: +${fmt(add+mon)}`:"";
-  const label=b.n?`№${b.n}`:"новинка";
-  const msg=`Здравствуйте! Интересует ${b.type==="kit"?"комплект":"сборка"} ${label} (${b.cpu} + ${b.gpu})`+(changes.length?`, с изменениями: ${changes.join(", ")}`:"")+`. Цена: ${fmt(cash)}`;
-  document.getElementById("w"+b.i).href="https://wa.me/77473458952?text="+encodeURIComponent(msg);
+  b.cur={cash,inst,changes};
+  const set=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=v};
+  set("c"+b.i,fmt(cash));set("r"+b.i,fmt(inst));set("m"+b.i,fmt(month));
+  set("d"+b.i,changes.length?`С изменениями: +${fmt(add+mon)}`:"");
+  return b.cur;
 }
 grid.addEventListener("click",e=>{
   const btn=e.target.closest(".cfg");if(!btn)return;
@@ -352,6 +393,49 @@ grid.addEventListener("change",e=>{
   const b=D[+s.dataset.i];(SEL[b.i]||(SEL[b.i]={}))[s.dataset.g]=+s.value;recalc(b);
 });
 
+// ---- Корзина ----
+let CART=[];
+try{CART=JSON.parse(localStorage.getItem("tshop_cart")||"[]")||[]}catch(e){CART=[]}
+const saveCart=()=>{try{localStorage.setItem("tshop_cart",JSON.stringify(CART))}catch(e){}};
+const bar=document.getElementById("cartbar"),drawer=document.getElementById("drawer");
+function totals(){return CART.reduce((t,c)=>({cash:t.cash+c.cash,inst:t.inst+c.inst}),{cash:0,inst:0})}
+function waText(){
+  const t=totals();
+  const lines=CART.map((c,k)=>`${k+1}. ${c.title}${c.desc?` (${c.desc})`:""} — ${fmt(c.cash)}`);
+  return "Здравствуйте! Хочу оформить заказ:\n"+lines.join("\n")+`\n\nИтого наличными: ${fmt(t.cash)}\nВ рассрочку: ${fmt(t.inst)}`;
+}
+function drawCart(){
+  const t=totals();
+  bar.hidden=!CART.length;document.body.classList.toggle("hascart",CART.length>0);
+  document.getElementById("cb_n").textContent=`Корзина · ${CART.length} ${CART.length===1?"товар":CART.length<5?"товара":"товаров"}`;
+  document.getElementById("cb_sum").textContent=fmt(t.cash);
+  document.getElementById("cart_items").innerHTML=CART.map((c,k)=>`<div class="ci"><b>${c.title}</b><span class="p">${fmt(c.cash)}</span><button data-del="${k}" aria-label="Убрать">×</button>${c.desc?`<small>${c.desc}</small>`:""}</div>`).join("")||`<p class="note">Корзина пуста.</p>`;
+  document.getElementById("cart_cash").textContent=fmt(t.cash);
+  document.getElementById("cart_inst").textContent=fmt(t.inst);
+  document.getElementById("cart_month").textContent=fmt(Math.ceil(t.inst/24/100)*100);
+  document.getElementById("cart_send").href="https://wa.me/77473458952?text="+encodeURIComponent(waText());
+}
+let toastT;
+function addCart(item){
+  CART.push(item);saveCart();drawCart();
+  const el=document.getElementById("toast");el.textContent="Добавлено в корзину";el.hidden=false;
+  clearTimeout(toastT);toastT=setTimeout(()=>el.hidden=true,1600);
+}
+grid.addEventListener("click",e=>{
+  const x=e.target.closest(".buy[data-b]");if(!x)return;
+  const b=D[+x.dataset.b];const c=b.cur||recalc(b);
+  const label=b.n?`№${b.n}`:"новинка";
+  addCart({title:`${b.type==="kit"?"Комплект":"Сборка"} ${label}: ${b.cpu} + ${b.gpu}`,desc:c.changes.length?"изменения: "+c.changes.join(", "):`${b.ram}, ${b.ssd}`,cash:c.cash,inst:c.inst});
+});
+document.getElementById("cb_open").addEventListener("click",()=>{drawer.hidden=false;});
+drawer.addEventListener("click",e=>{
+  if(e.target===drawer||e.target.closest("#cart_close")){drawer.hidden=true;return}
+  const d=e.target.closest("[data-del]");if(d){CART.splice(+d.dataset.del,1);saveCart();drawCart();if(!CART.length)drawer.hidden=true;return}
+  if(e.target.closest("#cart_clear")){CART=[];saveCart();drawCart();drawer.hidden=true}
+});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")drawer.hidden=true});
+drawCart();
+
 function fromHash(){
   const h=location.hash.replace("#","");
   if(/^\d{3,4}$/.test(h)){q.value=h;render();const el=document.getElementById("b"+h);if(el)el.scrollIntoView({block:"start"});}
@@ -361,6 +445,7 @@ window.addEventListener("hashchange",fromHash);
 fetch("prices.json?t="+Date.now()).then(r=>r.json()).then(j=>{
   D=j.builds.map((b,i)=>({i,n:b.number,type:b.type,cpu:b.cpu,gpu:b.gpu,ram:b.ram,ssd:b.ssd,cash:b.cash,inst:b.installment,month:b.monthly,stock:b.in_stock,post:b.post,kit:b.kit||"",opts:b.options||[]}));
   MON=(j.extras||[]).filter(m=>m.cat==="Мониторы");
+  EXTRAS=j.extras||[];
   document.getElementById("upd").textContent=`Цены обновлены ${j.updated} по ценам поставщиков`;
   const M=j.extras||[];
   if(M.length){
@@ -369,10 +454,12 @@ fetch("prices.json?t="+Date.now()).then(r=>r.json()).then(j=>{
     const mc=document.getElementById("mcats"),ml=document.getElementById("mlist");
     const drawM=()=>{
       mc.innerHTML=cats.map(c=>`<button class="chip" data-c="${c}" aria-pressed="${c===cur}">${c} · ${M.filter(m=>m.cat===c).length}</button>`).join("");
-      ml.innerHTML=M.filter(m=>m.cat===cur).map(m=>{const msg=encodeURIComponent(`Здравствуйте! Интересует ${m.name} за ${fmt(m.price)}`);
-        return `<div class="mon"><b>${m.name}</b><div class="sp">${m.spec}<br>Рассрочка ${fmt(m.installment)} · от ${fmt(m.monthly)}/мес</div><div class="pr"><span>${fmt(m.price)}</span><a href="https://wa.me/77473458952?text=${msg}" target="_blank" rel="noopener">WhatsApp</a></div></div>`}).join("");
+      ml.innerHTML=M.filter(m=>m.cat===cur).map(m=>{
+        return `<div class="mon"><b>${m.name}</b><div class="sp">${m.spec}<br>Рассрочка ${fmt(m.installment)} · от ${fmt(m.monthly)}/мес</div><div class="pr"><span>${fmt(m.price)}</span><button class="buy" data-x="${M.indexOf(m)}">В корзину</button></div></div>`}).join("");
     };
     mc.addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;cur=b.dataset.c;drawM();});
+    ml.addEventListener("click",e=>{const x=e.target.closest(".buy[data-x]");if(!x)return;const m=M[+x.dataset.x];
+      addCart({title:m.name,desc:({"Мониторы":"Монитор","Мыши":"Мышь","Клавиатуры":"Клавиатура","Наушники":"Наушники"})[m.cat]||m.cat,cash:m.price,inst:m.installment});});
     drawM();
     document.getElementById("monitors").hidden=false;
   } else document.querySelector(".jump").hidden=true;
