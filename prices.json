@@ -52,7 +52,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -222,7 +222,7 @@
     {
      "id": "gpu",
      "title": "Видеокарта",
-     "current": "RTX 2060 6GB (б/у)",
+     "current": "RTX 2060 6GB",
      "items": [
       {
        "label": "RTX 5050 8GB",
@@ -391,7 +391,7 @@
     {
      "id": "gpu",
      "title": "Видеокарта",
-     "current": "RTX 2060 6GB (б/у)",
+     "current": "RTX 2060 6GB",
      "items": [
       {
        "label": "RTX 5050 8GB",
@@ -563,7 +563,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -728,7 +728,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -901,7 +901,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -1067,7 +1067,7 @@
     {
      "id": "gpu",
      "title": "Видеокарта",
-     "current": "RTX 2060 6GB (б/у)",
+     "current": "RTX 2060 6GB",
      "items": [
       {
        "label": "RTX 5050 8GB",
@@ -1235,7 +1235,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -1408,7 +1408,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -1573,7 +1573,7 @@
      "current": "RTX 5070 12GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -431000
       },
       {
@@ -1741,7 +1741,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -1910,7 +1910,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -2083,7 +2083,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -2252,7 +2252,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -2425,7 +2425,7 @@
      "current": "RTX 3050 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -123000
       },
       {
@@ -2594,7 +2594,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -2767,7 +2767,7 @@
      "current": "RTX 5060 Ti 16GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -365000
       },
       {
@@ -2939,7 +2939,7 @@
      "current": "RTX 5070 12GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -431000
       },
       {
@@ -3092,7 +3092,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -3265,7 +3265,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -3430,7 +3430,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -3599,7 +3599,7 @@
      "current": "RTX 5050 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -131000
       },
       {
@@ -3776,7 +3776,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -3945,7 +3945,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -4110,7 +4110,7 @@
      "current": "RTX 5050 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -131000
       },
       {
@@ -4279,7 +4279,7 @@
      "current": "RTX 5050 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -131000
       },
       {
@@ -4590,7 +4590,7 @@
      "current": "RTX 3050 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -123000
       },
       {
@@ -4767,7 +4767,7 @@
      "current": "RTX 5060 Ti 16GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -365000
       },
       {
@@ -4935,7 +4935,7 @@
      "current": "RTX 5070 12GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -431000
       },
       {
@@ -5099,7 +5099,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -5268,7 +5268,7 @@
      "current": "RTX 5070 12GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -431000
       },
       {
@@ -5436,7 +5436,7 @@
      "current": "RTX 5070 Ti 16GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -686000
       },
       {
@@ -5612,7 +5612,7 @@
      "current": "RTX 5070 Ti 16GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -686000
       },
       {
@@ -5780,7 +5780,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -5942,7 +5942,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -6111,7 +6111,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -6276,7 +6276,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -6449,7 +6449,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -6622,7 +6622,7 @@
      "current": "RTX 5060 Ti 16GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -365000
       },
       {
@@ -6790,7 +6790,7 @@
      "current": "RTX 3050 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -123000
       },
       {
@@ -6959,7 +6959,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -7136,7 +7136,7 @@
      "current": "RTX 3050 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -123000
       },
       {
@@ -7305,7 +7305,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -7443,7 +7443,7 @@
      "current": "RTX 3050 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -123000
       },
       {
@@ -7601,7 +7601,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -7774,7 +7774,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -7939,7 +7939,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -8077,7 +8077,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -8231,7 +8231,7 @@
      "current": "RTX 5070 12GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -431000
       },
       {
@@ -8399,7 +8399,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -8568,7 +8568,7 @@
      "current": "RTX 5060 Ti 16GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -365000
       },
       {
@@ -8744,7 +8744,7 @@
      "current": "RTX 5060 Ti 16GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -365000
       },
       {
@@ -8877,7 +8877,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -9031,7 +9031,7 @@
      "current": "RTX 5070 12GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -431000
       },
       {
@@ -9203,7 +9203,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -9368,7 +9368,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -9541,7 +9541,7 @@
      "current": "RTX 5060 Ti 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -223000
       },
       {
@@ -9705,7 +9705,7 @@
      "current": "RTX 5070 12GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -431000
       },
       {
@@ -9877,7 +9877,7 @@
      "current": "RTX 5060 Ti 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -223000
       },
       {
@@ -10045,7 +10045,7 @@
      "current": "RTX 5060 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -200000
       },
       {
@@ -10210,7 +10210,7 @@
      "current": "RTX 5060 Ti 8GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -223000
       },
       {
@@ -10378,7 +10378,7 @@
      "current": "RTX 5060 Ti 16GB",
      "items": [
       {
-       "label": "RTX 2060 6GB (б/у)",
+       "label": "RTX 2060 6GB",
        "delta": -365000
       },
       {
