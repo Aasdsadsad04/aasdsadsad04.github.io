@@ -53,7 +53,7 @@ h1{font-family:var(--f-display);font-weight:600;font-size:clamp(22px,4.6vw,34px)
 .search{display:flex;gap:8px}
 .search label{position:absolute;left:-9999px}
 #q{flex:1;min-width:0;font:600 17px var(--f-num);padding:12px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink)}
-#q:focus{outline:none;border-color:var(--red)}
+#q:focus{outline:none;border-color:var(--muted)}
 #sort{font:500 14px var(--f-body);padding:0 10px;border-radius:10px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink)}
 
 .filters{display:grid;gap:12px;padding-block:16px 4px}
@@ -101,6 +101,9 @@ dl.spec dd{margin:0;min-width:0}
 .acts a{flex:1;text-align:center}
 .wa{font:600 14px var(--f-body);text-decoration:none;color:#fff;background:var(--wa);padding:9px 14px;border-radius:9px}
 .ig{font:600 14px var(--f-body);text-decoration:none;color:var(--ink);border:1.5px solid var(--line);padding:8px 12px;border-radius:9px}
+.more{justify-self:start;font:600 13px var(--f-body);background:none;border:0;padding:4px 0;color:var(--ink);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.more:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.extra{display:grid;gap:12px}
 .empty{grid-column:1/-1;padding:40px 0;color:var(--muted);text-align:center}
 
 footer{border-top:1px solid var(--line);padding-block:20px 32px;font-size:13px;color:var(--muted);display:grid;gap:6px}
@@ -156,14 +159,22 @@ footer .phone{font-family:var(--f-num);color:var(--ink);user-select:all}
       </div>
     </div>
     <div class="group">
-      <span class="glabel">Железо</span>
-      <div class="chips" data-g="hw">
-        <button class="chip" data-v="all" aria-pressed="true">Любое</button>
-        <button class="chip" data-v="intel" aria-pressed="false">Intel</button>
-        <button class="chip" data-v="amd" aria-pressed="false">AMD</button>
-        <button class="chip" data-v="x3d" aria-pressed="false">Ryzen X3D</button>
-        <button class="chip" data-v="5060" aria-pressed="false">RTX 5060</button>
-        <button class="chip" data-v="top" aria-pressed="false">RTX 5060 Ti и выше</button>
+      <span class="glabel">Видеокарта</span>
+      <div class="chips" data-g="gpu" data-dyn></div>
+    </div>
+    <div class="group">
+      <span class="glabel">Процессор</span>
+      <div class="chips" data-g="cpu" data-dyn></div>
+    </div>
+    <button class="more" id="more" aria-expanded="false">Ещё фильтры: ОЗУ и SSD</button>
+    <div class="extra" id="extra" hidden>
+      <div class="group">
+        <span class="glabel">Оперативная память</span>
+        <div class="chips" data-g="ram" data-dyn></div>
+      </div>
+      <div class="group">
+        <span class="glabel">SSD</span>
+        <div class="chips" data-g="ssd" data-dyn></div>
       </div>
     </div>
   </div>
@@ -181,7 +192,24 @@ const IGURL=c=>`https://www.instagram.com/p/${c}/`;
 const fmt=v=>v.toLocaleString("ru-RU").replace(/ /g," ")+" ₸";
 const short=s=>s.replace(/^Ryzen \d /,"R").replace(/ \d+GB$/,"");
 const grid=document.getElementById("grid"),q=document.getElementById("q"),sort=document.getElementById("sort"),count=document.getElementById("count"),reset=document.getElementById("reset");
-const st={type:"all",budget:"0-0",hw:"all"};
+const st={type:"all",budget:"0-0",gpu:"all",cpu:"all",ram:"all",ssd:"all"};
+const G={
+  gpu:b=>b.gpu.replace(/ \d+GB$/,"").replace(/^RTX /,"RTX "),
+  cpu:b=>{let m=b.cpu.match(/^i(\d)/);if(m)return "Intel i"+m[1];m=b.cpu.match(/Ryzen (\d)/);return m?"Ryzen "+m[1]:b.cpu},
+  ram:b=>b.ram.split(" ")[0],
+  ssd:b=>b.ssd.split(" ")[0]
+};
+const ORDER={cpu:["Intel i3","Intel i5","Intel i7","Intel i9","Ryzen 5","Ryzen 7","Ryzen 9"]};
+function buildChips(){
+  document.querySelectorAll("[data-dyn]").forEach(box=>{
+    const key=box.dataset.g,f=G[key];
+    let vals=[...new Set(D.map(f).filter(Boolean))];
+    const ord=ORDER[key];
+    vals.sort((a,b)=>ord?ord.indexOf(a)-ord.indexOf(b):(parseFloat(a)*(/TB/.test(a)?1000:1)+(/Ti/.test(a)?.5:0))-(parseFloat(b)*(/TB/.test(b)?1000:1)+(/Ti/.test(b)?.5:0))||a.localeCompare(b));
+    if(key==="gpu")vals.sort((a,b)=>{const n=x=>parseInt(x.replace(/\D/g,""))+(/Ti/.test(x)?.5:0);return n(a)-n(b)});
+    box.innerHTML=`<button class="chip" data-v="all" aria-pressed="true">Любой</button>`+vals.map(v=>`<button class="chip" data-v="${v}" aria-pressed="false">${v}</button>`).join("");
+  });
+}
 let D=[];
 
 function card(b){
@@ -210,19 +238,14 @@ function render(){
     const [lo,hi]=st.budget.split("-").map(Number);
     if(lo&&b.cash<lo)return false;
     if(hi&&b.cash>hi)return false;
-    const h=st.hw;
-    if(h==="intel"&&!/^i\d/.test(b.cpu))return false;
-    if(h==="amd"&&!/Ryzen/.test(b.cpu))return false;
-    if(h==="x3d"&&!/X3D/.test(b.cpu))return false;
-    if(h==="5060"&&!/RTX 5060 8GB/.test(b.gpu))return false;
-    if(h==="top"&&!/5060 Ti|5070/.test(b.gpu))return false;
+    for(const k of ["gpu","cpu","ram","ssd"])if(st[k]!=="all"&&G[k](b)!==st[k])return false;
     if(t){const hay=((b.n||"")+" "+b.cpu+" "+b.gpu+" "+b.ram+" "+b.kit).toLowerCase();if(!hay.includes(t))return false}
     return true;
   });
   if(sort.value==="asc")list.sort((a,b)=>a.cash-b.cash);
   else if(sort.value==="desc")list.sort((a,b)=>b.cash-a.cash);
   else list.sort((a,b)=>a.i-b.i);
-  const any=st.type!=="all"||st.budget!=="0-0"||st.hw!=="all"||t;
+  const any=st.type!=="all"||st.budget!=="0-0"||["gpu","cpu","ram","ssd"].some(k=>st[k]!=="all")||t;
   grid.innerHTML=list.length?list.map(card).join(""):`<div class="empty">Под эти условия готовых сборок нет. Напишите в WhatsApp — соберём под ваш бюджет.</div>`;
   const kits=list.filter(b=>b.type==="kit").length;
   count.textContent=`Найдено: ${list.length}`+(kits&&kits<list.length?` (комплектов: ${kits})`:"");
@@ -238,11 +261,13 @@ document.querySelectorAll("[data-g]").forEach(g=>g.addEventListener("click",e=>{
   render();
 }));
 reset.addEventListener("click",()=>{
-  st.type="all";st.budget="0-0";st.hw="all";q.value="";
+  Object.assign(st,{type:"all",budget:"0-0",gpu:"all",cpu:"all",ram:"all",ssd:"all"});q.value="";
   document.querySelectorAll("[data-g]").forEach(g=>g.querySelectorAll("button").forEach((x,i)=>x.setAttribute("aria-pressed",i===0?"true":"false")));
   render();
 });
 q.addEventListener("input",render);
+const more=document.getElementById("more"),extra=document.getElementById("extra");
+more.addEventListener("click",()=>{extra.hidden=!extra.hidden;more.setAttribute("aria-expanded",String(!extra.hidden));more.textContent=extra.hidden?"Ещё фильтры: ОЗУ и SSD":"Скрыть ОЗУ и SSD";});
 sort.addEventListener("change",render);
 
 function fromHash(){
@@ -254,7 +279,7 @@ window.addEventListener("hashchange",fromHash);
 fetch("prices.json?t="+Date.now()).then(r=>r.json()).then(j=>{
   D=j.builds.map((b,i)=>({i,n:b.number,type:b.type,cpu:b.cpu,gpu:b.gpu,ram:b.ram,ssd:b.ssd,cash:b.cash,inst:b.installment,month:b.monthly,stock:b.in_stock,post:b.post,kit:b.kit||""}));
   document.getElementById("upd").textContent=`Цены обновлены ${j.updated} по ценам поставщиков`;
-  render();fromHash();
+  buildChips();render();fromHash();
 }).catch(()=>{
   document.getElementById("upd").textContent="Не удалось загрузить цены. Обновите страницу или напишите нам в WhatsApp.";
 });
