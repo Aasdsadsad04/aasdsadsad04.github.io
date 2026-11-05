@@ -121,6 +121,20 @@ body.hascart .up{bottom:calc(90px + env(safe-area-inset-bottom,0px))}
 .fpsbtn:focus-visible{outline:2px solid var(--red);outline-offset:2px}
 .fpsbtn[aria-expanded="true"] .arr{transform:rotate(180deg)}
 .fps{margin:0 14px 12px;display:grid;gap:6px}
+.gtl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:8px}
+@media (min-width:700px){.gtl{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.gt{display:flex;flex-direction:column;gap:3px;padding:10px 11px 11px;border-radius:10px;background:var(--chip);min-width:0}
+.gtn{font-size:12.5px;font-weight:600;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gtf{font-family:var(--f-num);font-weight:700;font-size:18px;font-variant-numeric:tabular-nums;line-height:1.2}
+.gtf small{font-size:11px;font-weight:500;color:var(--muted)}
+.gtd{font-size:11px;color:var(--muted)}
+.gtd em{font-style:normal;font-weight:700;padding:1px 6px;border-radius:999px}
+.gtd em.fu{background:var(--ok-bg);color:var(--ok)}.gtd em.fd{background:var(--wait-bg);color:var(--wait)}
+.gtb{display:block;height:4px;border-radius:99px;background:var(--line);overflow:hidden;margin-top:4px}
+.gtb i{display:block;height:100%;border-radius:99px;background:var(--wait)}
+.gt.hi .gtb i{background:var(--ok)}.gt.mid .gtb i{background:var(--ink);opacity:.55}
+.fpsleg{display:flex;gap:12px;flex-wrap:wrap;font-size:11px;color:var(--muted);margin-top:8px}
+.fpsleg i{display:inline-block;width:10px;height:4px;border-radius:2px;margin-right:4px;vertical-align:middle}
 .gm{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:end;font-size:14px;padding:7px 0 9px;border-bottom:1px solid var(--line)}
 .gn{display:flex;flex-direction:column;min-width:0}
 .gn small,.gv small{font-size:11px;color:var(--muted);font-weight:400}
@@ -525,8 +539,8 @@ paintTheme();
 try{Object.assign(FP,JSON.parse(localStorage.getItem("tshop_fps")||"{}"))}catch(e){}
 // игра: [название, кадры на 1 ед. индекса видеокарты (высокие, Full HD), на 1 ед. индекса процессора, множители видеокарты для низких/средних/высоких/ультра, максимум шкалы, есть DLSS]
 // последнее число — во сколько раз ниже упор в процессор при 16 ГБ памяти (32 ГБ и больше = 1)
-const GAMES=[["CS2",3.0,6.5,[1.35,1.15,1,0.85],600,0,1],["Valorant",5,9.5,[1.3,1.15,1,0.9],900,0,1],["Dota 2",2.3,3.4,[1.5,1.25,1,0.85],350,0,0.98],["PUBG",1.3,2.7,[1.8,1.4,1,0.8],260,1,0.94],["GTA V",1.5,2.1,[1.6,1.3,1,0.8],260,0,0.97],["Warzone",1.0,2.5,[1.7,1.35,1,0.8],200,1,0.88],["Escape from Tarkov",0.85,1.5,[1.5,1.25,1,0.85],160,1,0.78],["Cyberpunk 2077",0.72,2.1,[1.7,1.35,1,0.75],160,1,0.95],["ARC Raiders",1.05,2.0,[1.6,1.3,1,0.85],200,1,0.93],["Rust",1.2,1.5,[1.5,1.25,1,0.85],160,1,0.85],["CoD: Modern Warfare 4",1.0,2.4,[1.7,1.35,1,0.8],220,1,0.9]];
-const GCAT=[["Киберспорт",["CS2","Valorant","Dota 2"]],["Шутеры",["Warzone","CoD: Modern Warfare 4","PUBG","ARC Raiders","Escape from Tarkov"]],["Открытый мир",["GTA V","Cyberpunk 2077","Rust"]]];
+const GAMES=[["CS2",3.0,6.5,[1.35,1.15,1,0.85],600,0,1],["Valorant",5,9.5,[1.3,1.15,1,0.9],900,0,1],["Dota 2",2.3,3.4,[1.5,1.25,1,0.85],350,0,0.98],["PUBG",1.3,2.7,[1.8,1.4,1,0.8],260,1,0.94],["GTA V",1.5,2.1,[1.6,1.3,1,0.8],260,0,0.97],["Warzone",1.0,2.5,[1.7,1.35,1,0.8],200,1,0.88],["Escape from Tarkov",0.85,1.5,[1.5,1.25,1,0.85],160,1,0.78],["Cyberpunk 2077",0.72,2.1,[1.7,1.35,1,0.75],160,1,0.95],["ARC Raiders",1.05,2.0,[1.6,1.3,1,0.85],200,1,0.93],["Rust",1.2,1.5,[1.5,1.25,1,0.85],160,1,0.85],["CoD: MW4",1.0,2.4,[1.7,1.35,1,0.8],220,1,0.9]];
+const GCAT=[["Киберспорт",["CS2","Valorant","Dota 2"]],["Шутеры",["Warzone","CoD: MW4","PUBG","ARC Raiders","Escape from Tarkov"]],["Открытый мир",["GTA V","Cyberpunk 2077","Rust"]]];
 // Память: объём и одна планка (одноканальный режим) снижают упор в процессор
 function ramF(ram,m16){const r=ram||"",sz=+((r.match(/(\d+)\s?GB/)||[])[1]||32),one=/\(1×/.test(r);
   const cap=sz>=32?1:sz>=16?m16:Math.pow(m16,3)*0.8;return cap*(one?(/DDR5/.test(r)?0.94:0.87):1)}
@@ -552,12 +566,12 @@ function fpsControls(){
 function drawFps(b){
   const box=document.getElementById("f"+b.i);if(!box||box.hidden)return;
   const L=b.type==="laptop",{cpu,gpu,ram}=curParts(b),base=gameFps(b.cpu,b.gpu,FP,L,b.ram),now=gameFps(cpu,gpu,FP,L,ram),changed=cpu!==b.cpu||gpu!==b.gpu||ram!==b.ram;
-  const cat=GCAT[FP.c]||GCAT[0],tabs=`<div class="gtabs" role="group" aria-label="Игры">${GCAT.map((c,k)=>`<button data-fp="c" data-v="${k}" aria-pressed="${c===cat}">${c[0]}</button>`).join("")}</div>`;
-  box.innerHTML=fpsControls()+tabs+now.map((x,k)=>{if(!cat[1].includes(x.n))return "";const o=base[k],r=x.f/o.f,diff=changed&&Math.abs(r-1)>0.02,w=v=>Math.max(3,Math.min(100,Math.round(v/x.mx*100)));
-    const p=Math.round((r-1)*100),wn=w(x.f),wo=w(o.f);
-    const bar=!diff?`<i style="width:${wn}%"></i>`:r>1?`<i style="width:${wo}%"></i><i class="gain" style="left:${wo}%;width:${Math.max(0,wn-wo)}%"></i>`:`<i style="width:${wn}%"></i><i class="loss" style="left:${wn}%;width:${Math.max(0,wo-wn)}%"></i>`;
-    return `<div class="gm"><div class="gn"><b>${x.n}</b>${FP.dlss&&x.dl&&!noGpu(gpu)?`<small>с DLSS</small>`:""}</div><div class="gv"><span>≈ ${rng(x.f)} FPS${diff?` <em class="${p>0?"fu":"fd"}">${pctTxt(p)}</em>`:""}</span>${diff?`<small>было <s>${rng(o.f)}</s></small>`:""}</div><div class="gb" aria-hidden="true">${bar}</div></div>`}).join("")
-    +`<small>Ориентировочно: ${PRESETS[FP.p].toLowerCase()} настройки, ${FP.r==="qhd"?"2K (2560×1440)":"Full HD"}${FP.dlss?", DLSS «Качество» где есть":""}${changed?", с вашими изменениями":""}. Средний FPS по тестам обзорщиков; зависит от версии игры и карты.</small>`;
+  const ORD=GCAT.flatMap(c=>c[1]);
+  box.innerHTML=fpsControls()+`<div class="gtl">`+now.map((x,k)=>({x,o:base[k]})).sort((a,b)=>ORD.indexOf(a.x.n)-ORD.indexOf(b.x.n)).map(({x,o})=>{
+    const r=x.f/o.f,diff=changed&&Math.abs(r-1)>0.02,p=Math.round((r-1)*100),w=v=>Math.max(4,Math.min(100,Math.round(v/x.mx*100)));
+    const lv=x.f>=120?"hi":x.f>=60?"mid":"lo";
+    return `<div class="gt ${lv}"><span class="gtn">${x.n}</span><span class="gtf">${rng(x.f)}<small> FPS</small></span>${diff?`<span class="gtd"><em class="${p>0?"fu":"fd"}">${pctTxt(p)}</em> <s>${rng(o.f)}</s></span>`:""}${FP.dlss&&x.dl&&!noGpu(gpu)?`<span class="gtd">с DLSS</span>`:""}<span class="gtb" aria-hidden="true"><i style="width:${w(x.f)}%"></i></span></div>`}).join("")+`</div>`
+    +`<div class="fpsleg"><span><i style="background:var(--ok)"></i>120+ плавно</span><span><i style="background:var(--ink);opacity:.55"></i>60–120 комфортно</span><span><i style="background:var(--wait)"></i>до 60 тяжело</span></div><small>Ориентировочно: ${PRESETS[FP.p].toLowerCase()} настройки, ${FP.r==="qhd"?"2K (2560×1440)":"Full HD"}${FP.dlss?", DLSS «Качество» где есть":""}${changed?", с вашими изменениями":""}. Средний FPS по тестам обзорщиков; зависит от версии игры и карты.</small>`;
 }
 const KI=1.1792,KM=1.15;
 const sgn=d=>d>0?"+"+fmt(d):d<0?"−"+fmt(-d):"";
@@ -664,7 +678,6 @@ grid.addEventListener("click",e=>{
 grid.addEventListener("click",e=>{
   const c=e.target.closest("[data-fp]");if(!c)return;
   const k=c.dataset.fp;
-  if(k==="c"){FP.c=+c.dataset.v;try{localStorage.setItem("tshop_fps",JSON.stringify(FP))}catch(e){}D.forEach(drawFps);return}
   if(k==="p")FP.p=+c.dataset.v;else if(k==="r")FP.r=c.dataset.v;else FP.dlss=!FP.dlss;
   try{localStorage.setItem("tshop_fps",JSON.stringify(FP))}catch(e){}
   D.forEach(b=>{drawFps(b);renderSpec(b)});
