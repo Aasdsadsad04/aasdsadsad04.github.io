@@ -91,6 +91,10 @@
        "delta": -97000
       },
       {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
+      },
+      {
        "label": "32GB DDR5 (1×32)",
        "delta": 23000
       },
@@ -424,6 +428,10 @@
      "title": "Оперативная память",
      "current": "16GB DDR4 (2×8)",
      "items": [
+      {
+       "label": "16GB DDR4 (1×16)",
+       "delta": 0
+      },
       {
        "label": "32GB DDR4 (2×16)",
        "delta": 57000
@@ -759,6 +767,10 @@
      "current": "16GB DDR4 (2×8)",
      "items": [
       {
+       "label": "16GB DDR4 (1×16)",
+       "delta": 0
+      },
+      {
        "label": "32GB DDR4 (2×16)",
        "delta": 57000
       },
@@ -1028,6 +1040,10 @@
      "title": "Оперативная память",
      "current": "32GB DDR4 (2×16)",
      "items": [
+      {
+       "label": "16GB DDR4 (1×16)",
+       "delta": -57000
+      },
       {
        "label": "16GB DDR4 (2×8)",
        "delta": -51000
@@ -1359,6 +1375,10 @@
      "current": "16GB DDR5 (1×16)",
      "items": [
       {
+       "label": "16GB DDR5 (2×8)",
+       "delta": 13000
+      },
+      {
        "label": "32GB DDR5 (2×16)",
        "delta": 108000
       },
@@ -1680,6 +1700,10 @@
      "current": "16GB DDR5 (1×16)",
      "items": [
       {
+       "label": "16GB DDR5 (2×8)",
+       "delta": 13000
+      },
+      {
        "label": "32GB DDR5 (2×16)",
        "delta": 108000
       },
@@ -1997,6 +2021,10 @@
      "current": "16GB DDR4 (2×8)",
      "items": [
       {
+       "label": "16GB DDR4 (1×16)",
+       "delta": 0
+      },
+      {
        "label": "32GB DDR4 (2×16)",
        "delta": 57000
       },
@@ -2179,6 +2207,10 @@
       {
        "label": "16GB DDR5 (1×16)",
        "delta": -97000
+      },
+      {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
       },
       {
        "label": "32GB DDR5 (1×32)",
@@ -2365,6 +2397,10 @@
      "current": "32GB DDR4 (2×16)",
      "items": [
       {
+       "label": "16GB DDR4 (1×16)",
+       "delta": -57000
+      },
+      {
        "label": "16GB DDR4 (2×8)",
        "delta": -51000
       },
@@ -2546,6 +2582,10 @@
       {
        "label": "16GB DDR5 (1×16)",
        "delta": -97000
+      },
+      {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
       },
       {
        "label": "32GB DDR5 (1×32)",
@@ -2732,6 +2772,10 @@
        "delta": -97000
       },
       {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
+      },
+      {
        "label": "32GB DDR5 (1×32)",
        "delta": 23000
       },
@@ -2911,6 +2955,10 @@
      "title": "Оперативная память",
      "current": "16GB DDR5 (1×16)",
      "items": [
+      {
+       "label": "16GB DDR5 (2×8)",
+       "delta": 13000
+      },
       {
        "label": "32GB DDR5 (2×16)",
        "delta": 108000
@@ -3100,6 +3148,10 @@
      "current": "16GB DDR4 (2×8)",
      "items": [
       {
+       "label": "16GB DDR4 (1×16)",
+       "delta": 0
+      },
+      {
        "label": "32GB DDR4 (2×16)",
        "delta": 57000
       },
@@ -3283,6 +3335,10 @@
      "title": "Оперативная память",
      "current": "32GB DDR4 (2×16)",
      "items": [
+      {
+       "label": "16GB DDR4 (1×16)",
+       "delta": -57000
+      },
       {
        "label": "16GB DDR4 (2×8)",
        "delta": -51000
@@ -3476,6 +3532,10 @@
      "current": "16GB DDR4 (2×8)",
      "items": [
       {
+       "label": "16GB DDR4 (1×16)",
+       "delta": 0
+      },
+      {
        "label": "32GB DDR4 (2×16)",
        "delta": 57000
       },
@@ -3658,6 +3718,10 @@
       {
        "label": "16GB DDR5 (1×16)",
        "delta": -97000
+      },
+      {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
       },
       {
        "label": "32GB DDR5 (1×32)",
@@ -3847,6 +3911,10 @@
        "delta": -97000
       },
       {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
+      },
+      {
        "label": "32GB DDR5 (1×32)",
        "delta": 23000
       },
@@ -4030,6 +4098,10 @@
      "current": "64GB DDR4 (2×32)",
      "items": [
       {
+       "label": "16GB DDR4 (1×16)",
+       "delta": -213000
+      },
+      {
        "label": "16GB DDR4 (2×8)",
        "delta": -208000
       },
@@ -4201,6 +4273,10 @@
       {
        "label": "16GB DDR5 (1×16)",
        "delta": -97000
+      },
+      {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
       },
       {
        "label": "32GB DDR5 (1×32)",
@@ -4391,6 +4467,10 @@
        "delta": -97000
       },
       {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
+      },
+      {
        "label": "32GB DDR5 (1×32)",
        "delta": 23000
       },
@@ -4569,6 +4649,10 @@
       {
        "label": "16GB DDR5 (1×16)",
        "delta": -97000
+      },
+      {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
       },
       {
        "label": "32GB DDR5 (1×32)",
@@ -4905,6 +4989,10 @@
        "delta": -97000
       },
       {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
+      },
+      {
        "label": "32GB DDR5 (1×32)",
        "delta": 23000
       },
@@ -5231,6 +5319,10 @@
      "current": "32GB DDR4 (2×16)",
      "items": [
       {
+       "label": "16GB DDR4 (1×16)",
+       "delta": -57000
+      },
+      {
        "label": "16GB DDR4 (2×8)",
        "delta": -51000
       },
@@ -5419,6 +5511,10 @@
        "delta": -97000
       },
       {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
+      },
+      {
        "label": "32GB DDR5 (1×32)",
        "delta": 23000
       },
@@ -5597,6 +5693,10 @@
       {
        "label": "16GB DDR5 (1×16)",
        "delta": -97000
+      },
+      {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
       },
       {
        "label": "32GB DDR5 (1×32)",
@@ -5779,6 +5879,10 @@
      "current": "16GB DDR5 (1×16)",
      "items": [
       {
+       "label": "16GB DDR5 (2×8)",
+       "delta": 13000
+      },
+      {
        "label": "32GB DDR5 (2×16)",
        "delta": 108000
       },
@@ -5931,6 +6035,10 @@
      "title": "Оперативная память",
      "current": "8GB DDR4 (1×8)",
      "items": [
+      {
+       "label": "16GB DDR4 (1×16)",
+       "delta": 25000
+      },
       {
        "label": "16GB DDR4 (2×8)",
        "delta": 31000
@@ -6123,6 +6231,10 @@
      "title": "Оперативная память",
      "current": "16GB DDR4 (2×8)",
      "items": [
+      {
+       "label": "16GB DDR4 (1×16)",
+       "delta": 0
+      },
       {
        "label": "32GB DDR4 (2×16)",
        "delta": 57000
@@ -6385,6 +6497,10 @@
      "current": "64GB DDR4 (2×32)",
      "items": [
       {
+       "label": "16GB DDR4 (1×16)",
+       "delta": -213000
+      },
+      {
        "label": "16GB DDR4 (2×8)",
        "delta": -208000
       },
@@ -6567,6 +6683,10 @@
      "title": "Оперативная память",
      "current": "32GB DDR4 (2×16)",
      "items": [
+      {
+       "label": "16GB DDR4 (1×16)",
+       "delta": -57000
+      },
       {
        "label": "16GB DDR4 (2×8)",
        "delta": -51000
@@ -6752,6 +6872,10 @@
        "delta": -97000
       },
       {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
+      },
+      {
        "label": "32GB DDR5 (1×32)",
        "delta": 23000
       },
@@ -6935,6 +7059,10 @@
        "delta": -97000
       },
       {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
+      },
+      {
        "label": "32GB DDR5 (1×32)",
        "delta": 23000
       },
@@ -7116,6 +7244,10 @@
       {
        "label": "16GB DDR5 (1×16)",
        "delta": -332000
+      },
+      {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -320000
       },
       {
        "label": "32GB DDR5 (2×16)",
@@ -7309,6 +7441,10 @@
        "delta": -332000
       },
       {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -320000
+      },
+      {
        "label": "32GB DDR5 (2×16)",
        "delta": -234000
       },
@@ -7489,6 +7625,10 @@
      "current": "32GB DDR4 (2×16)",
      "items": [
       {
+       "label": "16GB DDR4 (1×16)",
+       "delta": -57000
+      },
+      {
        "label": "16GB DDR4 (2×8)",
        "delta": -51000
       },
@@ -7665,6 +7805,10 @@
      "title": "Оперативная память",
      "current": "32GB DDR4 (2×16)",
      "items": [
+      {
+       "label": "16GB DDR4 (1×16)",
+       "delta": -57000
+      },
       {
        "label": "16GB DDR4 (2×8)",
        "delta": -51000
@@ -7850,6 +7994,10 @@
      "current": "32GB DDR4 (1×32)",
      "items": [
       {
+       "label": "16GB DDR4 (1×16)",
+       "delta": -82000
+      },
+      {
        "label": "16GB DDR4 (2×8)",
        "delta": -76000
       },
@@ -8029,6 +8177,10 @@
      "title": "Оперативная память",
      "current": "16GB DDR5 (1×16)",
      "items": [
+      {
+       "label": "16GB DDR5 (2×8)",
+       "delta": 13000
+      },
       {
        "label": "32GB DDR5 (2×16)",
        "delta": 108000
@@ -8217,6 +8369,10 @@
      "title": "Оперативная память",
      "current": "16GB DDR4 (2×8)",
      "items": [
+      {
+       "label": "16GB DDR4 (1×16)",
+       "delta": 0
+      },
       {
        "label": "32GB DDR4 (2×16)",
        "delta": 57000
@@ -8409,6 +8565,10 @@
        "delta": -332000
       },
       {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -320000
+      },
+      {
        "label": "32GB DDR5 (2×16)",
        "delta": -234000
       },
@@ -8593,6 +8753,10 @@
      "current": "16GB DDR4 (2×8)",
      "items": [
       {
+       "label": "16GB DDR4 (1×16)",
+       "delta": 0
+      },
+      {
        "label": "32GB DDR4 (2×16)",
        "delta": 57000
       },
@@ -8775,6 +8939,10 @@
       {
        "label": "16GB DDR5 (1×16)",
        "delta": -97000
+      },
+      {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
       },
       {
        "label": "32GB DDR5 (1×32)",
@@ -8969,6 +9137,10 @@
      "current": "16GB DDR4 (2×8)",
      "items": [
       {
+       "label": "16GB DDR4 (1×16)",
+       "delta": 0
+      },
+      {
        "label": "32GB DDR4 (2×16)",
        "delta": 57000
       },
@@ -9153,6 +9325,10 @@
        "delta": -97000
       },
       {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
+      },
+      {
        "label": "32GB DDR5 (1×32)",
        "delta": 23000
       },
@@ -9305,6 +9481,10 @@
      "title": "Оперативная память",
      "current": "16GB DDR4 (2×8)",
      "items": [
+      {
+       "label": "16GB DDR4 (1×16)",
+       "delta": 0
+      },
       {
        "label": "32GB DDR4 (2×16)",
        "delta": 57000
@@ -9477,6 +9657,10 @@
       {
        "label": "16GB DDR5 (1×16)",
        "delta": -97000
+      },
+      {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
       },
       {
        "label": "32GB DDR5 (1×32)",
@@ -9663,6 +9847,10 @@
      "current": "32GB DDR4 (2×16)",
      "items": [
       {
+       "label": "16GB DDR4 (1×16)",
+       "delta": -57000
+      },
+      {
        "label": "16GB DDR4 (2×8)",
        "delta": -51000
       },
@@ -9847,6 +10035,10 @@
        "delta": -97000
       },
       {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
+      },
+      {
        "label": "32GB DDR5 (1×32)",
        "delta": 23000
       },
@@ -9995,6 +10187,10 @@
      "title": "Оперативная память",
      "current": "32GB DDR4 (2×16)",
      "items": [
+      {
+       "label": "16GB DDR4 (1×16)",
+       "delta": -57000
+      },
       {
        "label": "16GB DDR4 (2×8)",
        "delta": -51000
@@ -10166,6 +10362,10 @@
       {
        "label": "16GB DDR5 (1×16)",
        "delta": -332000
+      },
+      {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -320000
       },
       {
        "label": "32GB DDR5 (2×16)",
@@ -10352,6 +10552,10 @@
        "delta": -97000
       },
       {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
+      },
+      {
        "label": "32GB DDR5 (1×32)",
        "delta": 23000
       },
@@ -10533,6 +10737,10 @@
       {
        "label": "16GB DDR5 (1×16)",
        "delta": -97000
+      },
+      {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
       },
       {
        "label": "32GB DDR5 (1×32)",
@@ -10726,6 +10934,10 @@
        "delta": -97000
       },
       {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
+      },
+      {
        "label": "32GB DDR5 (1×32)",
        "delta": 23000
       },
@@ -10870,6 +11082,10 @@
      "title": "Оперативная память",
      "current": "32GB DDR4 (2×16)",
      "items": [
+      {
+       "label": "16GB DDR4 (1×16)",
+       "delta": -57000
+      },
       {
        "label": "16GB DDR4 (2×8)",
        "delta": -51000
@@ -11041,6 +11257,10 @@
       {
        "label": "16GB DDR5 (1×16)",
        "delta": -97000
+      },
+      {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
       },
       {
        "label": "32GB DDR5 (1×32)",
@@ -11227,6 +11447,10 @@
      "current": "32GB DDR4 (2×16)",
      "items": [
       {
+       "label": "16GB DDR4 (1×16)",
+       "delta": -57000
+      },
+      {
        "label": "16GB DDR4 (2×8)",
        "delta": -51000
       },
@@ -11409,6 +11633,10 @@
       {
        "label": "16GB DDR5 (1×16)",
        "delta": -97000
+      },
+      {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
       },
       {
        "label": "32GB DDR5 (1×32)",
@@ -11598,6 +11826,10 @@
        "delta": -97000
       },
       {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
+      },
+      {
        "label": "32GB DDR5 (1×32)",
        "delta": 23000
       },
@@ -11775,6 +12007,10 @@
       {
        "label": "16GB DDR5 (1×16)",
        "delta": -97000
+      },
+      {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
       },
       {
        "label": "32GB DDR5 (1×32)",
@@ -11960,6 +12196,10 @@
      "current": "32GB DDR4 (2×16)",
      "items": [
       {
+       "label": "16GB DDR4 (1×16)",
+       "delta": -57000
+      },
+      {
        "label": "16GB DDR4 (2×8)",
        "delta": -51000
       },
@@ -12144,6 +12384,10 @@
      "current": "16GB DDR4 (2×8)",
      "items": [
       {
+       "label": "16GB DDR4 (1×16)",
+       "delta": 0
+      },
+      {
        "label": "32GB DDR4 (2×16)",
        "delta": 57000
       },
@@ -12327,6 +12571,10 @@
        "delta": -97000
       },
       {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
+      },
+      {
        "label": "32GB DDR5 (1×32)",
        "delta": 23000
       },
@@ -12508,6 +12756,10 @@
       {
        "label": "16GB DDR5 (1×16)",
        "delta": -97000
+      },
+      {
+       "label": "16GB DDR5 (2×8)",
+       "delta": -85000
       },
       {
        "label": "32GB DDR5 (1×32)",
