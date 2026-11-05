@@ -102,6 +102,21 @@ body.hascart .up{bottom:calc(90px + env(safe-area-inset-bottom,0px))}
 .up:focus-visible{outline:2px solid var(--red);outline-offset:2px}
 .num.nb{font-size:15px;letter-spacing:.04em}
 .type.lap{background:var(--wait-bg);color:var(--wait)}
+.fpsbtn{margin:0 14px 12px;font:600 14px var(--f-body);background:var(--chip);color:var(--ink);border:0;border-radius:9px;padding:10px 12px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.fpsbtn:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.fpsbtn[aria-expanded="true"] .arr{transform:rotate(180deg)}
+.fps{margin:0 14px 12px;display:grid;gap:6px}
+.gm{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:14px;padding:6px 0;border-bottom:1px solid var(--line)}
+.lv{font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.lv3{background:var(--ok-bg);color:var(--ok)}
+.lv2{background:var(--kit);color:var(--ink)}
+.lv1{background:var(--wait-bg);color:var(--wait)}
+.lv0{background:var(--chip);color:var(--muted)}
+.fps small{font-size:11px;color:var(--muted);line-height:1.35}
+.perf{display:grid;gap:6px;padding:10px 12px;border-radius:9px;background:var(--chip)}
+.perf b{font-size:14px}
+.pbar{height:8px;border-radius:99px;background:var(--line);overflow:hidden}
+.pbar i{display:block;height:100%;background:var(--red);border-radius:99px}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none}
 
 .bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:12px;border-bottom:1px solid var(--line)}
@@ -328,6 +343,8 @@ function card(b){
     <div class="head"><div class="num${b.n?"":" new"}">${b.n||"NEW"}</div>
       <div class="title"><span class="type${b.type==="kit"?" kit":""}">${b.type==="kit"?"Полный комплект":"Системный блок"}</span><strong>${name}</strong></div></div>
     <dl class="spec"><dt>CPU</dt><dd>${b.cpu}</dd><dt>GPU</dt><dd>${b.gpu}</dd><dt>RAM</dt><dd>${b.ram}</dd><dt>SSD</dt><dd>${b.ssd}</dd></dl>
+    <button class="fpsbtn" data-f="${b.i}" aria-expanded="false"><span>В играх: уровень в Full HD</span><span class="arr" aria-hidden="true">▾</span></button>
+    <div class="fps" id="f${b.i}" hidden></div>
     ${b.kit?`<div class="inkit"><b>В комплекте</b>${b.kit}</div>`:""}
     ${b.opts&&b.opts.length?`<div class="cfgwrap"><button class="cfg" data-i="${b.i}" aria-expanded="false"><span>Изменить комплектацию: дешевле или мощнее<small>процессор, видеокарта, память, SSD, плата, блок питания${b.type==="block"?", монитор":""}</small></span><span class="arr" aria-hidden="true">▾</span></button><div class="cfgp" id="p${b.i}" hidden></div></div>`:""}
     <div class="price">
@@ -389,6 +406,33 @@ sort.addEventListener("change",render);
 
 
 const ev=(name,title)=>{try{window.goatcounter&&window.goatcounter.count&&window.goatcounter.count({path:name,title:title||name,event:true})}catch(e){}};
+// ---- Производительность в играх (оценка, Full HD) ----
+// Относительные индексы по данным независимых тестов: видеокарты (RTX 5060 = 100), процессоры в играх (7800X3D = 100).
+const GPU_IDX=[[/5070\s?Ti/,205],[/5070/,160],[/5060\s?Ti\s?16/,124],[/5060\s?Ti/,120],[/5060/,100],[/5050/,82],[/2060/,52],[/3050/,45]];
+const CPU_IDX=[[/9800X3D/,112],[/7800X3D/,100],[/14900K/,95],[/14700K\b/,90],[/14700F/,86],[/14600K/,85],[/13700F/,84],[/13600K/,82],[/9600X/,82],[/12700KF/,80],[/7700\b/,80],[/7500F/,76],[/14400F/,72],[/12600KF/,72],[/8700F/,70],[/13400F/,68],[/8400F/,62],[/14100/,60],[/5700/,58],[/13100F/,58],[/12100/,55],[/11400F/,56],[/10400F/,50]];
+const idx=(tbl,s,def)=>{for(const[r,v] of tbl)if(r.test(s||""))return v;return def};
+// игра: [название, кадры на 1 ед. индекса видеокарты, кадры на 1 ед. индекса процессора, пороги уровней 3/2/1]
+const GAMES=[["CS2",3.5,5.0,[240,144,90]],["Valorant",5,7,[300,165,100]],["Dota 2",2.2,2.6,[165,100,60]],["PUBG",1.6,2.0,[144,90,60]],["GTA V",1.5,1.6,[120,80,50]],["Warzone",1.2,1.8,[120,80,50]],["Escape from Tarkov",1.1,1.0,[100,70,45]],["Cyberpunk 2077",0.85,1.4,[100,60,40]]];
+const LV=["Низкие настройки","Средние настройки","Высокие, комфортно","Максимум, очень плавно"];
+function gameFps(cpu,gpu){const g=/Без видео|Встроен/.test(gpu)?8:idx(GPU_IDX,gpu,100),c=idx(CPU_IDX,cpu,70);return GAMES.map(([n,gk,ck,t])=>{const f=Math.min(g*gk,c*ck);return{n,f,l:f>=t[0]?3:f>=t[1]?2:f>=t[2]?1:0}})}
+function curParts(b){
+  const st=SEL[b.i]||{},G=Object.fromEntries((b.opts||[]).map(g=>[g.id,g]));
+  const cpu=G.cpu&&st.cpu>=0?G.cpu.items[st.cpu].label:b.cpu, gpu=G.gpu&&st.gpu>=0?G.gpu.items[st.gpu].label:b.gpu;
+  return{cpu,gpu};
+}
+function drawFps(b){
+  const box=document.getElementById("f"+b.i);if(!box||box.hidden)return;
+  const{cpu,gpu}=curParts(b);
+  box.innerHTML=gameFps(cpu,gpu).map(x=>`<div class="gm"><span>${x.n}</span><span class="lv lv${x.l}">${LV[x.l]}</span></div>`).join("")+`<small>Оценка для Full HD по данным независимых тестов${(SEL[b.i]&&Object.values(SEL[b.i]).some(v=>v>=0))?" — с вашими изменениями":""}. Реальная плавность зависит от настроек и версии игры.</small>`;
+}
+function drawPerf(b){
+  const el=document.getElementById("pf"+b.i);if(!el)return;
+  const base=gameFps(b.cpu,b.gpu),{cpu,gpu}=curParts(b),now=gameFps(cpu,gpu);
+  const ratio=Math.exp(now.reduce((s,x,k)=>s+Math.log(x.f/base[k].f),0)/now.length);
+  const pct=Math.round((ratio-1)*100);
+  const w=Math.max(4,Math.min(100,Math.round(50*ratio)));
+  el.innerHTML=`<b>Производительность в играх: ${pct>0?"+"+pct+"%":pct<0?"−"+(-pct)+"%":"как в исходной сборке"}</b><div class="pbar" aria-hidden="true"><i style="width:${w}%"></i></div><small style="font-size:12px;color:var(--muted)">По сравнению с исходной сборкой, в среднем по 8 популярным играм</small>`;
+}
 const KI=1.1792,KM=1.15;
 const sgn=d=>d>0?"+"+fmt(d):d<0?"−"+fmt(-d):"без доплаты";
 function panel(b){
@@ -398,7 +442,7 @@ function panel(b){
     const sel=st[g.id]??-1;
     const opts=[`<option value="-1">${g.id==="ssd2"||g.id==="mon"?g.current:"Как есть: "+g.current}</option>`].concat(g.items.map((o,k)=>`<option value="${k}" ${k===sel?"selected":""}>${o.label} (${sgn(o.delta)})</option>`));
     return `<div class="opt"><label for="s${b.i}_${g.id}">${g.title}</label><select id="s${b.i}_${g.id}" data-i="${b.i}" data-g="${g.id}">${opts.join("")}</select>${g.id==="psu"?`<small id="ps${b.i}"></small>`:""}</div>`;
-  }).join("");
+  }).join("")+`<div class="perf" id="pf${b.i}"></div>`;
 }
 function groupsOf(b){return b.type==="block"?[...b.opts,{id:"mon",title:"Монитор",items:MON.map(m=>({label:m.name,delta:m.price,mon:1}))}]:b.opts}
 function recalc(b){
@@ -419,6 +463,7 @@ function recalc(b){
   for(const[id,k] of Object.entries(st)){if(k<0||!G[id])continue;const o=G[id].items[k];if(id==="mon"){mon+=o.delta}else add+=o.delta;changes.push(id==="mon"?"монитор "+o.label:o.label)}
   const cash=b.cash+add+mon, inst=Math.ceil(((b.cash+add)*KI+mon*KM)/1000)*1000, month=Math.ceil(inst/24/100)*100;
   b.cur={cash,inst,changes};
+  drawFps(b);drawPerf(b);
   const set=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=v};
   set("c"+b.i,fmt(cash));set("r"+b.i,fmt(inst));set("m"+b.i,fmt(month));
   set("d"+b.i,changes.length?`С изменениями: ${sgn(add+mon)}`:"");
@@ -429,6 +474,12 @@ grid.addEventListener("click",e=>{
   const b=D[+btn.dataset.i],p=document.getElementById("p"+b.i);
   if(p.hidden){p.innerHTML=panel(b);p.hidden=false;btn.setAttribute("aria-expanded","true");recalc(b);ev("komplektaciya-"+(b.n||"new"),"Открыли комплектацию "+(b.n?"№"+b.n:"новинки"));}
   else{p.hidden=true;btn.setAttribute("aria-expanded","false");}
+});
+grid.addEventListener("click",e=>{
+  const f=e.target.closest(".fpsbtn");if(!f)return;
+  const b=D[+f.dataset.f],box=document.getElementById("f"+b.i);
+  box.hidden=!box.hidden;f.setAttribute("aria-expanded",String(!box.hidden));
+  if(!box.hidden){drawFps(b);ev("igry-"+(b.n||"new"),"Открыли «В играх» "+(b.n?"№"+b.n:""));}
 });
 grid.addEventListener("click",e=>{const a=e.target.closest(".ig");if(a)ev("foto-instagram","Фото в Instagram");});
 let qT;q.addEventListener("input",()=>{clearTimeout(qT);qT=setTimeout(()=>{const v=q.value.trim();if(v.length>=3)ev("poisk","Поиск: "+v.slice(0,30));},1500);});
