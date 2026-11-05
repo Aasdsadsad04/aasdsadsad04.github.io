@@ -137,8 +137,8 @@ body.hascart .up{bottom:calc(90px + env(safe-area-inset-bottom,0px))}
 .on2>span{line-height:1.25}
 .on2 small{font-size:12px;color:var(--muted)}
 .on2 em{font-style:normal;font-size:12px;font-weight:700;align-self:flex-start;padding:2px 7px;border-radius:999px}
-.on2 em.up{background:var(--ok-bg);color:var(--ok)}
-.on2 em.dn{background:var(--wait-bg);color:var(--wait)}
+.on2 em.fu{background:var(--ok-bg);color:var(--ok)}
+.on2 em.fd{background:var(--wait-bg);color:var(--wait)}
 .od{font-family:var(--f-num);font-weight:700;font-size:14px;white-space:nowrap;font-variant-numeric:tabular-nums}
 .od.pos{color:var(--ink)}
 .od.neg{color:var(--ok)}
@@ -509,7 +509,7 @@ function renderPanel(b){
         const fp=perf?optPerf(b,g.id,o.k):0;
         return `<button class="orow${o.k===sel?" on":""}" role="radio" aria-checked="${o.k===sel}" data-i="${b.i}" data-g="${g.id}" data-k="${o.k}"${dis?" disabled":""}>
           <span class="ock">${o.k===sel?ICON_CHK:""}</span>
-          <span class="on2"><span>${o.label}</span>${o.base?`<small>как в сборке</small>`:o.sub?`<small>${o.sub}</small>`:""}${perf&&o.k>=0&&fp?`<em class="${fp>0?"up":"dn"}">${pctTxt(fp)} FPS</em>`:""}${dis?`<small>нужен блок от ${need}W</small>`:""}</span>
+          <span class="on2"><span>${o.label}</span>${o.base?`<small>как в сборке</small>`:o.sub?`<small>${o.sub}</small>`:""}${perf&&o.k>=0&&fp?`<em class="${fp>0?"fu":"fd"}">${pctTxt(fp)} FPS</em>`:""}${dis?`<small>нужен блок от ${need}W</small>`:""}</span>
           <span class="od ${o.delta<0?"neg":o.delta>0?"pos":""}">${o.k<0?"":sgn(o.delta)}</span>
         </button>`}).join("")+`</div>`;
     }
@@ -518,7 +518,7 @@ function renderPanel(b){
     const fpsCur=perf&&sel>=0?optPerf(b,g.id,sel):0;
     return `<div class="opt"><div class="olab">${g.title}</div>
       <button class="ohead${open?" open":""}" data-i="${b.i}" data-og="${g.id}" aria-expanded="${open}">
-        <span class="on2"><span>${sel<0&&!isNone?"Как есть: ":""}${cur}</span>${fpsCur?`<em class="${fpsCur>0?"up":"dn"}">${pctTxt(fpsCur)} FPS</em>`:""}</span>${curDelta}<span class="arr" aria-hidden="true">▾</span>
+        <span class="on2"><span>${sel<0&&!isNone?"Как есть: ":""}${cur}</span>${fpsCur?`<em class="${fpsCur>0?"fu":"fd"}">${pctTxt(fpsCur)} FPS</em>`:""}</span>${curDelta}<span class="arr" aria-hidden="true">▾</span>
       </button>${rows}${h?`<small class="hint">${h}</small>`:""}${pn?`<small class="hint">${pn}</small>`:""}</div>`;
   }).join("");
 }
