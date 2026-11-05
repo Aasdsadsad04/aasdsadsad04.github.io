@@ -463,7 +463,7 @@ function lapCard(b){
       <div class="title"><span class="type lap">${b.gaming?"Игровой ноутбук":"Ноутбук"} · под заказ 3–5 дней</span><strong>${b.title}</strong></div></div>
     <dl class="spec">${b.screen?`<dt>Экран</dt><dd>${b.screen}</dd>`:""}${b.cpu?`<dt>CPU</dt><dd>${b.cpu}</dd>`:""}${b.gpu?`<dt>GPU</dt><dd>${b.gpu}</dd>`:""}${b.ram?`<dt>RAM</dt><dd>${b.ram}</dd>`:""}${b.ssd?`<dt>SSD</dt><dd>${b.ssd}</dd>`:""}${b.no_os?`<dt>ОС</dt><dd>без Windows (можем установить)</dd>`:""}</dl>
 
-    ${/RTX/.test(b.gpu)?`<button class="fpsbtn" data-f="${b.i}" aria-expanded="false"><span>FPS в играх — выбрать игру</span><span class="arr" aria-hidden="true">▾</span></button>
+    ${/RTX/.test(b.gpu)?`<button class="fpsbtn" data-f="${b.i}" aria-expanded="false"><span>FPS в играх: низкие, высокие, ультра, 2K</span><span class="arr" aria-hidden="true">▾</span></button>
     <div class="fps" id="f${b.i}" hidden></div>`:""}
     <div class="price">
       <div class="row"><span class="k">Наличные / QR</span><span class="cash">${fmt(b.cash)}</span></div>
@@ -481,7 +481,7 @@ function card(b){
     <div class="head"><div class="num${b.n?"":" new"}">${b.n||"NEW"}</div>
       <div class="title"><span class="type${b.type==="kit"?" kit":""}">${b.type==="kit"?"Полный комплект":"Системный блок"}</span><strong id="t${b.i}">${name}</strong></div></div>
     ${b.opts&&b.opts.length?`<p class="tapnote">Нажмите на строку, чтобы заменить — дешевле или мощнее</p><div class="specx" id="sp${b.i}"></div>`:`<dl class="spec" id="sp${b.i}"><dt>CPU</dt><dd>${b.cpu}</dd><dt>GPU</dt><dd>${b.gpu}</dd><dt>RAM</dt><dd>${b.ram}</dd><dt>SSD</dt><dd>${b.ssd}</dd></dl>`}
-    <button class="fpsbtn" data-f="${b.i}" aria-expanded="false"><span>FPS в играх — выбрать игру</span><span class="arr" aria-hidden="true">▾</span></button>
+    <button class="fpsbtn" data-f="${b.i}" aria-expanded="false"><span>FPS в играх: низкие, высокие, ультра, 2K</span><span class="arr" aria-hidden="true">▾</span></button>
     <div class="fps" id="f${b.i}" hidden></div>
     ${b.kit&&!(b.opts||[]).some(g=>g.id.startsWith("k_"))?`<div class="inkit"><b>В комплекте</b>${b.kit}</div>`:""}
     <div class="price">
@@ -564,8 +564,8 @@ paintTheme();
 try{Object.assign(FP,JSON.parse(localStorage.getItem("tshop_fps")||"{}"))}catch(e){}
 // игра: [название, кадры на 1 ед. индекса видеокарты (высокие, Full HD), на 1 ед. индекса процессора, множители видеокарты для низких/средних/высоких/ультра, максимум шкалы, есть DLSS]
 // последнее число — во сколько раз ниже упор в процессор при 16 ГБ памяти (32 ГБ и больше = 1)
-const GAMES=[["CS2",3.0,6.5,[1.35,1.15,1,0.85],600,0,1],["Valorant",5,9.5,[1.3,1.15,1,0.9],900,0,1],["Dota 2",2.3,3.4,[1.5,1.25,1,0.85],350,0,0.98],["PUBG",1.3,2.7,[1.8,1.4,1,0.8],260,1,0.94],["GTA V",1.5,2.1,[1.6,1.3,1,0.8],260,0,0.97],["Warzone",1.0,2.5,[1.7,1.35,1,0.8],200,1,0.88],["Escape from Tarkov",0.85,1.5,[1.5,1.25,1,0.85],160,1,0.78],["Cyberpunk 2077",0.72,2.1,[1.7,1.35,1,0.75],160,1,0.95],["ARC Raiders",1.05,2.0,[1.6,1.3,1,0.85],200,1,0.93],["Rust",1.2,1.5,[1.5,1.25,1,0.85],160,1,0.85],["CoD: MW4",1.0,2.4,[1.7,1.35,1,0.8],220,1,0.9]];
-const GCAT=[["Киберспорт",["CS2","Valorant","Dota 2"]],["Шутер",["Warzone","CoD: MW4","PUBG","ARC Raiders","Escape from Tarkov"]],["Открытый мир",["GTA V","Cyberpunk 2077","Rust"]]];
+const GAMES=[["CS2",3.0,6.5,[1.35,1.15,1,0.85],600,0,1],["Valorant",5,9.5,[1.3,1.15,1,0.9],900,0,1],["Dota 2",2.3,3.4,[1.5,1.25,1,0.85],350,0,0.98],["PUBG",1.3,2.7,[1.8,1.4,1,0.8],260,1,0.94],["GTA V",1.5,2.1,[1.6,1.3,1,0.8],260,0,0.97],["Warzone",1.0,2.5,[1.7,1.35,1,0.8],200,1,0.88],["Escape from Tarkov",0.85,1.5,[1.5,1.25,1,0.85],160,1,0.78],["Cyberpunk 2077",0.72,2.1,[1.7,1.35,1,0.75],160,1,0.95],["ARC Raiders",1.05,2.0,[1.6,1.3,1,0.85],200,1,0.93],["Rust",1.2,1.5,[1.5,1.25,1,0.85],160,1,0.85],["Call of Duty: MW4",1.0,2.4,[1.7,1.35,1,0.8],220,1,0.9]];
+const GCAT=[["Киберспорт",["CS2","Valorant","Dota 2"]],["Шутер",["Warzone","Call of Duty: MW4","PUBG","ARC Raiders","Escape from Tarkov"]],["Открытый мир",["GTA V","Cyberpunk 2077","Rust"]]];
 // Память: объём и одна планка (одноканальный режим) снижают упор в процессор
 function ramF(ram,m16){const r=ram||"",sz=+((r.match(/(\d+)\s?GB/)||[])[1]||32),one=/\(1×/.test(r);
   const cap=sz>=32?1:sz>=16?m16:Math.pow(m16,3)*0.8;return cap*(one?(/DDR5/.test(r)?0.94:0.87):1)}
@@ -592,26 +592,12 @@ const OPENG={};
 const LV=f=>f>=120?["hi","плавно"]:f>=60?["mid","комфортно"]:["lo","тяжело"];
 function drawFps(b){
   const box=document.getElementById("f"+b.i);if(!box||box.hidden)return;
-  const L=b.type==="laptop",{cpu,gpu,ram}=curParts(b),changed=cpu!==b.cpu||gpu!==b.gpu||ram!==b.ram;
-  const ORD=GCAT.flatMap(c=>c[1]),gi=Math.max(0,GAMES.findIndex(g=>g[0]===FP.g)),gname=GAMES[gi][0],hasDl=GAMES[gi][5]&&!noGpu(gpu);
-  const at=(o,c=cpu,g=gpu,r=ram)=>gameFps(c,g,{...FP,...o},L,r)[gi].f;
-  const f=at({}),fo=changed?at({},b.cpu,b.gpu,b.ram):f,pc=Math.round((f/fo-1)*100),lv=LV(f);
-  const cells=PRESETS.map((n,p)=>`<tr><th>${n}</th>${["fhd","qhd"].map(r=>{const v=at({p,r}),on=FP.p===p&&FP.r===r;return `<td><button class="fc ${LV(v)[0]}${on?" on":""}" data-fp="cell" data-p="${p}" data-r="${r}" aria-pressed="${on}">${r10(v)}</button></td>`}).join("")}</tr>`).join("");
-  const grid8=[];PRESETS.forEach((n,p)=>["fhd","qhd"].forEach(r=>grid8.push({p,r,v:at({p,r})})));
-  const best=min=>{const ok=grid8.filter(x=>x.v>=min);if(!ok.length)return null;ok.sort((a,b)=>(b.r==="qhd")-(a.r==="qhd")||b.p-a.p);return ok[0]};
-  const esport=GCAT[0][1].includes(gname);
-  const recs=[[60,"60 Гц"],[144,"144 Гц"],...(esport?[[240,"240 Гц"]]:[])].map(([m,t])=>{const x=best(m);return `<li><span>Монитор ${t}</span><b>${x?`${PRESETS[x.p]}, ${x.r==="qhd"?"2K":"Full HD"}`:"не вытянет"}</b></li>`}).join("");
-  let sheet="";
-  if(OPENG[b.i]){
-    sheet=`<div class="osheet"><div class="sbg" data-gclose="${b.i}"></div><div class="spanel" role="dialog" aria-label="Выберите игру"><div class="shd"><b>Выберите игру</b><button class="sx" data-gclose="${b.i}" aria-label="Закрыть">×</button></div><div class="olist">`+
-      ORD.map(n=>`<button class="orow${n===gname?" on":""}" data-gsel="${n}" data-i="${b.i}"><span class="ock">${n===gname?ICON_CHK:""}</span><span class="on2"><span>${n}</span></span></button>`).join("")+`</div></div></div>`;
-  }
-  box.innerHTML=`<button class="srow gpick" data-gp="${b.i}" aria-label="Выбрать игру"><span class="sk">Игра</span><span class="sv"><mark>${gname}</mark></span><span class="arr" aria-hidden="true">▾</span></button>${sheet}
-    ${fpsControls(hasDl)}
-    <div class="gbig ${lv[0]}"><div class="gbn">≈ ${rng(f)} <small>FPS</small></div><div class="gbl"><span class="lvb">${lv[1]}</span>${changed&&Math.abs(pc)>=2?` <em class="${pc>0?"fu":"fd"}">${pctTxt(pc)}</em> <s>${rng(fo)}</s>`:""}</div>
-      <div class="gbs">${PRESETS[FP.p]} настройки · ${FP.r==="qhd"?"2K (2560×1440)":"Full HD (1920×1080)"}${FP.dlss&&hasDl?" · DLSS":""}</div></div>
-    <div class="recs"><div class="rh">Какие настройки ставить</div><ul>${recs}</ul></div>
-    <small>Средний FPS по тестам обзорщиков${changed?", с вашими изменениями":""}; зависит от версии игры и карты.</small>`;
+  const L=b.type==="laptop",{cpu,gpu,ram}=curParts(b),base=gameFps(b.cpu,b.gpu,FP,L,b.ram),now=gameFps(cpu,gpu,FP,L,ram),changed=cpu!==b.cpu||gpu!==b.gpu||ram!==b.ram;
+  box.innerHTML=fpsControls()+now.map((x,k)=>{const o=base[k],r=x.f/o.f,diff=changed&&Math.abs(r-1)>0.02,w=v=>Math.max(3,Math.min(100,Math.round(v/x.mx*100)));
+    const p=Math.round((r-1)*100),wn=w(x.f),wo=w(o.f);
+    const bar=!diff?`<i style="width:${wn}%"></i>`:r>1?`<i style="width:${wo}%"></i><i class="gain" style="left:${wo}%;width:${Math.max(0,wn-wo)}%"></i>`:`<i style="width:${wn}%"></i><i class="loss" style="left:${wn}%;width:${Math.max(0,wo-wn)}%"></i>`;
+    return `<div class="gm"><div class="gn"><b>${x.n}</b>${FP.dlss&&x.dl&&!noGpu(gpu)?`<small>с DLSS</small>`:""}</div><div class="gv"><span>≈ ${rng(x.f)} FPS${diff?` <em class="${p>0?"fu":"fd"}">${pctTxt(p)}</em>`:""}</span>${diff?`<small>было <s>${rng(o.f)}</s></small>`:""}</div><div class="gb" aria-hidden="true">${bar}</div></div>`}).join("")
+    +`<small>Ориентировочно: ${PRESETS[FP.p].toLowerCase()} настройки, ${FP.r==="qhd"?"2K (2560×1440)":"Full HD"}${FP.dlss?", DLSS «Качество» где есть":""}${changed?", с вашими изменениями":""}. Средний FPS по тестам обзорщиков; зависит от версии игры и карты.</small>`;
 }
 const KI=1.1792,KM=1.15;
 const sgn=d=>d>0?"+"+fmt(d):d<0?"−"+fmt(-d):"";
