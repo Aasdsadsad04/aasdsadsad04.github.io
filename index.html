@@ -127,6 +127,26 @@ body.hascart .up{bottom:calc(90px + env(safe-area-inset-bottom,0px))}
 .fpsset .chips{flex-wrap:wrap}
 .fpsset .chip{padding:7px 11px}
 .opt small.hint{color:var(--ink);font-weight:500;line-height:1.35}
+.olab{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
+.ohead,.orow{width:100%;display:flex;align-items:center;gap:10px;text-align:left;font:500 15px var(--f-body);color:var(--ink);background:var(--surface);border:1.5px solid var(--line);border-radius:10px;padding:11px 12px;cursor:pointer;min-height:48px}
+.ohead.open{border-color:var(--ink)}
+.ohead .arr{margin-left:auto;transition:transform .2s;color:var(--muted)}
+.ohead.open .arr{transform:rotate(180deg)}
+.ohead:focus-visible,.orow:focus-visible{outline:2px solid var(--red);outline-offset:1px}
+.on2{display:flex;flex-direction:column;gap:3px;min-width:0;flex:1}
+.on2>span{line-height:1.25}
+.on2 small{font-size:12px;color:var(--muted)}
+.on2 em{font-style:normal;font-size:12px;font-weight:700;align-self:flex-start;padding:2px 7px;border-radius:999px}
+.on2 em.up{background:var(--ok-bg);color:var(--ok)}
+.on2 em.dn{background:var(--wait-bg);color:var(--wait)}
+.od{font-family:var(--f-num);font-weight:700;font-size:14px;white-space:nowrap;font-variant-numeric:tabular-nums}
+.od.pos{color:var(--ink)}
+.od.neg{color:var(--ok)}
+.olist{display:grid;gap:6px;margin-top:6px;padding:6px;border-radius:12px;background:var(--chip)}
+.orow{border-color:transparent}
+.orow.on{border-color:var(--ink)}
+.orow[disabled]{opacity:.45;cursor:not-allowed}
+.ock{flex:none;width:18px;height:18px;display:flex;color:var(--ink)}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none}
 
 .bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:12px;border-bottom:1px solid var(--line)}
@@ -454,55 +474,65 @@ function drawFps(b){
     return `<div class="gm"><div class="gn"><b>${x.n}</b>${FP.dlss&&x.dl&&!noGpu(gpu)?`<small>с DLSS</small>`:""}</div><div class="gv">≈ ${rng(x.f)} FPS${diff?`<small>было ${rng(o.f)}</small>`:""}</div><div class="gb" aria-hidden="true">${diff?`<i class="old" style="width:${w(o.f)}%"></i>`:""}<i style="width:${w(x.f)}%"></i></div></div>`}).join("")
     +`<small>Ориентировочно: ${PRESETS[FP.p].toLowerCase()} настройки, ${FP.r==="qhd"?"2K (2560×1440)":"Full HD"}${FP.dlss?", DLSS «Качество» где есть":""}${changed?", с вашими изменениями":""}. Средний FPS по тестам обзорщиков; зависит от версии игры и карты.</small>`;
 }
-function perfUi(b){
-  const{cpu,gpu}=curParts(b),st=SEL[b.i]||{},G=Object.fromEntries((b.opts||[]).map(g=>[g.id,g]));
-  b.perfPct=(cpu!==b.cpu||gpu!==b.gpu)?Math.round((avgRatio(gameFps(b.cpu,b.gpu),gameFps(cpu,gpu))-1)*100):0;
-  for(const id of ["cpu","gpu"]){
-    const sel=document.getElementById(`s${b.i}_${id}`);if(!sel||!G[id])continue;
-    const ref=gameFps(id==="cpu"?b.cpu:cpu,id==="gpu"?b.gpu:gpu);
-    [...sel.options].forEach(op=>{const k=+op.value;if(k<0)return;const o=G[id].items[k];
-      const p=Math.round((avgRatio(ref,gameFps(id==="cpu"?o.label:cpu,id==="gpu"?o.label:gpu))-1)*100);
-      op.textContent=`${o.label} (${sgn(o.delta)}${p?` · ${pctTxt(p)} FPS`:""})`;});
-    const h=document.getElementById(`h${b.i}_${id}`);if(!h)continue;
-    if(!(st[id]>=0)){h.textContent="";continue}
-    const p=Math.round((avgRatio(ref,gameFps(cpu,gpu))-1)*100);
-    let t=`В играх: ${pctTxt(p)} FPS в среднем`;
-    if(id==="cpu"&&p<6&&idx(CPU_IDX,cpu,70)>idx(CPU_IDX,b.cpu,70))t+=". Видеокарта сдерживает — процессор мощнее почти не прибавит FPS, больше даст замена видеокарты";
-    if(id==="gpu"&&p>0&&!noGpu(b.gpu)){const pot=Math.round((idx(GPU_IDX,gpu,100)/idx(GPU_IDX,b.gpu,100)-1)*100);if(p<pot*0.6)t+=`. Процессор сдерживает эту видеокарту: с более мощным процессором было бы до ${pctTxt(pot)}`;}
-    h.textContent=t;
-  }
-}
 const KI=1.1792,KM=1.15;
 const sgn=d=>d>0?"+"+fmt(d):d<0?"−"+fmt(-d):"без доплаты";
-function panel(b){
-  const st=SEL[b.i]||(SEL[b.i]={});
-  const groups=b.type==="block"?[...b.opts,{id:"mon",title:"Монитор",current:"Без монитора",items:MON.map(m=>({label:m.name+" · "+m.spec.split(" · ").slice(0,3).join(" "),delta:m.price}))}]:b.opts;
-  return groups.map(g=>{
-    const sel=st[g.id]??-1;
-    const opts=[`<option value="-1">${g.id==="ssd2"||g.id==="mon"?g.current:"Как есть: "+g.current}</option>`].concat(g.items.map((o,k)=>`<option value="${k}" ${k===sel?"selected":""}>${o.label} (${sgn(o.delta)})</option>`));
-    return `<div class="opt"><label for="s${b.i}_${g.id}">${g.title}</label><select id="s${b.i}_${g.id}" data-i="${b.i}" data-g="${g.id}">${opts.join("")}</select>${g.id==="psu"?`<small id="ps${b.i}"></small>`:(g.id==="cpu"||g.id==="gpu")?`<small class="hint" id="h${b.i}_${g.id}"></small>`:""}</div>`;
+const OPEN={};
+const ICON_CHK=`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>`;
+function groupsOf(b){return b.type==="block"?[...b.opts,{id:"mon",title:"Монитор",current:"Без монитора",items:MON.map(m=>({label:m.name,sub:m.spec.split(" · ").slice(0,3).join(" · "),delta:m.price}))}]:b.opts}
+function psuNeed(b,G,st){const g=G.gpu&&st.gpu>=0?G.gpu.items[st.gpu]:null;return g?(g.psu||0):(G.psu&&G.psu.min||0)}
+// Прирост FPS для варианта k группы id (cpu/gpu) при текущем выборе остального
+function optPerf(b,id,k){
+  const{cpu,gpu}=curParts(b);const ref=gameFps(id==="cpu"?b.cpu:cpu,id==="gpu"?b.gpu:gpu);
+  const lab=k<0?(id==="cpu"?b.cpu:b.gpu):groupsOf(b).find(g=>g.id===id).items[k].label;
+  return Math.round((avgRatio(ref,gameFps(id==="cpu"?lab:cpu,id==="gpu"?lab:gpu))-1)*100);
+}
+function hintFor(b,id){
+  const st=SEL[b.i]||{};if(!(st[id]>=0))return"";
+  const{cpu,gpu}=curParts(b),p=optPerf(b,id,st[id]);
+  if(id==="cpu"&&p<6&&idx(CPU_IDX,cpu,70)>idx(CPU_IDX,b.cpu,70))return"Видеокарта сдерживает: процессор мощнее почти не прибавит FPS. Больше даст замена видеокарты.";
+  if(id==="gpu"&&p>0&&!noGpu(b.gpu)){const pot=Math.round((idx(GPU_IDX,gpu,100)/idx(GPU_IDX,b.gpu,100)-1)*100);if(p<pot*0.6)return`Процессор сдерживает эту видеокарту: с более мощным процессором было бы до ${pctTxt(pot)} FPS.`;}
+  return"";
+}
+function renderPanel(b){
+  const p=document.getElementById("p"+b.i);if(!p||p.hidden)return;
+  const st=SEL[b.i]||(SEL[b.i]={}),groups=groupsOf(b),G=Object.fromEntries(groups.map(g=>[g.id,g])),need=psuNeed(b,G,st);
+  p.innerHTML=groups.map(g=>{
+    const sel=st[g.id]??-1,open=OPEN[b.i]===g.id,perf=g.id==="cpu"||g.id==="gpu";
+    const cur=sel<0?g.current:g.items[sel].label;
+    const curDelta=sel<0?"":`<span class="od ${g.items[sel].delta<0?"neg":"pos"}">${sgn(g.items[sel].delta)}</span>`;
+    const isNone=g.id==="ssd2"||g.id==="mon";
+    let rows="";
+    if(open){
+      const all=[{k:-1,label:isNone?g.current:g.current,delta:0,base:!isNone}].concat(g.items.map((o,k)=>({k,...o})));
+      rows=`<div class="olist" role="radiogroup" aria-label="${g.title}">`+all.map(o=>{
+        const dis=g.id==="psu"&&need>0&&(o.k<0?G.psu.watt:o.watt)<need;
+        const fp=perf?optPerf(b,g.id,o.k):0;
+        return `<button class="orow${o.k===sel?" on":""}" role="radio" aria-checked="${o.k===sel}" data-i="${b.i}" data-g="${g.id}" data-k="${o.k}"${dis?" disabled":""}>
+          <span class="ock">${o.k===sel?ICON_CHK:""}</span>
+          <span class="on2"><span>${o.label}</span>${o.base?`<small>как в сборке</small>`:o.sub?`<small>${o.sub}</small>`:""}${perf&&o.k>=0&&fp?`<em class="${fp>0?"up":"dn"}">${pctTxt(fp)} FPS</em>`:""}${dis?`<small>нужен блок от ${need}W</small>`:""}</span>
+          <span class="od ${o.delta<0?"neg":o.delta>0?"pos":""}">${o.k<0?"":sgn(o.delta)}</span>
+        </button>`}).join("")+`</div>`;
+    }
+    const h=perf?hintFor(b,g.id):"";
+    const pn=g.id==="psu"&&need&&G.psu.watt<need&&st.psu>=0?`Для этой видеокарты нужен блок от ${need}W — поставили автоматически.`:"";
+    const fpsCur=perf&&sel>=0?optPerf(b,g.id,sel):0;
+    return `<div class="opt"><div class="olab">${g.title}</div>
+      <button class="ohead${open?" open":""}" data-i="${b.i}" data-og="${g.id}" aria-expanded="${open}">
+        <span class="on2"><span>${sel<0&&!isNone?"Как есть: ":""}${cur}</span>${fpsCur?`<em class="${fpsCur>0?"up":"dn"}">${pctTxt(fpsCur)} FPS</em>`:""}</span>${curDelta}<span class="arr" aria-hidden="true">▾</span>
+      </button>${rows}${h?`<small class="hint">${h}</small>`:""}${pn?`<small class="hint">${pn}</small>`:""}</div>`;
   }).join("");
 }
-function groupsOf(b){return b.type==="block"?[...b.opts,{id:"mon",title:"Монитор",items:MON.map(m=>({label:m.name,delta:m.price,mon:1}))}]:b.opts}
 function recalc(b){
-  const st=SEL[b.i]||{};
-  const G=Object.fromEntries(groupsOf(b).map(g=>[g.id,g]));
-  // блок питания под видеокарту
-  const gsel=G.gpu&&st.gpu>=0?G.gpu.items[st.gpu]:null;
-  const need=gsel?(gsel.psu||0):(G.psu&&G.psu.min||0);
-  const psuSel=document.getElementById(`s${b.i}_psu`), note=document.getElementById(`ps${b.i}`);
-  if(G.psu&&psuSel){
-    const curW=G.psu.watt;
-    [...psuSel.options].forEach(op=>{const k=+op.value;const w=k<0?curW:G.psu.items[k].watt;op.disabled=need>0&&w<need;});
-    const chosenW=st.psu>=0?G.psu.items[st.psu].watt:curW;
-    if(need&&chosenW<need){const k=G.psu.items.findIndex(o=>o.watt>=need);if(k>=0){st.psu=k;psuSel.value=String(k);}}
-    if(note)note.textContent=need&&curW<need?`Для этой видеокарты нужен блок от ${need}W — поставили автоматически.`:(need?`Для этой видеокарты блок питания не ниже ${need}W.`:"");
-  }
+  const st=SEL[b.i]||(SEL[b.i]={}),G=Object.fromEntries(groupsOf(b).map(g=>[g.id,g]));
+  const need=psuNeed(b,G,st);
+  if(G.psu&&need){const w=st.psu>=0?G.psu.items[st.psu].watt:G.psu.watt;if(w<need){const k=G.psu.items.findIndex(o=>o.watt>=need);if(k>=0)st.psu=k;}}
   let add=0,mon=0;const changes=[];
   for(const[id,k] of Object.entries(st)){if(k<0||!G[id])continue;const o=G[id].items[k];if(id==="mon"){mon+=o.delta}else add+=o.delta;changes.push(id==="mon"?"монитор "+o.label:o.label)}
   const cash=b.cash+add+mon, inst=Math.ceil(((b.cash+add)*KI+mon*KM)/1000)*1000, month=Math.ceil(inst/24/100)*100;
+  const{cpu,gpu}=curParts(b);
+  b.perfPct=(cpu!==b.cpu||gpu!==b.gpu)?Math.round((avgRatio(gameFps(b.cpu,b.gpu),gameFps(cpu,gpu))-1)*100):0;
   b.cur={cash,inst,changes};
-  drawFps(b);perfUi(b);
+  drawFps(b);renderPanel(b);
   const set=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=v};
   set("c"+b.i,fmt(cash));set("r"+b.i,fmt(inst));set("m"+b.i,fmt(month));
   set("d"+b.i,changes.length?`С изменениями: ${sgn(add+mon)}${b.perfPct?" · "+pctTxt(b.perfPct)+" FPS в играх":""}`:"");
@@ -511,15 +541,25 @@ function recalc(b){
 grid.addEventListener("click",e=>{
   const btn=e.target.closest(".cfg");if(!btn)return;
   const b=D[+btn.dataset.i],p=document.getElementById("p"+b.i);
-  if(p.hidden){p.innerHTML=panel(b);p.hidden=false;btn.setAttribute("aria-expanded","true");recalc(b);ev("komplektaciya-"+(b.n||"new"),"Открыли комплектацию "+(b.n?"№"+b.n:"новинки"));}
+  if(p.hidden){p.hidden=false;btn.setAttribute("aria-expanded","true");recalc(b);ev("komplektaciya-"+(b.n||"new"),"Открыли комплектацию "+(b.n?"№"+b.n:"новинки"));}
   else{p.hidden=true;btn.setAttribute("aria-expanded","false");}
+});
+grid.addEventListener("click",e=>{
+  const h=e.target.closest(".ohead");if(!h)return;
+  const i=+h.dataset.i;OPEN[i]=OPEN[i]===h.dataset.og?null:h.dataset.og;renderPanel(D[i]);
+});
+grid.addEventListener("click",e=>{
+  const r=e.target.closest(".orow");if(!r||r.disabled)return;
+  const b=D[+r.dataset.i],g=r.dataset.g;(SEL[b.i]||(SEL[b.i]={}))[g]=+r.dataset.k;OPEN[b.i]=null;
+  if(g==="cpu"||g==="gpu"){const box=document.getElementById("f"+b.i),fb=document.querySelector(`.fpsbtn[data-f="${b.i}"]`);if(box&&box.hidden){box.hidden=false;fb&&fb.setAttribute("aria-expanded","true")}}
+  recalc(b);
 });
 grid.addEventListener("click",e=>{
   const c=e.target.closest("[data-fp]");if(!c)return;
   const k=c.dataset.fp;
   if(k==="p")FP.p=+c.dataset.v;else if(k==="r")FP.r=c.dataset.v;else FP.dlss=!FP.dlss;
   try{localStorage.setItem("tshop_fps",JSON.stringify(FP))}catch(e){}
-  D.forEach(b=>{drawFps(b);if(document.getElementById("pf"+b.i)||document.getElementById(`s${b.i}_gpu`))perfUi(b)});
+  D.forEach(b=>{drawFps(b);renderPanel(b)});
   ev("fps-nastroiki","FPS: "+PRESETS[FP.p]+", "+(FP.r==="qhd"?"2K":"Full HD")+(FP.dlss?", DLSS":""));
 });
 grid.addEventListener("click",e=>{
@@ -530,12 +570,6 @@ grid.addEventListener("click",e=>{
 });
 grid.addEventListener("click",e=>{const a=e.target.closest(".ig");if(a)ev("foto-instagram","Фото в Instagram");});
 let qT;q.addEventListener("input",()=>{clearTimeout(qT);qT=setTimeout(()=>{const v=q.value.trim();if(v.length>=3)ev("poisk","Поиск: "+v.slice(0,30));},1500);});
-grid.addEventListener("change",e=>{
-  const s=e.target.closest("select[data-g]");if(!s)return;
-  const b=D[+s.dataset.i];(SEL[b.i]||(SEL[b.i]={}))[s.dataset.g]=+s.value;
-  if(s.dataset.g==="cpu"||s.dataset.g==="gpu"){const box=document.getElementById("f"+b.i),fb=document.querySelector(`.fpsbtn[data-f="${b.i}"]`);if(box&&box.hidden){box.hidden=false;fb&&fb.setAttribute("aria-expanded","true")}}
-  recalc(b);
-});
 
 // ---- Корзина ----
 let CART=[];
