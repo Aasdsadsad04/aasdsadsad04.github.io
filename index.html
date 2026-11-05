@@ -48,6 +48,17 @@ h1{font-family:var(--f-display);font-weight:600;font-size:clamp(22px,4.6vw,34px)
 .lead .tag{display:inline-block;background:var(--red);color:var(--red-ink);font-family:var(--f-num);font-weight:700;font-size:12px;padding:1px 6px;border-radius:3px;vertical-align:1px}
 .updated{margin-top:12px;font-size:13px;color:var(--muted);display:flex;gap:6px;align-items:center}
 .note{margin:6px 0 0;font-size:13px;color:var(--muted)}
+.mons{padding-block:8px 32px;scroll-margin-top:90px}
+.mons h2{font-family:var(--f-display);font-weight:600;font-size:22px;margin:0 0 4px}
+.mlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;margin-top:14px}
+.mon{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:grid;grid-template-columns:1fr auto;gap:4px 12px;align-items:center;min-width:0}
+.mon b{font-size:15px}
+.mon .sp{grid-column:1/2;font-size:13px;color:var(--muted)}
+.mon .pr{grid-row:1/3;grid-column:2;text-align:right;display:grid;gap:6px;justify-items:end}
+.mon .pr span{font:700 18px var(--f-num);font-variant-numeric:tabular-nums}
+.mon .pr a{font:600 13px var(--f-body);text-decoration:none;color:#fff;background:var(--wa);padding:6px 10px;border-radius:8px}
+.jump{margin:8px 0 0;font-size:14px}
+.jump a{color:var(--ink);font-weight:600;text-underline-offset:3px}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none}
 
 .bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:12px;border-bottom:1px solid var(--line)}
@@ -121,6 +132,7 @@ footer .phone{font-family:var(--f-num);color:var(--ink);user-select:all}
     <p class="lead">Номер сборки — красная цифра на фото в посте, например <span class="tag">1028</span>. Введите его или выберите бюджет ниже.</p>
     <div class="updated"><span class="dot"></span><span><span id="upd">Загружаю цены…</span></span></div>
     <p class="note">В постах указана цена на дату публикации. Актуальная цена — на этой странице.</p>
+    <p class="jump"><a href="#monitors">Мониторы в наличии ↓</a></p>
   </header>
 </div>
 
@@ -182,6 +194,11 @@ footer .phone{font-family:var(--f-num);color:var(--ink);user-select:all}
   </div>
   <div class="count"><span id="count"></span><button class="reset" id="reset" hidden>Сбросить фильтры</button></div>
   <div class="grid" id="grid"></div>
+  <section class="mons" id="monitors" hidden>
+    <h2>Мониторы в наличии</h2>
+    <p class="note">Можно взять отдельно или добавить к любой сборке.</p>
+    <div class="mlist" id="mlist"></div>
+  </section>
 </main>
 
 <div class="wrap"><footer>
@@ -281,6 +298,12 @@ window.addEventListener("hashchange",fromHash);
 fetch("prices.json?t="+Date.now()).then(r=>r.json()).then(j=>{
   D=j.builds.map((b,i)=>({i,n:b.number,type:b.type,cpu:b.cpu,gpu:b.gpu,ram:b.ram,ssd:b.ssd,cash:b.cash,inst:b.installment,month:b.monthly,stock:b.in_stock,post:b.post,kit:b.kit||""}));
   document.getElementById("upd").textContent=`Цены обновлены ${j.updated} по ценам поставщиков`;
+  const M=j.monitors||[];
+  if(M.length){
+    document.getElementById("mlist").innerHTML=M.map(m=>{const msg=encodeURIComponent(`Здравствуйте! Интересует монитор ${m.name} за ${fmt(m.price)}`);
+      return `<div class="mon"><b>${m.name}</b><div class="sp">${m.spec} · от ${fmt(m.monthly)}/мес</div><div class="pr"><span>${fmt(m.price)}</span><a href="https://wa.me/77473458952?text=${msg}" target="_blank" rel="noopener">WhatsApp</a></div></div>`}).join("");
+    document.getElementById("monitors").hidden=false;
+  } else document.querySelector(".jump").hidden=true;
   buildChips();render();fromHash();
 }).catch(()=>{
   document.getElementById("upd").textContent="Не удалось загрузить цены. Обновите страницу или напишите нам в WhatsApp.";
