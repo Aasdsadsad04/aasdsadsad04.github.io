@@ -297,6 +297,11 @@
        "delta": 3000
       },
       {
+       "label": "Logitech G102 Lightsync Black",
+       "sub": "Проводная · RGB",
+       "delta": 3000
+      },
+      {
        "label": "AULA SC580 Wireless Red",
        "sub": "Беспроводная",
        "delta": 0
@@ -631,6 +636,11 @@
       },
       {
        "label": "Logitech G102 Lightsync White",
+       "sub": "Проводная · RGB",
+       "delta": 3000
+      },
+      {
+       "label": "Logitech G102 Lightsync Black",
        "sub": "Проводная · RGB",
        "delta": 3000
       },
@@ -1247,6 +1257,11 @@
        "delta": 3000
       },
       {
+       "label": "Logitech G102 Lightsync Black",
+       "sub": "Проводная · RGB",
+       "delta": 3000
+      },
+      {
        "label": "AULA SC580 Wireless Red",
        "sub": "Беспроводная",
        "delta": 0
@@ -1585,6 +1600,11 @@
        "delta": 3000
       },
       {
+       "label": "Logitech G102 Lightsync Black",
+       "sub": "Проводная · RGB",
+       "delta": 3000
+      },
+      {
        "label": "AULA SC580 Wireless Red",
        "sub": "Беспроводная",
        "delta": 0
@@ -1902,6 +1922,11 @@
       },
       {
        "label": "Logitech G102 Lightsync White",
+       "sub": "Проводная · RGB",
+       "delta": 3000
+      },
+      {
+       "label": "Logitech G102 Lightsync Black",
        "sub": "Проводная · RGB",
        "delta": 3000
       },
@@ -4857,6 +4882,11 @@
        "delta": 3000
       },
       {
+       "label": "Logitech G102 Lightsync Black",
+       "sub": "Проводная · RGB",
+       "delta": 3000
+      },
+      {
        "label": "AULA SC580 Wireless Red",
        "sub": "Беспроводная",
        "delta": 0
@@ -5191,6 +5221,11 @@
       },
       {
        "label": "Logitech G102 Lightsync White",
+       "sub": "Проводная · RGB",
+       "delta": 3000
+      },
+      {
+       "label": "Logitech G102 Lightsync Black",
        "sub": "Проводная · RGB",
        "delta": 3000
       },
@@ -12949,6 +12984,14 @@
   {
    "cat": "Мыши",
    "name": "Logitech G102 Lightsync White",
+   "spec": "Проводная · RGB",
+   "price": 15000,
+   "installment": 18000,
+   "monthly": 800
+  },
+  {
+   "cat": "Мыши",
+   "name": "Logitech G102 Lightsync Black",
    "spec": "Проводная · RGB",
    "price": 15000,
    "installment": 18000,
