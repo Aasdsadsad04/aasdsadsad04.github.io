@@ -47,6 +47,11 @@ h1{font-family:var(--f-display);font-weight:600;font-size:clamp(22px,4.6vw,34px)
 .lead{color:var(--muted);max-width:60ch;margin:0}
 .lead .tag{display:inline-block;background:var(--red);color:var(--red-ink);font-family:var(--f-num);font-weight:700;font-size:12px;padding:1px 6px;border-radius:3px;vertical-align:1px}
 .updated{margin-top:12px;font-size:13px;color:var(--muted);display:flex;gap:6px;align-items:center}
+.perks{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.perks li{font-size:13px;padding:5px 11px;border-radius:999px;background:var(--chip);color:var(--ink)}
+.perks li b{color:var(--red)}
+.warr{margin-top:2px;font-size:13px;color:var(--muted);text-align:right}
+.warr b{color:var(--ink)}
 .note{margin:6px 0 0;font-size:13px;color:var(--muted)}
 .mons{padding-block:8px 32px;scroll-margin-top:90px}
 .mons h2{font-family:var(--f-display);font-weight:600;font-size:22px;margin:0 0 4px}
@@ -256,6 +261,7 @@ footer .phone{font-family:var(--f-num);color:var(--ink);user-select:all}
     <h1>Актуальные цены на сборки из Instagram</h1>
     <p class="lead">Номер сборки — красная цифра на фото в посте, например <span class="tag">1028</span>. Введите его или выберите бюджет ниже.</p>
     <div class="updated"><span class="dot"></span><span><span id="upd">Загружаю цены…</span></span></div>
+    <ul class="perks"><li><b>Гарантия 1 год</b></li><li>Kaspi 0-0-24</li><li>Доставка по РК</li></ul>
     <p class="note">В постах указана цена на дату публикации. Актуальная цена — на этой странице.</p>
   </header>
 </div>
@@ -350,7 +356,7 @@ footer .phone{font-family:var(--f-num);color:var(--ink);user-select:all}
   </div>
 </div>
 <div class="wrap"><footer>
-  <div>Астана, ул. Петрова 18/1 · Гарантия 12 месяцев · Доставка по Казахстану 1–2 дня</div>
+  <div>Астана, ул. Петрова 18/1 · Гарантия на сборки 1 год · Доставка по Казахстану 1–2 дня</div>
   <div>WhatsApp и звонки: <span class="phone">+7 747 345 89 52</span></div>
   <div>Рассрочка Kaspi 0-0-12 / 0-0-24. Платёж в месяц указан для 24 месяцев. Бюджет фильтруется по цене за наличные.</div>
   </footer></div>
@@ -419,6 +425,7 @@ function card(b){
       <div class="row"><span class="k">Наличные / QR</span><span class="cash" id="c${b.i}">${fmt(b.cash)}</span></div>
       <div class="row"><span class="k">Рассрочка Kaspi</span><span class="inst" id="r${b.i}">${fmt(b.inst)}</span></div>
       <div class="month">от <b id="m${b.i}">${fmt(b.month)}</b> в месяц</div>
+      <div class="warr">Гарантия <b>1 год</b></div>
       <div class="chg" id="d${b.i}"></div>
     </div>
     <div class="foot">
