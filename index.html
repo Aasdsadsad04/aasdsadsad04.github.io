@@ -112,7 +112,16 @@ body.hascart .up{bottom:calc(90px + env(safe-area-inset-bottom,0px))}
 .gv{text-align:right;font-family:var(--f-num);font-weight:700;font-size:14px;font-variant-numeric:tabular-nums;display:flex;flex-direction:column}
 .gb{grid-column:1/-1;position:relative;height:6px;border-radius:99px;background:var(--line);overflow:hidden}
 .gb i{position:absolute;left:0;top:0;bottom:0;border-radius:99px;background:var(--red)}
-.gb i.old{background:var(--muted);opacity:.45}
+.gb i.gain{background:var(--ok)}
+.gb i.loss{background:var(--wait);opacity:.35}
+.gv em{font-style:normal;font-family:var(--f-body);font-size:12px;font-weight:700;padding:2px 7px;border-radius:999px;margin-left:4px;vertical-align:1px}
+.gv em.fu{background:var(--ok-bg);color:var(--ok)}
+.gv em.fd{background:var(--wait-bg);color:var(--wait)}
+.gv small s{opacity:.8}
+dl.spec dt.ch{color:var(--red);font-weight:700}
+dl.spec dd.ch{display:flex;flex-wrap:wrap;gap:2px 8px;align-items:baseline}
+dl.spec mark{background:var(--kit);color:var(--ink);font-weight:700;padding:0 5px;border-radius:4px}
+dl.spec dd s{font-size:12px;color:var(--muted)}
 .lv{font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;white-space:nowrap}
 .lv3{background:var(--ok-bg);color:var(--ok)}
 .lv2{background:var(--kit);color:var(--ink)}
@@ -159,7 +168,9 @@ body.hascart .up{bottom:calc(90px + env(safe-area-inset-bottom,0px))}
 .filters{display:grid;gap:12px;padding-block:16px 4px}
 .group{display:grid;gap:6px;min-width:0}
 .glabel{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
-.seg{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));background:var(--chip);border-radius:11px;padding:3px;gap:3px;max-width:780px}
+.seg{display:flex;flex-wrap:wrap;background:var(--chip);border-radius:11px;padding:3px;gap:3px;max-width:780px;min-width:0}
+.seg button{flex:1 1 110px;min-width:0}
+.filters,.group,.pcf{min-width:0;max-width:100%}
 .seg button{font:600 14px var(--f-body);border:0;border-radius:8px;padding:10px 6px;background:transparent;color:var(--ink);cursor:pointer}
 .seg button[aria-pressed="true"]{background:var(--surface);box-shadow:0 1px 3px rgba(0,0,0,.15)}
 .chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
@@ -373,8 +384,8 @@ function card(b){
   const label=b.n?`№${b.n}`:"новинка";
   return `<article class="card" ${b.n?`id="b${b.n}"`:""}>
     <div class="head"><div class="num${b.n?"":" new"}">${b.n||"NEW"}</div>
-      <div class="title"><span class="type${b.type==="kit"?" kit":""}">${b.type==="kit"?"Полный комплект":"Системный блок"}</span><strong>${name}</strong></div></div>
-    <dl class="spec"><dt>CPU</dt><dd>${b.cpu}</dd><dt>GPU</dt><dd>${b.gpu}</dd><dt>RAM</dt><dd>${b.ram}</dd><dt>SSD</dt><dd>${b.ssd}</dd></dl>
+      <div class="title"><span class="type${b.type==="kit"?" kit":""}">${b.type==="kit"?"Полный комплект":"Системный блок"}</span><strong id="t${b.i}">${name}</strong></div></div>
+    <dl class="spec" id="sp${b.i}"><dt>CPU</dt><dd>${b.cpu}</dd><dt>GPU</dt><dd>${b.gpu}</dd><dt>RAM</dt><dd>${b.ram}</dd><dt>SSD</dt><dd>${b.ssd}</dd></dl>
     <button class="fpsbtn" data-f="${b.i}" aria-expanded="false"><span>FPS в играх: низкие, высокие, ультра, 2K</span><span class="arr" aria-hidden="true">▾</span></button>
     <div class="fps" id="f${b.i}" hidden></div>
     ${b.kit?`<div class="inkit"><b>В комплекте</b>${b.kit}</div>`:""}
@@ -475,8 +486,10 @@ function fpsControls(){
 function drawFps(b){
   const box=document.getElementById("f"+b.i);if(!box||box.hidden)return;
   const L=b.type==="laptop",{cpu,gpu}=curParts(b),base=gameFps(b.cpu,b.gpu,FP,L),now=gameFps(cpu,gpu,FP,L),changed=cpu!==b.cpu||gpu!==b.gpu;
-  box.innerHTML=fpsControls()+now.map((x,k)=>{const o=base[k],diff=changed&&Math.abs(x.f/o.f-1)>0.02,w=v=>Math.max(3,Math.min(100,Math.round(v/x.mx*100)));
-    return `<div class="gm"><div class="gn"><b>${x.n}</b>${FP.dlss&&x.dl&&!noGpu(gpu)?`<small>с DLSS</small>`:""}</div><div class="gv">≈ ${rng(x.f)} FPS${diff?`<small>было ${rng(o.f)}</small>`:""}</div><div class="gb" aria-hidden="true">${diff?`<i class="old" style="width:${w(o.f)}%"></i>`:""}<i style="width:${w(x.f)}%"></i></div></div>`}).join("")
+  box.innerHTML=fpsControls()+now.map((x,k)=>{const o=base[k],r=x.f/o.f,diff=changed&&Math.abs(r-1)>0.02,w=v=>Math.max(3,Math.min(100,Math.round(v/x.mx*100)));
+    const p=Math.round((r-1)*100),wn=w(x.f),wo=w(o.f);
+    const bar=!diff?`<i style="width:${wn}%"></i>`:r>1?`<i style="width:${wo}%"></i><i class="gain" style="left:${wo}%;width:${Math.max(0,wn-wo)}%"></i>`:`<i style="width:${wn}%"></i><i class="loss" style="left:${wn}%;width:${Math.max(0,wo-wn)}%"></i>`;
+    return `<div class="gm"><div class="gn"><b>${x.n}</b>${FP.dlss&&x.dl&&!noGpu(gpu)?`<small>с DLSS</small>`:""}</div><div class="gv"><span>≈ ${rng(x.f)} FPS${diff?` <em class="${p>0?"fu":"fd"}">${pctTxt(p)}</em>`:""}</span>${diff?`<small>было <s>${rng(o.f)}</s></small>`:""}</div><div class="gb" aria-hidden="true">${bar}</div></div>`}).join("")
     +`<small>Ориентировочно: ${PRESETS[FP.p].toLowerCase()} настройки, ${FP.r==="qhd"?"2K (2560×1440)":"Full HD"}${FP.dlss?", DLSS «Качество» где есть":""}${changed?", с вашими изменениями":""}. Средний FPS по тестам обзорщиков; зависит от версии игры и карты.</small>`;
 }
 const KI=1.1792,KM=1.15;
@@ -527,6 +540,19 @@ function renderPanel(b){
       </button>${rows}${h?`<small class="hint">${h}</small>`:""}${pn?`<small class="hint">${pn}</small>`:""}</div>`;
   }).join("");
 }
+function drawSpec(b){
+  const el=document.getElementById("sp"+b.i);if(!el)return;
+  const st=SEL[b.i]||{},G=Object.fromEntries(groupsOf(b).map(g=>[g.id,g]));
+  const pick=id=>G[id]&&st[id]>=0?G[id].items[st[id]]:null;
+  const row=(dt,base,o,lab)=>{const nv=o?(lab||o.label):null;
+    return nv&&nv!==base?`<dt class="ch">${dt}</dt><dd class="ch"><mark>${nv}</mark>${base?`<s>${base}</s>`:""}</dd>`:(base?`<dt>${dt}</dt><dd>${base}</dd>`:"");};
+  el.innerHTML=row("CPU",b.cpu,pick("cpu"))+row("GPU",b.gpu,pick("gpu"))+row("RAM",b.ram,pick("ram"))+row("SSD",b.ssd,pick("ssd"))
+    +row("SSD 2",null,pick("ssd2"),pick("ssd2")&&pick("ssd2").label.replace(/^\+\s*/,""))
+    +row("Плата",null,pick("mb"),pick("mb")&&pick("mb").label)+row("БП",null,pick("psu"),pick("psu")&&pick("psu").label.replace(/^БП\s*/,""))
+    +row("Монитор",null,pick("mon"));
+  const{cpu,gpu}=curParts(b),t=document.getElementById("t"+b.i);
+  if(t)t.textContent=`${short(cpu)} + ${short(gpu)}`;
+}
 function recalc(b){
   const st=SEL[b.i]||(SEL[b.i]={}),G=Object.fromEntries(groupsOf(b).map(g=>[g.id,g]));
   const need=psuNeed(b,G,st);
@@ -537,7 +563,7 @@ function recalc(b){
   const{cpu,gpu}=curParts(b);
   b.perfPct=(cpu!==b.cpu||gpu!==b.gpu)?Math.round((avgRatio(gameFps(b.cpu,b.gpu),gameFps(cpu,gpu))-1)*100):0;
   b.cur={cash,inst,changes};
-  drawFps(b);renderPanel(b);
+  drawSpec(b);drawFps(b);renderPanel(b);
   const set=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=v};
   set("c"+b.i,fmt(cash));set("r"+b.i,fmt(inst));set("m"+b.i,fmt(month));
   set("d"+b.i,changes.length?`С изменениями: ${sgn(add+mon)}${b.perfPct?" · "+pctTxt(b.perfPct)+" FPS в играх":""}`:"");
