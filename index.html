@@ -183,7 +183,17 @@ dl.spec dd s{font-size:12px;color:var(--muted)}
 .srow .addv{color:var(--muted)}
 .srow .arr{color:var(--muted);transition:transform .2s}
 .srow.open .arr{transform:rotate(180deg)}
-.specx .olist{margin:0 0 6px}
+.specx .olist{margin:0}
+.osheet{position:fixed;inset:0;z-index:60;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}
+.sbg{position:absolute;inset:0;background:rgba(0,0,0,.45);animation:fade .2s}
+.spanel{position:relative;width:100%;max-width:560px;max-height:78vh;display:flex;flex-direction:column;background:var(--chip);border-radius:18px 18px 0 0;padding:0 8px calc(10px + env(safe-area-inset-bottom,0px));animation:up .22s ease-out;box-shadow:0 -6px 30px rgba(0,0,0,.25)}
+.spanel .olist{min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:2px 2px 6px;background:none}
+.shd{display:flex;align-items:center;justify-content:space-between;padding:14px 6px 10px;font-size:17px}
+.sx{width:36px;height:36px;border-radius:50%;border:0;background:var(--surface);color:var(--ink);font-size:22px;line-height:1;cursor:pointer}
+body.sheeton{overflow:hidden}
+@keyframes up{from{transform:translateY(40px);opacity:.4}to{transform:none;opacity:1}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.sbg,.spanel{animation:none}}
 .shint{display:block;margin:0 8px 4px;font-size:12px;line-height:1.35}
 .kithd{margin:8px 8px 2px;font-size:11px;font-weight:700;color:var(--red);text-transform:uppercase;letter-spacing:.07em}
 .srow .rmv{color:var(--muted);font-style:italic}
@@ -537,7 +547,10 @@ const KI=1.1792,KM=1.15;
 const sgn=d=>d>0?"+"+fmt(d):d<0?"−"+fmt(-d):"";
 const OPEN={};
 const ICON_CHK=`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>`;
-function groupsOf(b){return b.type==="block"?[...b.opts,{id:"mon",title:"Монитор",current:"Без монитора",items:MON.map(m=>({label:monL(m.name),sub:monS(m.spec),delta:m.price}))}]:b.opts}
+const ADDS=[["mon","Монитор","Мониторы"],["x_kb","Клавиатура","Клавиатуры"],["x_ms","Мышь","Мыши"],["x_hp","Наушники","Наушники"]];
+const ADD_IDS=ADDS.map(a=>a[0]);
+function groupsOf(b){if(b.type!=="block")return b.opts;
+  return [...b.opts,...ADDS.map(([id,title,cat])=>({id,title,current:"",items:EXTRAS.filter(m=>m.cat===cat).map(m=>({label:cat==="Мониторы"?monL(m.name):m.name,sub:cat==="Мониторы"?monS(m.spec):m.spec,delta:m.price}))})).filter(g=>g.items.length)]}
 function psuNeed(b,G,st){const g=G.gpu&&st.gpu>=0?G.gpu.items[st.gpu]:null;return g?(g.psu||0):(G.psu&&G.psu.min||0)}
 // Прирост FPS для варианта k группы id (cpu/gpu/ram) при текущем выборе остального
 function optPerf(b,id,k){
@@ -558,7 +571,7 @@ function hintFor(b,id){
   if(id==="gpu"&&p>0&&!noGpu(b.gpu)){const pot=Math.round((idx(GPU_IDX,gpu,100)/idx(GPU_IDX,b.gpu,100)-1)*100);if(p<pot*0.6)return`Процессор сдерживает эту видеокарту: с более мощным процессором было бы до ${pctTxt(pot)} FPS.`;}
   return"";
 }
-const SROWS=[["cpu","CPU"],["gpu","GPU"],["ram","RAM"],["ssd","SSD"],["ssd2","Диск 2"],["mb","Плата"],["psu","БП"],["mon","Монитор"],["k_mon","Монитор"],["k_kb","Клава"],["k_combo","Клава+мышь"],["k_ms","Мышь"],["k_hp","Наушники"],["k_mat","Коврик"]];
+const SROWS=[["cpu","CPU"],["gpu","GPU"],["ram","RAM"],["ssd","SSD"],["ssd2","Диск 2"],["mb","Плата"],["psu","БП"],["mon","Монитор"],["x_kb","Клава"],["x_ms","Мышь"],["x_hp","Наушники"],["k_mon","Монитор"],["k_kb","Клава"],["k_combo","Клава+мышь"],["k_ms","Мышь"],["k_hp","Наушники"],["k_mat","Коврик"]];
 const clean=(id,v)=>id==="ssd2"?v.replace(/^\+\s*/,""):id==="psu"?v.replace(/^БП\s*/,""):v;
 function renderSpec(b){
   const el=document.getElementById("sp"+b.i);if(!el||!el.classList.contains("specx"))return;
@@ -568,23 +581,23 @@ function renderSpec(b){
   let kitHead=false;
   el.innerHTML=SROWS.filter(([id])=>G[id]||baseV[id]).map(([id,dt])=>{
     const g=G[id];
-    const hd=id.startsWith("k_")&&!kitHead?(kitHead=true,`<div class="kithd">В комплекте — можно заменить или убрать</div>`):"";
+    const hd=id.startsWith("k_")&&!kitHead?(kitHead=true,`<div class="kithd">В комплекте — можно заменить или убрать</div>`):id==="mon"&&!kitHead?(kitHead=true,`<div class="kithd">Можно добавить к блоку</div>`):"";
     if(!g)return `<div class="srow static"><span class="sk">${dt}</span><span class="sv">${baseV[id]}</span></div>`;
-    const sel=st[id]??-1,open=OPEN[b.i]===id,perf=id==="cpu"||id==="gpu"||id==="ram",add=id==="ssd2"||id==="mon";
+    const sel=st[id]??-1,open=OPEN[b.i]===id,perf=id==="cpu"||id==="gpu"||id==="ram",add=id==="ssd2"||ADD_IDS.includes(id);
     const o=sel>=0?g.items[sel]:null,base=baseV[id],same=o&&!o.remove&&!o.delta,kit=id.startsWith("k_")&&g.price>0;
     const fpsCur=perf&&o?optPerf(b,id,sel):0;
     const val=same?clean(id,o.label):o?(o.remove?`<span class="rmv">не нужен</span><s>${base}</s>`:`<mark>${clean(id,o.label)}</mark>${base?`<s>${base}</s>`:""}`):(add?`<span class="addv">добавить</span>`:base);
     let rows="";
     if(open){
       const all=[{k:-1,label:add?"Не нужно":base,delta:0,base:!add}].concat(g.items.map((x,k)=>({k,...x})));
-      rows=`<div class="olist" role="radiogroup" aria-label="${g.title}">`+all.map(x=>{
+      rows=`<div class="osheet"><div class="sbg" data-close="${b.i}"></div><div class="spanel" role="dialog" aria-label="${g.title}"><div class="shd"><b>${g.title}</b><button class="sx" data-close="${b.i}" aria-label="Закрыть">×</button></div><div class="olist" role="radiogroup" aria-label="${g.title}">`+all.map(x=>{
         const dis=id==="psu"&&need>0&&(x.k<0?G.psu.watt:x.watt)<need;
         const fp=perf?optPerf(b,id,x.k):0;
         return `<button class="orow${x.k===sel?" on":""}" role="radio" aria-checked="${x.k===sel}" data-i="${b.i}" data-g="${id}" data-k="${x.k}"${dis?" disabled":""}>
           <span class="ock">${x.k===sel?ICON_CHK:""}</span>
           <span class="on2"><span>${x.k<0?x.label:clean(id,x.label)}</span>${x.base?`<small>${id.startsWith("k_")?"как в комплекте":"как в сборке"}</small>`:x.remove?`<small>убрать из комплекта</small>`:x.sub?`<small>${x.sub}</small>`:""}${perf&&x.k>=0&&fp?`<em class="${fp>0?"fu":"fd"}">${pctTxt(fp)} FPS</em>`:""}${dis?`<small>нужен блок от ${need}W</small>`:""}</span>
           ${kit&&!x.remove?`<span class="od">${fmt(x.k<0?g.price:x.price)}</span>`:`<span class="od ${x.delta<0?"neg":x.delta>0?"pos":""}">${x.k<0?"":sgn(x.delta)}</span>`}
-        </button>`}).join("")+`</div>`;
+        </button>`}).join("")+`</div></div></div>`;
     }
     const h=perf?hintFor(b,id):"";
     const pn=id==="psu"&&need&&G.psu.watt<need&&st.psu>=0?`Для этой видеокарты нужен блок от ${need}W — поставили автоматически.`:"";
@@ -604,7 +617,7 @@ function recalc(b){
   const need=psuNeed(b,G,st);
   if(G.psu&&need){const w=st.psu>=0?G.psu.items[st.psu].watt:G.psu.watt;if(w<need){const k=G.psu.items.findIndex(o=>o.watt>=need);if(k>=0)st.psu=k;}}
   let add=0,mon=0;const changes=[];
-  for(const[id,k] of Object.entries(st)){if(k<0||!G[id])continue;const o=G[id].items[k];if(id==="mon"){mon+=o.delta}else add+=o.delta;changes.push(o.remove?"без: "+G[id].current:id==="mon"?"монитор "+o.label:id.startsWith("k_")?G[id].title.toLowerCase()+" "+o.label:o.label)}
+  for(const[id,k] of Object.entries(st)){if(k<0||!G[id])continue;const o=G[id].items[k];if(ADD_IDS.includes(id)){mon+=o.delta}else add+=o.delta;changes.push(o.remove?"без: "+G[id].current:id==="mon"?"монитор "+o.label:id.startsWith("k_")||id.startsWith("x_")?G[id].title.toLowerCase()+" "+o.label:o.label)}
   const cash=b.cash+add+mon, inst=Math.ceil(((b.cash+add)*KI+mon*KM)/1000)*1000, month=Math.ceil(inst/24/100)*100;
   const{cpu,gpu,ram}=curParts(b);
   b.perfPct=(cpu!==b.cpu||gpu!==b.gpu||ram!==b.ram)?Math.round((avgRatio(gameFps(b.cpu,b.gpu,FP,false,b.ram),gameFps(cpu,gpu,FP,false,ram))-1)*100):0;
@@ -617,14 +630,20 @@ function recalc(b){
 }
 grid.addEventListener("click",e=>{
   const h=e.target.closest(".srow[data-og]");if(!h)return;
-  const i=+h.dataset.i,b=D[i];OPEN[i]=OPEN[i]===h.dataset.og?null:h.dataset.og;renderSpec(b);
+  const i=+h.dataset.i,b=D[i];OPEN[i]=OPEN[i]===h.dataset.og?null:h.dataset.og;D.forEach(x=>{if(x!==b&&OPEN[x.i]){OPEN[x.i]=null;renderSpec(x)}});renderSpec(b);lockScroll();
   if(OPEN[i]&&!b._evOpen){b._evOpen=1;ev("komplektaciya-"+(b.n||"new"),"Меняли комплектацию "+(b.n?"№"+b.n:"новинки"));}
 });
+grid.addEventListener("click",e=>{
+  const c=e.target.closest("[data-close]");if(!c)return;
+  const b=D[+c.dataset.close];OPEN[b.i]=null;renderSpec(b);lockScroll();
+});
+function lockScroll(){document.body.classList.toggle("sheeton",!!document.querySelector(".osheet"))}
+document.addEventListener("keydown",e=>{if(e.key!=="Escape")return;const c=document.querySelector(".osheet [data-close]");if(c)c.click();});
 grid.addEventListener("click",e=>{
   const r=e.target.closest(".orow");if(!r||r.disabled)return;
   const b=D[+r.dataset.i],g=r.dataset.g;(SEL[b.i]||(SEL[b.i]={}))[g]=+r.dataset.k;OPEN[b.i]=null;
   if(g==="cpu"||g==="gpu"){const box=document.getElementById("f"+b.i),fb=document.querySelector(`.fpsbtn[data-f="${b.i}"]`);if(box&&box.hidden){box.hidden=false;fb&&fb.setAttribute("aria-expanded","true")}}
-  recalc(b);
+  recalc(b);lockScroll();
 });
 grid.addEventListener("click",e=>{
   const c=e.target.closest("[data-fp]");if(!c)return;
