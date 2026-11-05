@@ -274,11 +274,11 @@ const grid=document.getElementById("grid"),q=document.getElementById("q"),sort=d
 const st={type:"all",budget:"0-0",gpu:"all",cpu:"all",ram:"all",ssd:"all"};
 const G={
   gpu:b=>b.gpu.replace(/ \d+GB$/,"").replace(/^RTX /,"RTX "),
-  cpu:b=>{let m=b.cpu.match(/(?:^|Core\s?)i(\d)\b/);if(m)return "Intel i"+m[1];m=b.cpu.match(/Core Ultra (\d)/);if(m)return "Intel Core Ultra "+m[1];m=b.cpu.match(/Core (\d)\b/);if(m)return "Intel Core "+m[1];m=b.cpu.match(/Ryzen (?:AI )?(\d)/);return m?"Ryzen "+m[1]:(b.cpu||"")},
+  cpu:b=>{if(/Apple/.test(b.cpu))return "Apple";if(/Celeron|Pentium|Athlon|\bN\d{3}/.test(b.cpu))return "Celeron / Pentium";let m=b.cpu.match(/(?:^|Core\s?)i(\d)\b/);if(m)return "Intel i"+m[1];m=b.cpu.match(/Core Ultra (\d)/);if(m)return "Intel Core Ultra "+m[1];m=b.cpu.match(/Core (\d)\b/);if(m)return "Intel Core "+m[1];m=b.cpu.match(/Ryzen (?:AI )?(\d)/);return m?"Ryzen "+m[1]:(b.cpu||"")},
   ram:b=>b.ram.split(" ")[0],
   ssd:b=>b.ssd.split(" ")[0]
 };
-const ORDER={cpu:["Intel i3","Intel i5","Intel i7","Intel i9","Intel Core 5","Intel Core 7","Intel Core Ultra 7","Intel Core Ultra 9","Ryzen 5","Ryzen 7","Ryzen 9"]};
+const ORDER={cpu:["Celeron / Pentium","Intel i3","Intel i5","Intel i7","Intel i9","Intel Core 5","Intel Core 7","Intel Core Ultra 7","Intel Core Ultra 9","Ryzen 3","Ryzen 5","Ryzen 7","Ryzen 9","Apple"]};
 function buildChips(){
   document.querySelectorAll("[data-dyn]").forEach(box=>{
     const key=box.dataset.g,f=G[key];
@@ -295,8 +295,9 @@ const SEL={};
 function lapCard(b){
   return `<article class="card">
     <div class="head"><div class="num nb">NB</div>
-      <div class="title"><span class="type lap">Ноутбук · под заказ 3–5 дней</span><strong>${b.title}</strong></div></div>
-    <dl class="spec">${b.screen?`<dt>Экран</dt><dd>${b.screen}</dd>`:""}<dt>CPU</dt><dd>${b.cpu||"—"}</dd><dt>GPU</dt><dd>${b.gpu}</dd>${b.ram?`<dt>RAM</dt><dd>${b.ram}</dd>`:""}${b.ssd?`<dt>SSD</dt><dd>${b.ssd}</dd>`:""}<dt>ОС</dt><dd>${b.no_os?"без Windows (можем установить)":"Windows 11"}</dd></dl>
+      <div class="title"><span class="type lap">${b.gaming?"Игровой ноутбук":"Ноутбук"} · под заказ 3–5 дней</span><strong>${b.title}</strong></div></div>
+    <dl class="spec">${b.screen?`<dt>Экран</dt><dd>${b.screen}</dd>`:""}${b.cpu?`<dt>CPU</dt><dd>${b.cpu}</dd>`:""}${b.gpu?`<dt>GPU</dt><dd>${b.gpu}</dd>`:""}${b.ram?`<dt>RAM</dt><dd>${b.ram}</dd>`:""}${b.ssd?`<dt>SSD</dt><dd>${b.ssd}</dd>`:""}${b.no_os?`<dt>ОС</dt><dd>без Windows (можем установить)</dd>`:""}</dl>
+    ${!b.cpu||!b.ram?`<p class="note" style="margin:0;padding:0 14px 12px">Полные характеристики пришлём в WhatsApp</p>`:""}
     <div class="price">
       <div class="row"><span class="k">Наличные / QR</span><span class="cash">${fmt(b.cash)}</span></div>
       <div class="row"><span class="k">Рассрочка Kaspi</span><span class="inst">${fmt(b.inst)}</span></div>
@@ -449,7 +450,7 @@ function addCart(item){
 grid.addEventListener("click",e=>{
   const x=e.target.closest(".buy[data-b]");if(!x)return;
   const b=D[+x.dataset.b];
-  if(b.type==="laptop"){addCart({title:"Ноутбук "+b.title,desc:[b.cpu,b.gpu,b.ram,b.ssd].filter(Boolean).join(", ")+" · под заказ 3–5 дней",cash:b.cash,inst:b.inst});return}
+  if(b.type==="laptop"){addCart({title:(b.gaming?"Игровой ноутбук ":"Ноутбук ")+b.title,desc:[b.cpu,b.gpu,b.ram,b.ssd].filter(Boolean).join(", ")+" · под заказ 3–5 дней",cash:b.cash,inst:b.inst});return}
   const c=b.cur||recalc(b);
   const label=b.n?`№${b.n}`:"новинка";
   addCart({title:`${b.type==="kit"?"Комплект":"Сборка"} ${label}: ${b.cpu} + ${b.gpu}`,desc:c.changes.length?"изменения: "+c.changes.join(", "):`${b.ram}, ${b.ssd}`,cash:c.cash,inst:c.inst});
@@ -472,7 +473,7 @@ window.addEventListener("hashchange",fromHash);
 
 fetch("prices.json?t="+Date.now()).then(r=>r.json()).then(j=>{
   D=j.builds.map((b,i)=>({i,n:b.number,type:b.type,cpu:b.cpu,gpu:b.gpu,ram:b.ram,ssd:b.ssd,cash:b.cash,inst:b.installment,month:b.monthly,stock:b.in_stock,post:b.post,kit:b.kit||"",opts:b.options||[]}));
-  (j.laptops||[]).forEach(l=>D.push({i:D.length,n:null,type:"laptop",title:l.title,cpu:l.cpu,gpu:l.gpu,ram:l.ram,ssd:l.ssd,screen:l.screen,no_os:l.no_os,cash:l.cash,inst:l.installment,month:l.monthly,kit:"",opts:[]}));
+  (j.laptops||[]).forEach(l=>D.push({i:D.length,n:null,type:"laptop",gaming:l.gaming,title:l.title,cpu:l.cpu,gpu:l.gpu,ram:l.ram,ssd:l.ssd,screen:l.screen,no_os:l.no_os,cash:l.cash,inst:l.installment,month:l.monthly,kit:"",opts:[]}));
   MON=(j.extras||[]).filter(m=>m.cat==="Мониторы");
   EXTRAS=j.extras||[];
   document.getElementById("upd").textContent=`Цены обновлены ${j.updated} по ценам поставщиков`;
