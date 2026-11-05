@@ -59,6 +59,16 @@ h1{font-family:var(--f-display);font-weight:600;font-size:clamp(22px,4.6vw,34px)
 .mon .pr a{font:600 13px var(--f-body);text-decoration:none;color:#fff;background:var(--wa);padding:6px 10px;border-radius:8px}
 .jump{margin:8px 0 0;font-size:14px}
 .jump a{color:var(--ink);font-weight:600;text-underline-offset:3px}
+.cfg{font:600 14px var(--f-body);background:var(--chip);color:var(--ink);border:0;border-radius:9px;padding:10px 12px;cursor:pointer;text-align:left;display:flex;justify-content:space-between;align-items:center}
+.cfg:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+.cfg[aria-expanded="true"] span{transform:rotate(180deg)}
+.cfgp{display:grid;gap:10px;padding:2px 0 4px}
+.opt{display:grid;gap:4px;min-width:0}
+.opt label{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
+.opt select{width:100%;font:500 14px var(--f-body);padding:9px 10px;border-radius:9px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink)}
+.opt select:focus-visible{outline:2px solid var(--red);outline-offset:1px}
+.opt small{font-size:12px;color:var(--muted)}
+.chg{font-size:12px;color:var(--red);text-align:right;min-height:0}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none}
 
 .bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:12px;border-bottom:1px solid var(--line)}
@@ -230,7 +240,8 @@ function buildChips(){
     box.innerHTML=`<button class="chip" data-v="all" aria-pressed="true">Любой</button>`+vals.map(v=>`<button class="chip" data-v="${v}" aria-pressed="false">${v}</button>`).join("");
   });
 }
-let D=[];
+let D=[],MON=[];
+const SEL={};
 
 function card(b){
   const name=`${short(b.cpu)} + ${short(b.gpu)}`;
@@ -242,12 +253,14 @@ function card(b){
     <dl class="spec"><dt>CPU</dt><dd>${b.cpu}</dd><dt>GPU</dt><dd>${b.gpu}</dd><dt>RAM</dt><dd>${b.ram}</dd><dt>SSD</dt><dd>${b.ssd}</dd></dl>
     ${b.kit?`<div class="inkit"><b>В комплекте</b>${b.kit}</div>`:""}
     <div class="price">
-      <div class="row"><span class="k">Наличные / QR</span><span class="cash">${fmt(b.cash)}</span></div>
-      <div class="row"><span class="k">Рассрочка Kaspi</span><span class="inst">${fmt(b.inst)}</span></div>
-      <div class="month">от <b>${fmt(b.month)}</b> в месяц</div>
+      <div class="row"><span class="k">Наличные / QR</span><span class="cash" id="c${b.i}">${fmt(b.cash)}</span></div>
+      <div class="row"><span class="k">Рассрочка Kaspi</span><span class="inst" id="r${b.i}">${fmt(b.inst)}</span></div>
+      <div class="month">от <b id="m${b.i}">${fmt(b.month)}</b> в месяц</div>
+      <div class="chg" id="d${b.i}"></div>
     </div>
     <div class="foot">
-      <div class="acts">${b.post?`<a class="ig" href="${IGURL(b.post)}" target="_blank" rel="noopener">Фото в Instagram</a>`:""}<a class="wa" href="https://wa.me/77473458952?text=${msg}" target="_blank" rel="noopener">Заказать в WhatsApp</a></div></div>
+      ${b.opts&&b.opts.length?`<button class="cfg" data-i="${b.i}" aria-expanded="false">Настроить сборку <span aria-hidden="true">▾</span></button><div class="cfgp" id="p${b.i}" hidden></div>`:""}
+      <div class="acts">${b.post?`<a class="ig" href="${IGURL(b.post)}" target="_blank" rel="noopener">Фото в Instagram</a>`:""}<a class="wa" id="w${b.i}" href="https://wa.me/77473458952?text=${msg}" target="_blank" rel="noopener">Заказать в WhatsApp</a></div></div>
   </article>`;
 }
 
@@ -272,6 +285,7 @@ function render(){
   reset.hidden=!any;
   const exact=/^\d{3,4}$/.test(t)&&list.find(b=>String(b.n)===t);
   if(exact)document.getElementById("b"+exact.n).classList.add("hit");
+  list.forEach(b=>{if(SEL[b.i]&&Object.values(SEL[b.i]).some(v=>v>=0))recalc(b)});
 }
 
 document.querySelectorAll("[data-g]").forEach(g=>g.addEventListener("click",e=>{
@@ -290,6 +304,54 @@ const more=document.getElementById("more"),extra=document.getElementById("extra"
 more.addEventListener("click",()=>{extra.hidden=!extra.hidden;more.setAttribute("aria-expanded",String(!extra.hidden));more.textContent=extra.hidden?"Ещё фильтры: ОЗУ и SSD":"Скрыть ОЗУ и SSD";});
 sort.addEventListener("change",render);
 
+
+const KI=1.1792,KM=1.15;
+function panel(b){
+  const st=SEL[b.i]||(SEL[b.i]={});
+  const groups=b.type==="block"?[...b.opts,{id:"mon",title:"Монитор",current:"Без монитора",items:MON.map(m=>({label:m.name+" · "+m.spec.split(" · ").slice(0,3).join(" "),delta:m.price}))}]:b.opts;
+  return groups.map(g=>{
+    const sel=st[g.id]??-1;
+    const opts=[`<option value="-1">${g.id==="ssd2"||g.id==="mon"?g.current:"Как есть: "+g.current}</option>`].concat(g.items.map((o,k)=>`<option value="${k}" ${k===sel?"selected":""}>${o.label} (+${fmt(o.delta)})</option>`));
+    return `<div class="opt"><label for="s${b.i}_${g.id}">${g.title}</label><select id="s${b.i}_${g.id}" data-i="${b.i}" data-g="${g.id}">${opts.join("")}</select>${g.id==="psu"?`<small id="ps${b.i}"></small>`:""}</div>`;
+  }).join("");
+}
+function groupsOf(b){return b.type==="block"?[...b.opts,{id:"mon",title:"Монитор",items:MON.map(m=>({label:m.name,delta:m.price,mon:1}))}]:b.opts}
+function recalc(b){
+  const st=SEL[b.i]||{};
+  const G=Object.fromEntries(groupsOf(b).map(g=>[g.id,g]));
+  // блок питания под видеокарту
+  const gsel=G.gpu&&st.gpu>=0?G.gpu.items[st.gpu]:null;
+  const need=gsel&&gsel.psu||0;
+  const psuSel=document.getElementById(`s${b.i}_psu`), note=document.getElementById(`ps${b.i}`);
+  if(G.psu&&psuSel){
+    const curW=G.psu.watt;
+    [...psuSel.options].forEach(op=>{const k=+op.value;const w=k<0?curW:G.psu.items[k].watt;op.disabled=need>0&&w<need;});
+    const chosenW=st.psu>=0?G.psu.items[st.psu].watt:curW;
+    if(need&&chosenW<need){const k=G.psu.items.findIndex(o=>o.watt>=need);if(k>=0){st.psu=k;psuSel.value=String(k);}}
+    if(note)note.textContent=need&&curW<need?`Для этой видеокарты нужен блок от ${need}W — поставили автоматически.`:"";
+  }
+  let add=0,mon=0;const changes=[];
+  for(const[id,k] of Object.entries(st)){if(k<0||!G[id])continue;const o=G[id].items[k];if(id==="mon"){mon+=o.delta}else add+=o.delta;changes.push(id==="mon"?"монитор "+o.label:o.label)}
+  const cash=b.cash+add+mon, inst=Math.ceil(((b.cash+add)*KI+mon*KM)/1000)*1000, month=Math.ceil(inst/24/100)*100;
+  document.getElementById("c"+b.i).textContent=fmt(cash);
+  document.getElementById("r"+b.i).textContent=fmt(inst);
+  document.getElementById("m"+b.i).textContent=fmt(month);
+  document.getElementById("d"+b.i).textContent=changes.length?`С изменениями: +${fmt(add+mon)}`:"";
+  const label=b.n?`№${b.n}`:"новинка";
+  const msg=`Здравствуйте! Интересует ${b.type==="kit"?"комплект":"сборка"} ${label} (${b.cpu} + ${b.gpu})`+(changes.length?`, с изменениями: ${changes.join(", ")}`:"")+`. Цена: ${fmt(cash)}`;
+  document.getElementById("w"+b.i).href="https://wa.me/77473458952?text="+encodeURIComponent(msg);
+}
+grid.addEventListener("click",e=>{
+  const btn=e.target.closest(".cfg");if(!btn)return;
+  const b=D[+btn.dataset.i],p=document.getElementById("p"+b.i);
+  if(p.hidden){p.innerHTML=panel(b);p.hidden=false;btn.setAttribute("aria-expanded","true");recalc(b);}
+  else{p.hidden=true;btn.setAttribute("aria-expanded","false");}
+});
+grid.addEventListener("change",e=>{
+  const s=e.target.closest("select[data-g]");if(!s)return;
+  const b=D[+s.dataset.i];(SEL[b.i]||(SEL[b.i]={}))[s.dataset.g]=+s.value;recalc(b);
+});
+
 function fromHash(){
   const h=location.hash.replace("#","");
   if(/^\d{3,4}$/.test(h)){q.value=h;render();const el=document.getElementById("b"+h);if(el)el.scrollIntoView({block:"start"});}
@@ -297,7 +359,8 @@ function fromHash(){
 window.addEventListener("hashchange",fromHash);
 
 fetch("prices.json?t="+Date.now()).then(r=>r.json()).then(j=>{
-  D=j.builds.map((b,i)=>({i,n:b.number,type:b.type,cpu:b.cpu,gpu:b.gpu,ram:b.ram,ssd:b.ssd,cash:b.cash,inst:b.installment,month:b.monthly,stock:b.in_stock,post:b.post,kit:b.kit||""}));
+  D=j.builds.map((b,i)=>({i,n:b.number,type:b.type,cpu:b.cpu,gpu:b.gpu,ram:b.ram,ssd:b.ssd,cash:b.cash,inst:b.installment,month:b.monthly,stock:b.in_stock,post:b.post,kit:b.kit||"",opts:b.options||[]}));
+  MON=(j.extras||[]).filter(m=>m.cat==="Мониторы");
   document.getElementById("upd").textContent=`Цены обновлены ${j.updated} по ценам поставщиков`;
   const M=j.extras||[];
   if(M.length){

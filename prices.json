@@ -13,7 +13,101 @@
    "kit": "Монитор AOC 24.5″ 310 Гц, клавиатура Aula F75, мышь Aula SX580, наушники Aula G7, коврик 90×40",
    "cash": 950000,
    "installment": 1121000,
-   "monthly": 46800
+   "monthly": 46800,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "B650M",
+     "items": [
+      {
+       "label": "B850M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": null,
@@ -27,7 +121,122 @@
    "kit": "Монитор Sanc 24.5″ 240 Гц, клавиатура Ajazz AK820, мышь Aula SC580, наушники Aula G7, коврик",
    "cash": 430000,
    "installment": 508000,
-   "monthly": 21200
+   "monthly": 21200,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 2060 6GB",
+     "items": [
+      {
+       "label": "RTX 5050 8GB",
+       "delta": 145000
+      },
+      {
+       "label": "RTX 5060 8GB",
+       "delta": 221000
+      },
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 247000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 402000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 475000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 755000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "16GB DDR4",
+     "items": [
+      {
+       "label": "32GB DDR4",
+       "delta": 57000
+      },
+      {
+       "label": "64GB DDR4",
+       "delta": 230000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "512GB NVMe",
+     "items": [
+      {
+       "label": "1TB NVMe",
+       "delta": 27000
+      },
+      {
+       "label": "2TB NVMe",
+       "delta": 94000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "H610M",
+     "items": [
+      {
+       "label": "B760M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "500W",
+     "watt": 500,
+     "items": [
+      {
+       "label": "700W",
+       "delta": 9000,
+       "watt": 700
+      },
+      {
+       "label": "850W",
+       "delta": 18000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": null,
@@ -41,7 +250,122 @@
    "kit": "Монитор Sanc 23.8″ 200 Гц, клавиатура и мышь X-Game, коврик 80×30",
    "cash": 360000,
    "installment": 425000,
-   "monthly": 17800
+   "monthly": 17800,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 2060 6GB",
+     "items": [
+      {
+       "label": "RTX 5050 8GB",
+       "delta": 145000
+      },
+      {
+       "label": "RTX 5060 8GB",
+       "delta": 221000
+      },
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 247000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 402000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 475000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 755000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "16GB DDR4",
+     "items": [
+      {
+       "label": "32GB DDR4",
+       "delta": 57000
+      },
+      {
+       "label": "64GB DDR4",
+       "delta": 230000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "512GB NVMe",
+     "items": [
+      {
+       "label": "1TB NVMe",
+       "delta": 27000
+      },
+      {
+       "label": "2TB NVMe",
+       "delta": 94000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "H610M",
+     "items": [
+      {
+       "label": "B760M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "500W",
+     "watt": 500,
+     "items": [
+      {
+       "label": "700W",
+       "delta": 9000,
+       "watt": 700
+      },
+      {
+       "label": "850W",
+       "delta": 18000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": null,
@@ -55,7 +379,101 @@
    "kit": "Монитор Sanc 27″ 200 Гц, клавиатура Aula F75, мышь Aula SX580, наушники Aula G7, коврик 120×60. Стол и кресло — по запросу",
    "cash": 730000,
    "installment": 861000,
-   "monthly": 35900
+   "monthly": 35900,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR4",
+     "items": [
+      {
+       "label": "64GB DDR4",
+       "delta": 173000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "H610M",
+     "items": [
+      {
+       "label": "B760M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1033,
@@ -69,7 +487,109 @@
    "kit": "Монитор Lenovo Legion 24.5″ 320 Гц, клавиатура Aula F75, мышь Aula SX580, коврик 90×40",
    "cash": 740000,
    "installment": 873000,
-   "monthly": 36400
+   "monthly": 36400,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "16GB DDR5",
+     "items": [
+      {
+       "label": "32GB DDR5",
+       "delta": 108000
+      },
+      {
+       "label": "64GB DDR5",
+       "delta": 366000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "512GB NVMe",
+     "items": [
+      {
+       "label": "1TB NVMe",
+       "delta": 27000
+      },
+      {
+       "label": "2TB NVMe",
+       "delta": 94000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "B650M",
+     "items": [
+      {
+       "label": "B850M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1032,
@@ -83,7 +603,109 @@
    "kit": "Монитор Lenovo Legion 24.5″ 320 Гц, клавиатура Aula F75, мышь Aula SX580, коврик 90×40",
    "cash": 720000,
    "installment": 850000,
-   "monthly": 35500
+   "monthly": 35500,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "16GB DDR5",
+     "items": [
+      {
+       "label": "32GB DDR5",
+       "delta": 108000
+      },
+      {
+       "label": "64GB DDR5",
+       "delta": 366000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "512GB NVMe",
+     "items": [
+      {
+       "label": "1TB NVMe",
+       "delta": 27000
+      },
+      {
+       "label": "2TB NVMe",
+       "delta": 94000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "H610M",
+     "items": [
+      {
+       "label": "B760M",
+       "delta": 8000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1031,
@@ -97,7 +719,122 @@
    "kit": "",
    "cash": 335000,
    "installment": 396000,
-   "monthly": 16500
+   "monthly": 16500,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 2060 6GB",
+     "items": [
+      {
+       "label": "RTX 5050 8GB",
+       "delta": 145000
+      },
+      {
+       "label": "RTX 5060 8GB",
+       "delta": 221000
+      },
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 247000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 402000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 475000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 755000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "16GB DDR4",
+     "items": [
+      {
+       "label": "32GB DDR4",
+       "delta": 57000
+      },
+      {
+       "label": "64GB DDR4",
+       "delta": 230000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "512GB NVMe",
+     "items": [
+      {
+       "label": "1TB NVMe",
+       "delta": 27000
+      },
+      {
+       "label": "2TB NVMe",
+       "delta": 94000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "H610M",
+     "items": [
+      {
+       "label": "B760M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "500W",
+     "watt": 500,
+     "items": [
+      {
+       "label": "700W",
+       "delta": 9000,
+       "watt": 700
+      },
+      {
+       "label": "850W",
+       "delta": 18000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1030,
@@ -111,7 +848,105 @@
    "kit": "",
    "cash": 710000,
    "installment": 838000,
-   "monthly": 35000
+   "monthly": 35000,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "512GB NVMe",
+     "items": [
+      {
+       "label": "1TB NVMe",
+       "delta": 27000
+      },
+      {
+       "label": "2TB NVMe",
+       "delta": 94000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "B650M",
+     "items": [
+      {
+       "label": "B850M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1029,
@@ -125,7 +960,105 @@
    "kit": "",
    "cash": 600000,
    "installment": 708000,
-   "monthly": 29500
+   "monthly": 29500,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR4",
+     "items": [
+      {
+       "label": "64GB DDR4",
+       "delta": 173000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "512GB NVMe",
+     "items": [
+      {
+       "label": "1TB NVMe",
+       "delta": 27000
+      },
+      {
+       "label": "2TB NVMe",
+       "delta": 94000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "H610M",
+     "items": [
+      {
+       "label": "B760M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1028,
@@ -139,7 +1072,80 @@
    "kit": "",
    "cash": 1150000,
    "installment": 1357000,
-   "monthly": 56600
+   "monthly": 56600,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5070 12GB",
+     "items": [
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 281000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "B650M",
+     "items": [
+      {
+       "label": "B850M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "850W",
+     "watt": 850,
+     "items": []
+    }
+   ]
   },
   {
    "number": 1027,
@@ -153,7 +1159,84 @@
    "kit": "",
    "cash": 890000,
    "installment": 1050000,
-   "monthly": 43800
+   "monthly": 43800,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "850W",
+     "watt": 850,
+     "items": []
+    }
+   ]
   },
   {
    "number": 1026,
@@ -167,7 +1250,109 @@
    "kit": "",
    "cash": 700000,
    "installment": 826000,
-   "monthly": 34500
+   "monthly": 34500,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "16GB DDR5",
+     "items": [
+      {
+       "label": "32GB DDR5",
+       "delta": 108000
+      },
+      {
+       "label": "64GB DDR5",
+       "delta": 366000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "512GB NVMe",
+     "items": [
+      {
+       "label": "1TB NVMe",
+       "delta": 27000
+      },
+      {
+       "label": "2TB NVMe",
+       "delta": 94000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "B650M",
+     "items": [
+      {
+       "label": "B850M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1025,
@@ -181,7 +1366,114 @@
    "kit": "",
    "cash": 550000,
    "installment": 649000,
-   "monthly": 27100
+   "monthly": 27100,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "16GB DDR4",
+     "items": [
+      {
+       "label": "32GB DDR4",
+       "delta": 57000
+      },
+      {
+       "label": "64GB DDR4",
+       "delta": 230000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "512GB NVMe",
+     "items": [
+      {
+       "label": "1TB NVMe",
+       "delta": 27000
+      },
+      {
+       "label": "2TB NVMe",
+       "delta": 94000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "H610M",
+     "items": [
+      {
+       "label": "B760M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "500W",
+     "watt": 500,
+     "items": [
+      {
+       "label": "700W",
+       "delta": 9000,
+       "watt": 700
+      },
+      {
+       "label": "850W",
+       "delta": 18000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1024,
@@ -195,7 +1487,90 @@
    "kit": "",
    "cash": 750000,
    "installment": 885000,
-   "monthly": 36900
+   "monthly": 36900,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR4",
+     "items": [
+      {
+       "label": "64GB DDR4",
+       "delta": 173000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1023,
@@ -209,7 +1584,122 @@
    "kit": "",
    "cash": 440000,
    "installment": 519000,
-   "monthly": 21700
+   "monthly": 21700,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 3050 8GB",
+     "items": [
+      {
+       "label": "RTX 5050 8GB",
+       "delta": 9000
+      },
+      {
+       "label": "RTX 5060 8GB",
+       "delta": 86000
+      },
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 111000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 267000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 339000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 620000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "16GB DDR4",
+     "items": [
+      {
+       "label": "32GB DDR4",
+       "delta": 57000
+      },
+      {
+       "label": "64GB DDR4",
+       "delta": 230000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "512GB NVMe",
+     "items": [
+      {
+       "label": "1TB NVMe",
+       "delta": 27000
+      },
+      {
+       "label": "2TB NVMe",
+       "delta": 94000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "H610M",
+     "items": [
+      {
+       "label": "B760M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "500W",
+     "watt": 500,
+     "items": [
+      {
+       "label": "700W",
+       "delta": 9000,
+       "watt": 700
+      },
+      {
+       "label": "850W",
+       "delta": 18000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1022,
@@ -223,7 +1713,105 @@
    "kit": "",
    "cash": 800000,
    "installment": 944000,
-   "monthly": 39400
+   "monthly": 39400,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "512GB NVMe",
+     "items": [
+      {
+       "label": "1TB NVMe",
+       "delta": 27000
+      },
+      {
+       "label": "2TB NVMe",
+       "delta": 94000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "B650M",
+     "items": [
+      {
+       "label": "B850M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1021,
@@ -237,7 +1825,84 @@
    "kit": "",
    "cash": 950000,
    "installment": 1121000,
-   "monthly": 46800
+   "monthly": 46800,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 Ti 16GB",
+     "items": [
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 73000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 353000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "512GB NVMe",
+     "items": [
+      {
+       "label": "1TB NVMe",
+       "delta": 27000
+      },
+      {
+       "label": "2TB NVMe",
+       "delta": 94000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1020,
@@ -251,7 +1916,58 @@
    "kit": "",
    "cash": 1340000,
    "installment": 1581000,
-   "monthly": 65900
+   "monthly": 65900,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5070 12GB",
+     "items": [
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 281000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "850W",
+     "watt": 850,
+     "items": []
+    }
+   ]
   },
   {
    "number": 1019,
@@ -265,7 +1981,110 @@
    "kit": "",
    "cash": 670000,
    "installment": 791000,
-   "monthly": 33000
+   "monthly": 33000,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "512GB NVMe",
+     "items": [
+      {
+       "label": "1TB NVMe",
+       "delta": 27000
+      },
+      {
+       "label": "2TB NVMe",
+       "delta": 94000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "B650M",
+     "items": [
+      {
+       "label": "B850M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "500W",
+     "watt": 500,
+     "items": [
+      {
+       "label": "700W",
+       "delta": 9000,
+       "watt": 700
+      },
+      {
+       "label": "850W",
+       "delta": 18000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1018,
@@ -279,7 +2098,101 @@
    "kit": "",
    "cash": 710000,
    "installment": 838000,
-   "monthly": 35000
+   "monthly": 35000,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "H610M",
+     "items": [
+      {
+       "label": "B760M",
+       "delta": 8000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1017,
@@ -293,7 +2206,101 @@
    "kit": "Монитор Sanc 27″ 200 Гц, клавиатура Aula F75, мышь Aula, наушники Aula G7 Pro, коврик 90×40",
    "cash": 840000,
    "installment": 991000,
-   "monthly": 41300
+   "monthly": 41300,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "B650M",
+     "items": [
+      {
+       "label": "B850M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1016,
@@ -307,7 +2314,110 @@
    "kit": "Монитор Sanc 24.5″ 240 Гц, клавиатура Aula F75, мышь Aula, наушники Aula G7 Pro",
    "cash": 730000,
    "installment": 861000,
-   "monthly": 35900
+   "monthly": 35900,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5050 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 8GB",
+       "delta": 77000
+      },
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 102000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 258000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 331000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 611000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "B650M",
+     "items": [
+      {
+       "label": "B850M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "500W",
+     "watt": 500,
+     "items": [
+      {
+       "label": "700W",
+       "delta": 9000,
+       "watt": 700
+      },
+      {
+       "label": "850W",
+       "delta": 18000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1015,
@@ -321,7 +2431,90 @@
    "kit": "",
    "cash": 750000,
    "installment": 885000,
-   "monthly": 36900
+   "monthly": 36900,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR4",
+     "items": [
+      {
+       "label": "64GB DDR4",
+       "delta": 173000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1014,
@@ -335,7 +2528,101 @@
    "kit": "",
    "cash": 730000,
    "installment": 861000,
-   "monthly": 35900
+   "monthly": 35900,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "H610M",
+     "items": [
+      {
+       "label": "B760M",
+       "delta": 8000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1013,
@@ -349,7 +2636,114 @@
    "kit": "",
    "cash": 640000,
    "installment": 755000,
-   "monthly": 31500
+   "monthly": 31500,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5050 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 8GB",
+       "delta": 77000
+      },
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 102000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 258000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 331000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 611000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "A620M",
+     "items": [
+      {
+       "label": "B650M",
+       "delta": 8000
+      },
+      {
+       "label": "B850M",
+       "delta": 18000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "500W",
+     "watt": 500,
+     "items": [
+      {
+       "label": "700W",
+       "delta": 9000,
+       "watt": 700
+      },
+      {
+       "label": "850W",
+       "delta": 18000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1012,
@@ -363,7 +2757,122 @@
    "kit": "",
    "cash": 520000,
    "installment": 614000,
-   "monthly": 25600
+   "monthly": 25600,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5050 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 8GB",
+       "delta": 77000
+      },
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 102000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 258000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 331000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 611000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "16GB DDR5",
+     "items": [
+      {
+       "label": "32GB DDR5",
+       "delta": 108000
+      },
+      {
+       "label": "64GB DDR5",
+       "delta": 366000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "512GB NVMe",
+     "items": [
+      {
+       "label": "1TB NVMe",
+       "delta": 27000
+      },
+      {
+       "label": "2TB NVMe",
+       "delta": 94000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "A620M",
+     "items": [
+      {
+       "label": "B650M",
+       "delta": 8000
+      },
+      {
+       "label": "B850M",
+       "delta": 18000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "500W",
+     "watt": 500,
+     "items": [
+      {
+       "label": "700W",
+       "delta": 9000,
+       "watt": 700
+      },
+      {
+       "label": "850W",
+       "delta": 18000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1010,
@@ -377,7 +2886,126 @@
    "kit": "",
    "cash": 210000,
    "installment": 248000,
-   "monthly": 10400
+   "monthly": 10400,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "Без видеокарты",
+     "items": [
+      {
+       "label": "RTX 5050 8GB",
+       "delta": 211000
+      },
+      {
+       "label": "RTX 5060 8GB",
+       "delta": 287000
+      },
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 313000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 468000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 541000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 821000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "8GB DDR4",
+     "items": [
+      {
+       "label": "16GB DDR4",
+       "delta": 31000
+      },
+      {
+       "label": "32GB DDR4",
+       "delta": 88000
+      },
+      {
+       "label": "64GB DDR4",
+       "delta": 260000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "512GB SATA",
+     "items": [
+      {
+       "label": "1TB NVMe",
+       "delta": 27000
+      },
+      {
+       "label": "2TB NVMe",
+       "delta": 94000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "H610M",
+     "items": [
+      {
+       "label": "B760M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "500W",
+     "watt": 500,
+     "items": [
+      {
+       "label": "700W",
+       "delta": 9000,
+       "watt": 700
+      },
+      {
+       "label": "850W",
+       "delta": 18000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1009,
@@ -391,7 +3019,122 @@
    "kit": "Монитор Sanc 23.8″ 120 Гц, клавиатура и мышь XD-1100",
    "cash": 470000,
    "installment": 555000,
-   "monthly": 23200
+   "monthly": 23200,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 3050 8GB",
+     "items": [
+      {
+       "label": "RTX 5050 8GB",
+       "delta": 9000
+      },
+      {
+       "label": "RTX 5060 8GB",
+       "delta": 86000
+      },
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 111000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 267000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 339000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 620000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "16GB DDR4",
+     "items": [
+      {
+       "label": "32GB DDR4",
+       "delta": 57000
+      },
+      {
+       "label": "64GB DDR4",
+       "delta": 230000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "512GB NVMe",
+     "items": [
+      {
+       "label": "1TB NVMe",
+       "delta": 27000
+      },
+      {
+       "label": "2TB NVMe",
+       "delta": 94000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "H610M",
+     "items": [
+      {
+       "label": "B760M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "500W",
+     "watt": 500,
+     "items": [
+      {
+       "label": "700W",
+       "delta": 9000,
+       "watt": 700
+      },
+      {
+       "label": "850W",
+       "delta": 18000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1008,
@@ -405,7 +3148,69 @@
    "kit": "",
    "cash": 1030000,
    "installment": 1215000,
-   "monthly": 50700
+   "monthly": 50700,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 Ti 16GB",
+     "items": [
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 73000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 353000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1007,
@@ -419,7 +3224,75 @@
    "kit": "",
    "cash": 890000,
    "installment": 1050000,
-   "monthly": 43800
+   "monthly": 43800,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5070 12GB",
+     "items": [
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 281000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR4",
+     "items": [
+      {
+       "label": "64GB DDR4",
+       "delta": 173000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1006,
@@ -433,7 +3306,101 @@
    "kit": "",
    "cash": 730000,
    "installment": 861000,
-   "monthly": 35900
+   "monthly": 35900,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "B650M",
+     "items": [
+      {
+       "label": "B850M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1005,
@@ -447,7 +3414,80 @@
    "kit": "",
    "cash": 1120000,
    "installment": 1321000,
-   "monthly": 55100
+   "monthly": 55100,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5070 12GB",
+     "items": [
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 281000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "B650M",
+     "items": [
+      {
+       "label": "B850M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "850W",
+     "watt": 850,
+     "items": []
+    }
+   ]
   },
   {
    "number": 1004,
@@ -461,7 +3501,35 @@
    "kit": "",
    "cash": 1800000,
    "installment": 2123000,
-   "monthly": 88500
+   "monthly": 88500,
+   "options": [
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "850W",
+     "watt": 850,
+     "items": []
+    }
+   ]
   },
   {
    "number": 1003,
@@ -475,7 +3543,35 @@
    "kit": "",
    "cash": 1830000,
    "installment": 2158000,
-   "monthly": 90000
+   "monthly": 90000,
+   "options": [
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "850W",
+     "watt": 850,
+     "items": []
+    }
+   ]
   },
   {
    "number": 1002,
@@ -489,7 +3585,90 @@
    "kit": "",
    "cash": 680000,
    "installment": 802000,
-   "monthly": 33500
+   "monthly": 33500,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR4",
+     "items": [
+      {
+       "label": "64GB DDR4",
+       "delta": 173000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1001,
@@ -503,7 +3682,90 @@
    "kit": "",
    "cash": 650000,
    "installment": 767000,
-   "monthly": 32000
+   "monthly": 32000,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR4",
+     "items": [
+      {
+       "label": "64GB DDR4",
+       "delta": 173000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 1000,
@@ -517,7 +3779,101 @@
    "kit": "",
    "cash": 650000,
    "installment": 767000,
-   "monthly": 32000
+   "monthly": 32000,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR4",
+     "items": [
+      {
+       "label": "64GB DDR4",
+       "delta": 173000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "H610M",
+     "items": [
+      {
+       "label": "B760M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 999,
@@ -531,7 +3887,109 @@
    "kit": "",
    "cash": 590000,
    "installment": 696000,
-   "monthly": 29000
+   "monthly": 29000,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "16GB DDR5",
+     "items": [
+      {
+       "label": "32GB DDR5",
+       "delta": 108000
+      },
+      {
+       "label": "64GB DDR5",
+       "delta": 366000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "512GB NVMe",
+     "items": [
+      {
+       "label": "1TB NVMe",
+       "delta": 27000
+      },
+      {
+       "label": "2TB NVMe",
+       "delta": 94000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "B650M",
+     "items": [
+      {
+       "label": "B850M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 998,
@@ -545,7 +4003,114 @@
    "kit": "",
    "cash": 520000,
    "installment": 614000,
-   "monthly": 25600
+   "monthly": 25600,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "16GB DDR4",
+     "items": [
+      {
+       "label": "32GB DDR4",
+       "delta": 57000
+      },
+      {
+       "label": "64GB DDR4",
+       "delta": 230000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "512GB NVMe",
+     "items": [
+      {
+       "label": "1TB NVMe",
+       "delta": 27000
+      },
+      {
+       "label": "2TB NVMe",
+       "delta": 94000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "H610M",
+     "items": [
+      {
+       "label": "B760M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "500W",
+     "watt": 500,
+     "items": [
+      {
+       "label": "700W",
+       "delta": 9000,
+       "watt": 700
+      },
+      {
+       "label": "850W",
+       "delta": 18000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 997,
@@ -559,7 +4124,52 @@
    "kit": "",
    "cash": 1470000,
    "installment": 1734000,
-   "monthly": 72300
+   "monthly": 72300,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 Ti 16GB",
+     "items": [
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 73000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 353000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "850W",
+     "watt": 850,
+     "items": []
+    }
+   ]
   },
   {
    "number": 996,
@@ -573,7 +4183,122 @@
    "kit": "",
    "cash": 450000,
    "installment": 531000,
-   "monthly": 22200
+   "monthly": 22200,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 3050 8GB",
+     "items": [
+      {
+       "label": "RTX 5050 8GB",
+       "delta": 9000
+      },
+      {
+       "label": "RTX 5060 8GB",
+       "delta": 86000
+      },
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 111000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 267000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 339000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 620000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "16GB DDR4",
+     "items": [
+      {
+       "label": "32GB DDR4",
+       "delta": 57000
+      },
+      {
+       "label": "64GB DDR4",
+       "delta": 230000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "512GB NVMe",
+     "items": [
+      {
+       "label": "1TB NVMe",
+       "delta": 27000
+      },
+      {
+       "label": "2TB NVMe",
+       "delta": 94000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "H610M",
+     "items": [
+      {
+       "label": "B760M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "500W",
+     "watt": 500,
+     "items": [
+      {
+       "label": "700W",
+       "delta": 9000,
+       "watt": 700
+      },
+      {
+       "label": "850W",
+       "delta": 18000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 995,
@@ -587,7 +4312,101 @@
    "kit": "",
    "cash": 780000,
    "installment": 920000,
-   "monthly": 38400
+   "monthly": 38400,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "B650M",
+     "items": [
+      {
+       "label": "B850M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 994,
@@ -601,7 +4420,122 @@
    "kit": "",
    "cash": 430000,
    "installment": 508000,
-   "monthly": 21200
+   "monthly": 21200,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 3050 8GB",
+     "items": [
+      {
+       "label": "RTX 5050 8GB",
+       "delta": 9000
+      },
+      {
+       "label": "RTX 5060 8GB",
+       "delta": 86000
+      },
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 111000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 267000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 339000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 620000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "16GB DDR4",
+     "items": [
+      {
+       "label": "32GB DDR4",
+       "delta": 57000
+      },
+      {
+       "label": "64GB DDR4",
+       "delta": 230000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "512GB NVMe",
+     "items": [
+      {
+       "label": "1TB NVMe",
+       "delta": 27000
+      },
+      {
+       "label": "2TB NVMe",
+       "delta": 94000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "H610M",
+     "items": [
+      {
+       "label": "B760M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "500W",
+     "watt": 500,
+     "items": [
+      {
+       "label": "700W",
+       "delta": 9000,
+       "watt": 700
+      },
+      {
+       "label": "850W",
+       "delta": 18000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 993,
@@ -615,7 +4549,101 @@
    "kit": "",
    "cash": 730000,
    "installment": 861000,
-   "monthly": 35900
+   "monthly": 35900,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "B650M",
+     "items": [
+      {
+       "label": "B850M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 992,
@@ -629,7 +4657,111 @@
    "kit": "",
    "cash": 440000,
    "installment": 519000,
-   "monthly": 21700
+   "monthly": 21700,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 3050 8GB",
+     "items": [
+      {
+       "label": "RTX 5050 8GB",
+       "delta": 9000
+      },
+      {
+       "label": "RTX 5060 8GB",
+       "delta": 86000
+      },
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 111000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 267000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 339000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 620000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "16GB DDR4",
+     "items": [
+      {
+       "label": "32GB DDR4",
+       "delta": 57000
+      },
+      {
+       "label": "64GB DDR4",
+       "delta": 230000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "512GB NVMe",
+     "items": [
+      {
+       "label": "1TB NVMe",
+       "delta": 27000
+      },
+      {
+       "label": "2TB NVMe",
+       "delta": 94000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "500W",
+     "watt": 500,
+     "items": [
+      {
+       "label": "700W",
+       "delta": 9000,
+       "watt": 700
+      },
+      {
+       "label": "850W",
+       "delta": 18000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 991,
@@ -643,7 +4775,101 @@
    "kit": "",
    "cash": 770000,
    "installment": 908000,
-   "monthly": 37900
+   "monthly": 37900,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "B650M",
+     "items": [
+      {
+       "label": "B850M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 990,
@@ -657,7 +4883,101 @@
    "kit": "",
    "cash": 630000,
    "installment": 743000,
-   "monthly": 31000
+   "monthly": 31000,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR4",
+     "items": [
+      {
+       "label": "64GB DDR4",
+       "delta": 173000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "H610M",
+     "items": [
+      {
+       "label": "B760M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 989,
@@ -671,7 +4991,101 @@
    "kit": "",
    "cash": 850000,
    "installment": 1003000,
-   "monthly": 41800
+   "monthly": 41800,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "B650M",
+     "items": [
+      {
+       "label": "B850M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 988,
@@ -685,7 +5099,90 @@
    "kit": "",
    "cash": 620000,
    "installment": 732000,
-   "monthly": 30500
+   "monthly": 30500,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR4",
+     "items": [
+      {
+       "label": "64GB DDR4",
+       "delta": 173000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 987,
@@ -699,7 +5196,58 @@
    "kit": "",
    "cash": 1450000,
    "installment": 1710000,
-   "monthly": 71300
+   "monthly": 71300,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5070 12GB",
+     "items": [
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 281000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "B650M",
+     "items": [
+      {
+       "label": "B850M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "850W",
+     "watt": 850,
+     "items": []
+    }
+   ]
   },
   {
    "number": 986,
@@ -713,7 +5261,101 @@
    "kit": "",
    "cash": 750000,
    "installment": 885000,
-   "monthly": 36900
+   "monthly": 36900,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "B650M",
+     "items": [
+      {
+       "label": "B850M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 985,
@@ -727,7 +5369,91 @@
    "kit": "",
    "cash": 1100000,
    "installment": 1298000,
-   "monthly": 54100
+   "monthly": 54100,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 Ti 16GB",
+     "items": [
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 73000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 353000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "B650M",
+     "items": [
+      {
+       "label": "B850M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 984,
@@ -741,7 +5467,80 @@
    "kit": "",
    "cash": 1000000,
    "installment": 1180000,
-   "monthly": 49200
+   "monthly": 49200,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 Ti 16GB",
+     "items": [
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 73000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 353000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 983,
@@ -755,7 +5554,95 @@
    "kit": "",
    "cash": 610000,
    "installment": 720000,
-   "monthly": 30000
+   "monthly": 30000,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR4",
+     "items": [
+      {
+       "label": "64GB DDR4",
+       "delta": 173000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "500W",
+     "watt": 500,
+     "items": [
+      {
+       "label": "700W",
+       "delta": 9000,
+       "watt": 700
+      },
+      {
+       "label": "850W",
+       "delta": 18000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 982,
@@ -769,7 +5656,80 @@
    "kit": "",
    "cash": 1110000,
    "installment": 1309000,
-   "monthly": 54600
+   "monthly": 54600,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5070 12GB",
+     "items": [
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 281000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "B650M",
+     "items": [
+      {
+       "label": "B850M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "850W",
+     "watt": 850,
+     "items": []
+    }
+   ]
   },
   {
    "number": 981,
@@ -783,7 +5743,90 @@
    "kit": "",
    "cash": 710000,
    "installment": 838000,
-   "monthly": 35000
+   "monthly": 35000,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR4",
+     "items": [
+      {
+       "label": "64GB DDR4",
+       "delta": 173000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 980,
@@ -797,7 +5840,110 @@
    "kit": "",
    "cash": 700000,
    "installment": 826000,
-   "monthly": 34500
+   "monthly": 34500,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "A620M",
+     "items": [
+      {
+       "label": "B650M",
+       "delta": 8000
+      },
+      {
+       "label": "B850M",
+       "delta": 18000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "500W",
+     "watt": 500,
+     "items": [
+      {
+       "label": "700W",
+       "delta": 9000,
+       "watt": 700
+      },
+      {
+       "label": "850W",
+       "delta": 18000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 979,
@@ -811,7 +5957,85 @@
    "kit": "",
    "cash": 760000,
    "installment": 897000,
-   "monthly": 37400
+   "monthly": 37400,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 Ti 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 156000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 229000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 509000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 978,
@@ -825,7 +6049,86 @@
    "kit": "",
    "cash": 1090000,
    "installment": 1286000,
-   "monthly": 53600
+   "monthly": 53600,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5070 12GB",
+     "items": [
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 281000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "B650M",
+     "items": [
+      {
+       "label": "B850M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 977,
@@ -839,7 +6142,85 @@
    "kit": "",
    "cash": 740000,
    "installment": 873000,
-   "monthly": 36400
+   "monthly": 36400,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 Ti 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 156000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 229000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 509000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR4",
+     "items": [
+      {
+       "label": "64GB DDR4",
+       "delta": 173000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 976,
@@ -853,7 +6234,114 @@
    "kit": "",
    "cash": 510000,
    "installment": 602000,
-   "monthly": 25100
+   "monthly": 25100,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 8GB",
+       "delta": 26000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 182000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 254000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 535000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "16GB DDR4",
+     "items": [
+      {
+       "label": "32GB DDR4",
+       "delta": 57000
+      },
+      {
+       "label": "64GB DDR4",
+       "delta": 230000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "512GB NVMe",
+     "items": [
+      {
+       "label": "1TB NVMe",
+       "delta": 27000
+      },
+      {
+       "label": "2TB NVMe",
+       "delta": 94000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "H610M",
+     "items": [
+      {
+       "label": "B760M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "500W",
+     "watt": 500,
+     "items": [
+      {
+       "label": "700W",
+       "delta": 9000,
+       "watt": 700
+      },
+      {
+       "label": "850W",
+       "delta": 18000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 975,
@@ -867,7 +6355,96 @@
    "kit": "",
    "cash": 760000,
    "installment": 897000,
-   "monthly": 37400
+   "monthly": 37400,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 Ti 8GB",
+     "items": [
+      {
+       "label": "RTX 5060 Ti 16GB",
+       "delta": 156000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 229000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 509000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "B650M",
+     "items": [
+      {
+       "label": "B850M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   },
   {
    "number": 974,
@@ -881,7 +6458,91 @@
    "kit": "",
    "cash": 910000,
    "installment": 1074000,
-   "monthly": 44800
+   "monthly": 44800,
+   "options": [
+    {
+     "id": "gpu",
+     "title": "Видеокарта",
+     "current": "RTX 5060 Ti 16GB",
+     "items": [
+      {
+       "label": "RTX 5070 12GB",
+       "delta": 73000,
+       "psu": 700
+      },
+      {
+       "label": "RTX 5070 Ti 16GB",
+       "delta": 353000,
+       "psu": 850
+      }
+     ]
+    },
+    {
+     "id": "ram",
+     "title": "Оперативная память",
+     "current": "32GB DDR5",
+     "items": [
+      {
+       "label": "64GB DDR5",
+       "delta": 259000
+      }
+     ]
+    },
+    {
+     "id": "ssd",
+     "title": "SSD (замена)",
+     "current": "1TB NVMe",
+     "items": [
+      {
+       "label": "2TB NVMe",
+       "delta": 68000
+      }
+     ]
+    },
+    {
+     "id": "ssd2",
+     "title": "Второй накопитель",
+     "current": "Нет",
+     "items": [
+      {
+       "label": "+ 512GB NVMe",
+       "delta": 44000
+      },
+      {
+       "label": "+ 1TB NVMe",
+       "delta": 71000
+      },
+      {
+       "label": "+ 2TB NVMe",
+       "delta": 138000
+      }
+     ]
+    },
+    {
+     "id": "mb",
+     "title": "Материнская плата",
+     "current": "B650M",
+     "items": [
+      {
+       "label": "B850M",
+       "delta": 11000
+      }
+     ]
+    },
+    {
+     "id": "psu",
+     "title": "Блок питания",
+     "current": "700W",
+     "watt": 700,
+     "items": [
+      {
+       "label": "850W",
+       "delta": 9000,
+       "watt": 850
+      }
+     ]
+    }
+   ]
   }
  ],
  "extras": [
