@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Актуальные цены на игровые компьютеры TSHOP: сборки из Instagram @tshopkz, рассрочка Kaspi, доставка по Казахстану.">
+<meta property="og:title" content="TSHOP — цены на игровые ПК">
+<meta property="og:description" content="Найдите сборку по номеру с фото в Instagram и узнайте цену на сегодня.">
+<title>TSHOP — цены на игровые ПК</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&family=Unbounded:wght@600;800&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+*,*::before,*::after{box-sizing:border-box}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0;-webkit-text-size-adjust:100%}
+img{max-width:100%}
+[hidden]{display:none!important}
+
+/* Layout: липкая строка поиска, под ней три ряда фильтров (тип, бюджет, железо), затем сетка карточек с красным номером, как на фото в постах */
+:root{
+  --bg:#f3f3f1; --surface:#ffffff; --ink:#18191c; --muted:#686b72; --line:#e2e2de;
+  --red:#d6202b; --red-ink:#ffffff; --ok:#1d7a46; --ok-bg:#e3f3e9; --wait:#8a5a00; --wait-bg:#fbefd5;
+  --chip:#ebebe7; --chip-on:#18191c; --chip-on-ink:#ffffff; --wa:#1f9d55; --kit:#f6e9ea;
+  --f-display:"Unbounded","Onest",system-ui,sans-serif;
+  --f-body:"Onest",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-num:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121316; --surface:#1b1d21; --ink:#eeeeec; --muted:#9a9da4; --line:#2b2e33;
+  --red:#e53a43; --red-ink:#ffffff; --ok:#5fd18f; --ok-bg:#16301f; --wait:#f0c060; --wait-bg:#33280f;
+  --chip:#25282d; --chip-on:#eeeeec; --chip-on-ink:#121316; --wa:#2bb36a; --kit:#2a1d1f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121316; --surface:#1b1d21; --ink:#eeeeec; --muted:#9a9da4; --line:#2b2e33;
+  --red:#e53a43; --red-ink:#ffffff; --ok:#5fd18f; --ok-bg:#16301f; --wait:#f0c060; --wait-bg:#33280f;
+  --chip:#25282d; --chip-on:#eeeeec; --chip-on-ink:#121316; --wa:#2bb36a; --kit:#2a1d1f; color-scheme:dark}
+
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.45}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+header.top{padding-block:28px 8px}
+.brand{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.logo{font-family:var(--f-display);font-weight:800;font-size:22px;letter-spacing:.02em}
+.logo b{color:var(--red)}
+.handle{font-size:13px;color:var(--muted)}
+h1{font-family:var(--f-display);font-weight:600;font-size:clamp(22px,4.6vw,34px);line-height:1.15;margin:14px 0 8px;text-wrap:balance}
+.lead{color:var(--muted);max-width:60ch;margin:0}
+.lead .tag{display:inline-block;background:var(--red);color:var(--red-ink);font-family:var(--f-num);font-weight:700;font-size:12px;padding:1px 6px;border-radius:3px;vertical-align:1px}
+.updated{margin-top:12px;font-size:13px;color:var(--muted);display:flex;gap:6px;align-items:center}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none}
+
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:12px;border-bottom:1px solid var(--line)}
+.search{display:flex;gap:8px}
+.search label{position:absolute;left:-9999px}
+#q{flex:1;min-width:0;font:600 17px var(--f-num);padding:12px 14px;border-radius:10px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink)}
+#q:focus{outline:none;border-color:var(--red)}
+#sort{font:500 14px var(--f-body);padding:0 10px;border-radius:10px;border:1.5px solid var(--line);background:var(--surface);color:var(--ink)}
+
+.filters{display:grid;gap:12px;padding-block:16px 4px}
+.group{display:grid;gap:6px;min-width:0}
+.glabel{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+.seg{display:grid;grid-template-columns:repeat(3,1fr);background:var(--chip);border-radius:11px;padding:3px;gap:3px;max-width:520px}
+.seg button{font:600 14px var(--f-body);border:0;border-radius:8px;padding:10px 6px;background:transparent;color:var(--ink);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--surface);box-shadow:0 1px 3px rgba(0,0,0,.15)}
+.chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;font:500 13px var(--f-body);padding:8px 13px;border-radius:999px;border:0;background:var(--chip);color:var(--ink);cursor:pointer;font-variant-numeric:tabular-nums}
+.chip[aria-pressed="true"]{background:var(--chip-on);color:var(--chip-on-ink)}
+.chip:focus-visible,#sort:focus-visible,.seg button:focus-visible,.wa:focus-visible,.ig:focus-visible,.reset:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+
+.count{font-size:13px;color:var(--muted);padding-block:14px 4px;display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.reset{font:500 13px var(--f-body);background:none;border:0;color:var(--red);cursor:pointer;padding:0;text-decoration:underline}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;padding-bottom:28px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;min-width:0;scroll-margin-top:90px}
+.card.hit{box-shadow:0 0 0 2px var(--red)}
+.head{display:flex;align-items:stretch}
+.num{background:var(--red);color:var(--red-ink);font:700 22px var(--f-num);padding:10px 12px;display:flex;align-items:center;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.num.new{font-size:13px;letter-spacing:.04em}
+.title{padding:10px 14px;display:flex;flex-direction:column;justify-content:center;min-width:0}
+.title strong{font-weight:700;font-size:16px;line-height:1.2}
+.title span{font-size:12px;color:var(--muted)}
+.type{display:inline-block;font-size:11px;font-weight:600;padding:2px 7px;border-radius:5px;margin-bottom:3px;align-self:flex-start;background:var(--chip);color:var(--ink)}
+.type.kit{background:var(--kit);color:var(--red)}
+dl.spec{display:grid;grid-template-columns:auto 1fr;gap:3px 12px;margin:0;padding:4px 14px 12px;font-size:14px}
+dl.spec dt{color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.06em;padding-top:2px}
+dl.spec dd{margin:0;min-width:0}
+.inkit{margin:0 14px 12px;padding:9px 11px;border-radius:8px;background:var(--kit);font-size:13px;line-height:1.4}
+.inkit b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.07em;color:var(--red);margin-bottom:2px}
+.price{border-top:1px dashed var(--line);padding:12px 14px;display:grid;gap:6px;margin-top:auto}
+.row{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.row .k{font-size:13px;color:var(--muted)}
+.cash{font:700 22px var(--f-num);font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.inst{font:600 15px var(--f-num);font-variant-numeric:tabular-nums}
+.month{font-size:13px;color:var(--muted);text-align:right}
+.month b{color:var(--ink);font-family:var(--f-num)}
+.foot{display:flex;flex-direction:column;gap:8px;padding:0 14px 14px}
+.stock{font-size:12px;font-weight:600;padding:4px 9px;border-radius:999px;align-self:flex-start}
+.stock.in{background:var(--ok-bg);color:var(--ok)}
+.stock.order{background:var(--wait-bg);color:var(--wait)}
+.acts{display:flex;gap:8px;flex-wrap:wrap}
+.acts a{flex:1;text-align:center}
+.wa{font:600 14px var(--f-body);text-decoration:none;color:#fff;background:var(--wa);padding:9px 14px;border-radius:9px}
+.ig{font:600 14px var(--f-body);text-decoration:none;color:var(--ink);border:1.5px solid var(--line);padding:8px 12px;border-radius:9px}
+.empty{grid-column:1/-1;padding:40px 0;color:var(--muted);text-align:center}
+
+footer{border-top:1px solid var(--line);padding-block:20px 32px;font-size:13px;color:var(--muted);display:grid;gap:6px}
+footer .phone{font-family:var(--f-num);color:var(--ink);user-select:all}
+.demo{display:inline-block;font-size:12px;border:1px dashed var(--muted);border-radius:6px;padding:2px 8px;margin-top:6px}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand"><span class="logo">TSHOP<b>.KZ</b></span><span class="handle">@tshopkz · игровые ПК с 2018</span></div>
+    <h1>Актуальные цены на сборки из Instagram</h1>
+    <p class="lead">Номер сборки — красная цифра на фото в посте, например <span class="tag">1028</span>. Введите его или выберите бюджет ниже.</p>
+    <div class="updated"><span class="dot"></span><span><span id="upd">Загружаю цены…</span></span></div>
+  </header>
+</div>
+
+<div class="bar"><div class="wrap">
+  <div class="search">
+    <label for="q">Номер сборки или модель</label>
+    <input id="q" type="search" inputmode="search" placeholder="Номер с фото или 7800X3D" autocomplete="off">
+    <select id="sort" aria-label="Сортировка">
+      <option value="num">Новые</option>
+      <option value="asc">Дешевле</option>
+      <option value="desc">Дороже</option>
+    </select>
+  </div>
+</div></div>
+
+<main class="wrap">
+  <div class="filters">
+    <div class="group">
+      <span class="glabel">Что нужно</span>
+      <div class="seg" data-g="type">
+        <button data-v="all" aria-pressed="true">Всё</button>
+        <button data-v="block" aria-pressed="false">Системный блок</button>
+        <button data-v="kit" aria-pressed="false">Полный комплект</button>
+      </div>
+    </div>
+    <div class="group">
+      <span class="glabel">Бюджет</span>
+      <div class="chips" data-g="budget">
+        <button class="chip" data-v="0" aria-pressed="true">Любой</button>
+        <button class="chip" data-v="400000" aria-pressed="false">До 400 000</button>
+        <button class="chip" data-v="500000" aria-pressed="false">До 500 000</button>
+        <button class="chip" data-v="600000" aria-pressed="false">До 600 000</button>
+        <button class="chip" data-v="700000" aria-pressed="false">До 700 000</button>
+        <button class="chip" data-v="900000" aria-pressed="false">До 900 000</button>
+      </div>
+    </div>
+    <div class="group">
+      <span class="glabel">Железо</span>
+      <div class="chips" data-g="hw">
+        <button class="chip" data-v="all" aria-pressed="true">Любое</button>
+        <button class="chip" data-v="intel" aria-pressed="false">Intel</button>
+        <button class="chip" data-v="amd" aria-pressed="false">AMD</button>
+        <button class="chip" data-v="x3d" aria-pressed="false">Ryzen X3D</button>
+        <button class="chip" data-v="5060" aria-pressed="false">RTX 5060</button>
+        <button class="chip" data-v="top" aria-pressed="false">RTX 5060 Ti и выше</button>
+        <button class="chip" data-v="stock" aria-pressed="false">Только в наличии</button>
+      </div>
+    </div>
+  </div>
+  <div class="count"><span id="count"></span><button class="reset" id="reset" hidden>Сбросить фильтры</button></div>
+  <div class="grid" id="grid"></div>
+</main>
+
+<div class="wrap"><footer>
+  <div>Астана, ул. Петрова 18/1 · Гарантия 12 месяцев · Доставка по Казахстану 1–2 дня</div>
+  <div>WhatsApp и звонки: <span class="phone">+7 747 345 89 52</span></div>
+  <div>Рассрочка Kaspi 0-0-12 / 0-0-24. Платёж в месяц указан для 24 месяцев. Бюджет фильтруется по цене за наличные.</div>
+  </footer></div>
+<script>
+const IGURL=c=>`https://www.instagram.com/p/${c}/`;
+const fmt=v=>v.toLocaleString("ru-RU").replace(/ /g," ")+" ₸";
+const short=s=>s.replace(/^Ryzen \d /,"R").replace(/ \d+GB$/,"");
+const grid=document.getElementById("grid"),q=document.getElementById("q"),sort=document.getElementById("sort"),count=document.getElementById("count"),reset=document.getElementById("reset");
+const st={type:"all",budget:0,hw:"all"};
+let D=[];
+
+function card(b){
+  const name=`${short(b.cpu)} + ${short(b.gpu)}`;
+  const label=b.n?`№${b.n}`:"новинка";
+  const msg=encodeURIComponent(`Здравствуйте! Интересует ${b.type==="kit"?"комплект":"сборка"} ${label} (${b.cpu} + ${b.gpu}) за ${fmt(b.cash)}`);
+  return `<article class="card" ${b.n?`id="b${b.n}"`:""}>
+    <div class="head"><div class="num${b.n?"":" new"}">${b.n||"NEW"}</div>
+      <div class="title"><span class="type${b.type==="kit"?" kit":""}">${b.type==="kit"?"Полный комплект":"Системный блок"}</span><strong>${name}</strong></div></div>
+    <dl class="spec"><dt>CPU</dt><dd>${b.cpu}</dd><dt>GPU</dt><dd>${b.gpu}</dd><dt>RAM</dt><dd>${b.ram}</dd><dt>SSD</dt><dd>${b.ssd}</dd></dl>
+    ${b.kit?`<div class="inkit"><b>В комплекте</b>${b.kit}</div>`:""}
+    <div class="price">
+      <div class="row"><span class="k">Наличные / QR</span><span class="cash">${fmt(b.cash)}</span></div>
+      <div class="row"><span class="k">Рассрочка Kaspi</span><span class="inst">${fmt(b.inst)}</span></div>
+      <div class="month">от <b>${fmt(b.month)}</b> в месяц</div>
+    </div>
+    <div class="foot"><span class="stock ${b.stock?"in":"order"}">${b.stock?"В наличии":"Сборка 1–3 дня"}</span>
+      <div class="acts">${b.post?`<a class="ig" href="${IGURL(b.post)}" target="_blank" rel="noopener">Фото в Instagram</a>`:""}<a class="wa" href="https://wa.me/77473458952?text=${msg}" target="_blank" rel="noopener">Заказать в WhatsApp</a></div></div>
+  </article>`;
+}
+
+function render(){
+  const t=q.value.trim().toLowerCase();
+  let list=D.filter(b=>{
+    if(st.type!=="all"&&b.type!==st.type)return false;
+    if(st.budget&&b.cash>st.budget)return false;
+    const h=st.hw;
+    if(h==="intel"&&!/^i\d/.test(b.cpu))return false;
+    if(h==="amd"&&!/Ryzen/.test(b.cpu))return false;
+    if(h==="x3d"&&!/X3D/.test(b.cpu))return false;
+    if(h==="5060"&&!/RTX 5060 8GB/.test(b.gpu))return false;
+    if(h==="top"&&!/5060 Ti|5070/.test(b.gpu))return false;
+    if(h==="stock"&&!b.stock)return false;
+    if(t){const hay=((b.n||"")+" "+b.cpu+" "+b.gpu+" "+b.ram+" "+b.kit).toLowerCase();if(!hay.includes(t))return false}
+    return true;
+  });
+  if(sort.value==="asc")list.sort((a,b)=>a.cash-b.cash);
+  else if(sort.value==="desc")list.sort((a,b)=>b.cash-a.cash);
+  else list.sort((a,b)=>a.i-b.i);
+  const any=st.type!=="all"||st.budget||st.hw!=="all"||t;
+  grid.innerHTML=list.length?list.map(card).join(""):`<div class="empty">Под эти условия готовых сборок нет. Напишите в WhatsApp — соберём под ваш бюджет.</div>`;
+  const kits=list.filter(b=>b.type==="kit").length;
+  count.textContent=`Найдено: ${list.length}`+(kits&&kits<list.length?` (комплектов: ${kits})`:"");
+  reset.hidden=!any;
+  const exact=/^\d{3,4}$/.test(t)&&list.find(b=>String(b.n)===t);
+  if(exact)document.getElementById("b"+exact.n).classList.add("hit");
+}
+
+document.querySelectorAll("[data-g]").forEach(g=>g.addEventListener("click",e=>{
+  const btn=e.target.closest("button");if(!btn)return;
+  const key=g.dataset.g; st[key]=key==="budget"?Number(btn.dataset.v):btn.dataset.v;
+  g.querySelectorAll("button").forEach(x=>x.setAttribute("aria-pressed",x===btn?"true":"false"));
+  render();
+}));
+reset.addEventListener("click",()=>{
+  st.type="all";st.budget=0;st.hw="all";q.value="";
+  document.querySelectorAll("[data-g]").forEach(g=>g.querySelectorAll("button").forEach((x,i)=>x.setAttribute("aria-pressed",i===0?"true":"false")));
+  render();
+});
+q.addEventListener("input",render);
+sort.addEventListener("change",render);
+
+function fromHash(){
+  const h=location.hash.replace("#","");
+  if(/^\d{3,4}$/.test(h)){q.value=h;render();const el=document.getElementById("b"+h);if(el)el.scrollIntoView({block:"start"});}
+}
+window.addEventListener("hashchange",fromHash);
+
+fetch("prices.json?t="+Date.now()).then(r=>r.json()).then(j=>{
+  D=j.builds.map((b,i)=>({i,n:b.number,type:b.type,cpu:b.cpu,gpu:b.gpu,ram:b.ram,ssd:b.ssd,cash:b.cash,inst:b.installment,month:b.monthly,stock:b.in_stock,post:b.post,kit:b.kit||""}));
+  document.getElementById("upd").textContent=`Цены обновлены ${j.updated} по ценам поставщиков`;
+  render();fromHash();
+}).catch(()=>{
+  document.getElementById("upd").textContent="Не удалось загрузить цены. Обновите страницу или напишите нам в WhatsApp.";
+});
+</script>
+</body>
+</html>
