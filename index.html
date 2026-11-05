@@ -61,7 +61,8 @@ h1{font-family:var(--f-display);font-weight:600;font-size:clamp(22px,4.6vw,34px)
 .jump a{color:var(--ink);font-weight:600;text-underline-offset:3px}
 .cfg{font:600 14px var(--f-body);background:var(--chip);color:var(--ink);border:0;border-radius:9px;padding:10px 12px;cursor:pointer;text-align:left;display:flex;justify-content:space-between;align-items:center}
 .cfg:focus-visible{outline:2px solid var(--red);outline-offset:2px}
-.cfg[aria-expanded="true"] span{transform:rotate(180deg)}
+.cfg .arr{transition:transform .2s}
+.cfg[aria-expanded="true"] .arr{transform:rotate(180deg)}
 .cfgp{display:grid;gap:10px;padding:2px 0 4px}
 .opt{display:grid;gap:4px;min-width:0}
 .opt label{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.07em}
@@ -295,7 +296,7 @@ function card(b){
       <div class="title"><span class="type${b.type==="kit"?" kit":""}">${b.type==="kit"?"Полный комплект":"Системный блок"}</span><strong>${name}</strong></div></div>
     <dl class="spec"><dt>CPU</dt><dd>${b.cpu}</dd><dt>GPU</dt><dd>${b.gpu}</dd><dt>RAM</dt><dd>${b.ram}</dd><dt>SSD</dt><dd>${b.ssd}</dd></dl>
     ${b.kit?`<div class="inkit"><b>В комплекте</b>${b.kit}</div>`:""}
-    ${b.opts&&b.opts.length?`<div class="cfgwrap"><button class="cfg" data-i="${b.i}" aria-expanded="false"><span>Изменить комплектацию<small>видеокарта, память, SSD, плата, блок питания${b.type==="block"?", монитор":""}</small></span><span aria-hidden="true">▾</span></button><div class="cfgp" id="p${b.i}" hidden></div></div>`:""}
+    ${b.opts&&b.opts.length?`<div class="cfgwrap"><button class="cfg" data-i="${b.i}" aria-expanded="false"><span>Изменить комплектацию<small>видеокарта, память, SSD, плата, блок питания${b.type==="block"?", монитор":""}</small></span><span class="arr" aria-hidden="true">▾</span></button><div class="cfgp" id="p${b.i}" hidden></div></div>`:""}
     <div class="price">
       <div class="row"><span class="k">Наличные / QR</span><span class="cash" id="c${b.i}">${fmt(b.cash)}</span></div>
       <div class="row"><span class="k">Рассрочка Kaspi</span><span class="inst" id="r${b.i}">${fmt(b.inst)}</span></div>
@@ -354,7 +355,7 @@ function panel(b){
   const groups=b.type==="block"?[...b.opts,{id:"mon",title:"Монитор",current:"Без монитора",items:MON.map(m=>({label:m.name+" · "+m.spec.split(" · ").slice(0,3).join(" "),delta:m.price}))}]:b.opts;
   return groups.map(g=>{
     const sel=st[g.id]??-1;
-    const opts=[`<option value="-1">${g.id==="ssd2"||g.id==="mon"?g.current:"Как есть: "+g.current}</option>`].concat(g.items.map((o,k)=>`<option value="${k}" ${k===sel?"selected":""}>${o.label} (+${fmt(o.delta)})</option>`));
+    const opts=[`<option value="-1">${g.id==="ssd2"||g.id==="mon"?g.current:"Как есть: "+g.current}</option>`].concat(g.items.map((o,k)=>`<option value="${k}" ${k===sel?"selected":""}>${o.label} (${o.delta?"+"+fmt(o.delta):"без доплаты"})</option>`));
     return `<div class="opt"><label for="s${b.i}_${g.id}">${g.title}</label><select id="s${b.i}_${g.id}" data-i="${b.i}" data-g="${g.id}">${opts.join("")}</select>${g.id==="psu"?`<small id="ps${b.i}"></small>`:""}</div>`;
   }).join("");
 }
