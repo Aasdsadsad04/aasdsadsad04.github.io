@@ -101,7 +101,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -225,12 +225,12 @@
      "watt": 500,
      "items": [
       {
-       "label": "700W",
+       "label": "БП 700W",
        "delta": 9000,
        "watt": 700
       },
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 18000,
        "watt": 850
       }
@@ -354,12 +354,12 @@
      "watt": 500,
      "items": [
       {
-       "label": "700W",
+       "label": "БП 700W",
        "delta": 9000,
        "watt": 700
       },
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 18000,
        "watt": 850
       }
@@ -467,7 +467,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -583,7 +583,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -699,7 +699,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -823,12 +823,12 @@
      "watt": 500,
      "items": [
       {
-       "label": "700W",
+       "label": "БП 700W",
        "delta": 9000,
        "watt": 700
       },
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 18000,
        "watt": 850
       }
@@ -940,7 +940,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -1052,7 +1052,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -1346,7 +1346,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -1462,12 +1462,12 @@
      "watt": 500,
      "items": [
       {
-       "label": "700W",
+       "label": "БП 700W",
        "delta": 9000,
        "watt": 700
       },
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 18000,
        "watt": 850
       }
@@ -1564,7 +1564,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -1688,12 +1688,12 @@
      "watt": 500,
      "items": [
       {
-       "label": "700W",
+       "label": "БП 700W",
        "delta": 9000,
        "watt": 700
       },
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 18000,
        "watt": 850
       }
@@ -1805,7 +1805,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -1896,7 +1896,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -2073,12 +2073,12 @@
      "watt": 500,
      "items": [
       {
-       "label": "700W",
+       "label": "БП 700W",
        "delta": 9000,
        "watt": 700
       },
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 18000,
        "watt": 850
       }
@@ -2186,7 +2186,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -2294,7 +2294,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -2406,12 +2406,12 @@
      "watt": 500,
      "items": [
       {
-       "label": "700W",
+       "label": "БП 700W",
        "delta": 9000,
        "watt": 700
       },
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 18000,
        "watt": 850
       }
@@ -2508,7 +2508,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -2616,7 +2616,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -2732,12 +2732,12 @@
      "watt": 500,
      "items": [
       {
-       "label": "700W",
+       "label": "БП 700W",
        "delta": 9000,
        "watt": 700
       },
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 18000,
        "watt": 850
       }
@@ -2861,12 +2861,12 @@
      "watt": 500,
      "items": [
       {
-       "label": "700W",
+       "label": "БП 700W",
        "delta": 9000,
        "watt": 700
       },
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 18000,
        "watt": 850
       }
@@ -2994,12 +2994,12 @@
      "watt": 500,
      "items": [
       {
-       "label": "700W",
+       "label": "БП 700W",
        "delta": 9000,
        "watt": 700
       },
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 18000,
        "watt": 850
       }
@@ -3123,12 +3123,12 @@
      "watt": 500,
      "items": [
       {
-       "label": "700W",
+       "label": "БП 700W",
        "delta": 9000,
        "watt": 700
       },
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 18000,
        "watt": 850
       }
@@ -3204,7 +3204,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -3286,7 +3286,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -3394,7 +3394,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -3662,7 +3662,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -3759,7 +3759,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -3867,7 +3867,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -3983,7 +3983,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -4099,12 +4099,12 @@
      "watt": 500,
      "items": [
       {
-       "label": "700W",
+       "label": "БП 700W",
        "delta": 9000,
        "watt": 700
       },
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 18000,
        "watt": 850
       }
@@ -4287,12 +4287,12 @@
      "watt": 500,
      "items": [
       {
-       "label": "700W",
+       "label": "БП 700W",
        "delta": 9000,
        "watt": 700
       },
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 18000,
        "watt": 850
       }
@@ -4400,7 +4400,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -4524,12 +4524,12 @@
      "watt": 500,
      "items": [
       {
-       "label": "700W",
+       "label": "БП 700W",
        "delta": 9000,
        "watt": 700
       },
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 18000,
        "watt": 850
       }
@@ -4637,7 +4637,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -4750,12 +4750,12 @@
      "watt": 500,
      "items": [
       {
-       "label": "700W",
+       "label": "БП 700W",
        "delta": 9000,
        "watt": 700
       },
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 18000,
        "watt": 850
       }
@@ -4863,7 +4863,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -4971,7 +4971,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -5079,7 +5079,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -5176,7 +5176,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -5349,7 +5349,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -5447,7 +5447,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -5534,7 +5534,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -5631,12 +5631,12 @@
      "watt": 500,
      "items": [
       {
-       "label": "700W",
+       "label": "БП 700W",
        "delta": 9000,
        "watt": 700
       },
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 18000,
        "watt": 850
       }
@@ -5820,7 +5820,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -5932,12 +5932,12 @@
      "watt": 500,
      "items": [
       {
-       "label": "700W",
+       "label": "БП 700W",
        "delta": 9000,
        "watt": 700
       },
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 18000,
        "watt": 850
       }
@@ -6029,7 +6029,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -6122,7 +6122,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -6214,7 +6214,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -6330,12 +6330,12 @@
      "watt": 500,
      "items": [
       {
-       "label": "700W",
+       "label": "БП 700W",
        "delta": 9000,
        "watt": 700
       },
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 18000,
        "watt": 850
       }
@@ -6438,7 +6438,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
@@ -6536,7 +6536,7 @@
      "watt": 700,
      "items": [
       {
-       "label": "850W",
+       "label": "БП 850W",
        "delta": 9000,
        "watt": 850
       }
