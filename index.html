@@ -47,6 +47,7 @@ h1{font-family:var(--f-display);font-weight:600;font-size:clamp(22px,4.6vw,34px)
 .lead{color:var(--muted);max-width:60ch;margin:0}
 .lead .tag{display:inline-block;background:var(--red);color:var(--red-ink);font-family:var(--f-num);font-weight:700;font-size:12px;padding:1px 6px;border-radius:3px;vertical-align:1px}
 .updated{margin-top:12px;font-size:13px;color:var(--muted);display:flex;gap:6px;align-items:center}
+.note{margin:6px 0 0;font-size:13px;color:var(--muted)}
 .dot{width:8px;height:8px;border-radius:50%;background:var(--ok);flex:none}
 
 .bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:12px;border-bottom:1px solid var(--line)}
@@ -119,6 +120,7 @@ footer .phone{font-family:var(--f-num);color:var(--ink);user-select:all}
     <h1>Актуальные цены на сборки из Instagram</h1>
     <p class="lead">Номер сборки — красная цифра на фото в посте, например <span class="tag">1028</span>. Введите его или выберите бюджет ниже.</p>
     <div class="updated"><span class="dot"></span><span><span id="upd">Загружаю цены…</span></span></div>
+    <p class="note">В постах указана цена на дату публикации. Актуальная цена — на этой странице.</p>
   </header>
 </div>
 
