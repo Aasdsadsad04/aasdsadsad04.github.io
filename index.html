@@ -368,6 +368,7 @@ more.addEventListener("click",()=>{extra.hidden=!extra.hidden;more.setAttribute(
 sort.addEventListener("change",render);
 
 
+const ev=(name,title)=>{try{window.goatcounter&&window.goatcounter.count&&window.goatcounter.count({path:name,title:title||name,event:true})}catch(e){}};
 const KI=1.1792,KM=1.15;
 const sgn=d=>d>0?"+"+fmt(d):d<0?"−"+fmt(-d):"без доплаты";
 function panel(b){
@@ -406,9 +407,11 @@ function recalc(b){
 grid.addEventListener("click",e=>{
   const btn=e.target.closest(".cfg");if(!btn)return;
   const b=D[+btn.dataset.i],p=document.getElementById("p"+b.i);
-  if(p.hidden){p.innerHTML=panel(b);p.hidden=false;btn.setAttribute("aria-expanded","true");recalc(b);}
+  if(p.hidden){p.innerHTML=panel(b);p.hidden=false;btn.setAttribute("aria-expanded","true");recalc(b);ev("komplektaciya-"+(b.n||"new"),"Открыли комплектацию "+(b.n?"№"+b.n:"новинки"));}
   else{p.hidden=true;btn.setAttribute("aria-expanded","false");}
 });
+grid.addEventListener("click",e=>{const a=e.target.closest(".ig");if(a)ev("foto-instagram","Фото в Instagram");});
+let qT;q.addEventListener("input",()=>{clearTimeout(qT);qT=setTimeout(()=>{const v=q.value.trim();if(v.length>=3)ev("poisk","Поиск: "+v.slice(0,30));},1500);});
 grid.addEventListener("change",e=>{
   const s=e.target.closest("select[data-g]");if(!s)return;
   const b=D[+s.dataset.i];(SEL[b.i]||(SEL[b.i]={}))[s.dataset.g]=+s.value;recalc(b);
@@ -438,6 +441,7 @@ function drawCart(){
 }
 let toastT;
 function addCart(item){
+  ev("korzina-dobavili","В корзину: "+item.title);
   CART.push(item);saveCart();drawCart();
   const el=document.getElementById("toast");el.textContent="Добавлено в корзину";el.hidden=false;
   clearTimeout(toastT);toastT=setTimeout(()=>el.hidden=true,1600);
@@ -450,7 +454,8 @@ grid.addEventListener("click",e=>{
   const label=b.n?`№${b.n}`:"новинка";
   addCart({title:`${b.type==="kit"?"Комплект":"Сборка"} ${label}: ${b.cpu} + ${b.gpu}`,desc:c.changes.length?"изменения: "+c.changes.join(", "):`${b.ram}, ${b.ssd}`,cash:c.cash,inst:c.inst});
 });
-document.getElementById("cb_open").addEventListener("click",()=>{drawer.hidden=false;});
+document.getElementById("cb_open").addEventListener("click",()=>{drawer.hidden=false;ev("korzina-otkryli","Открыли корзину");});
+document.getElementById("cart_send").addEventListener("click",()=>{const t=totals();ev("zakaz-whatsapp","Заказ в WhatsApp: "+CART.length+" поз., "+fmt(t.cash));});
 drawer.addEventListener("click",e=>{
   if(e.target===drawer||e.target.closest("#cart_close")){drawer.hidden=true;return}
   const d=e.target.closest("[data-del]");if(d){CART.splice(+d.dataset.del,1);saveCart();drawCart();if(!CART.length)drawer.hidden=true;return}
@@ -492,5 +497,6 @@ fetch("prices.json?t="+Date.now()).then(r=>r.json()).then(j=>{
   document.getElementById("upd").textContent="Не удалось загрузить цены. Обновите страницу или напишите нам в WhatsApp.";
 });
 </script>
+<script data-goatcounter="https://tshopkz.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
