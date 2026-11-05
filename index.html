@@ -583,10 +583,10 @@ function curParts(b){
   const ram=G.ram&&st.ram>=0?G.ram.items[st.ram].label:b.ram;
   return{cpu,gpu,ram};
 }
-function fpsControls(){
+function fpsControls(dl=true){
   const chip=(k,v,on,t)=>`<button class="chip" data-fp="${k}" data-v="${v}" aria-pressed="${on}">${t}</button>`;
   return `<div class="fpsset"><div class="chips" role="group" aria-label="Настройки графики">${PRESETS.map((n,k)=>chip("p",k,FP.p===k,n)).join("")}</div>
-  <div class="chips" role="group" aria-label="Разрешение и DLSS">${chip("r","fhd",FP.r==="fhd","Full HD")}${chip("r","qhd",FP.r==="qhd","2K")}${chip("dlss",FP.dlss?0:1,FP.dlss,"DLSS "+(FP.dlss?"вкл":"выкл"))}</div></div>`;
+  <div class="chips" role="group" aria-label="Разрешение и DLSS">${chip("r","fhd",FP.r==="fhd","Full HD")}${chip("r","qhd",FP.r==="qhd","2K")}${dl?chip("dlss",FP.dlss?0:1,FP.dlss,"DLSS "+(FP.dlss?"вкл":"выкл")):""}</div></div>`;
 }
 const OPENG={};
 const LV=f=>f>=120?["hi","плавно"]:f>=60?["mid","комфортно"]:["lo","тяжело"];
@@ -604,15 +604,14 @@ function drawFps(b){
   let sheet="";
   if(OPENG[b.i]){
     sheet=`<div class="osheet"><div class="sbg" data-gclose="${b.i}"></div><div class="spanel" role="dialog" aria-label="Выберите игру"><div class="shd"><b>Выберите игру</b><button class="sx" data-gclose="${b.i}" aria-label="Закрыть">×</button></div><div class="olist">`+
-      ORD.map(n=>`<button class="orow${n===gname?" on":""}" data-gsel="${n}" data-i="${b.i}"><span class="ock">${n===gname?ICON_CHK:""}</span><span class="on2"><span>${n}</span><small>${GCAT.find(c=>c[1].includes(n))[0]}</small></span></button>`).join("")+`</div></div></div>`;
+      ORD.map(n=>`<button class="orow${n===gname?" on":""}" data-gsel="${n}" data-i="${b.i}"><span class="ock">${n===gname?ICON_CHK:""}</span><span class="on2"><span>${n}</span></span></button>`).join("")+`</div></div></div>`;
   }
   box.innerHTML=`<button class="srow gpick" data-gp="${b.i}" aria-label="Выбрать игру"><span class="sk">Игра</span><span class="sv"><mark>${gname}</mark></span><span class="arr" aria-hidden="true">▾</span></button>${sheet}
+    ${fpsControls(hasDl)}
     <div class="gbig ${lv[0]}"><div class="gbn">≈ ${rng(f)} <small>FPS</small></div><div class="gbl"><span class="lvb">${lv[1]}</span>${changed&&Math.abs(pc)>=2?` <em class="${pc>0?"fu":"fd"}">${pctTxt(pc)}</em> <s>${rng(fo)}</s>`:""}</div>
       <div class="gbs">${PRESETS[FP.p]} настройки · ${FP.r==="qhd"?"2K (2560×1440)":"Full HD (1920×1080)"}${FP.dlss&&hasDl?" · DLSS":""}</div></div>
     <div class="recs"><div class="rh">Какие настройки ставить</div><ul>${recs}</ul></div>
-    <table class="ftab"><thead><tr><th></th><th>Full HD</th><th>2K</th></tr></thead><tbody>${cells}</tbody></table>
-    ${hasDl?`<button class="chip dlss" data-fp="dlss" aria-pressed="${FP.dlss}">DLSS ${FP.dlss?"включён":"выключен"}</button>`:""}
-    <small>Нажмите на ячейку, чтобы выбрать настройки. Средний FPS по тестам обзорщиков${changed?", с вашими изменениями":""}; зависит от версии игры и карты.</small>`;
+    <small>Средний FPS по тестам обзорщиков${changed?", с вашими изменениями":""}; зависит от версии игры и карты.</small>`;
 }
 const KI=1.1792,KM=1.15;
 const sgn=d=>d>0?"+"+fmt(d):d<0?"−"+fmt(-d):"";
