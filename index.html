@@ -356,7 +356,7 @@ function lapCard(b){
     <div class="head"><div class="num nb">NB</div>
       <div class="title"><span class="type lap">${b.gaming?"Игровой ноутбук":"Ноутбук"} · под заказ 3–5 дней</span><strong>${b.title}</strong></div></div>
     <dl class="spec">${b.screen?`<dt>Экран</dt><dd>${b.screen}</dd>`:""}${b.cpu?`<dt>CPU</dt><dd>${b.cpu}</dd>`:""}${b.gpu?`<dt>GPU</dt><dd>${b.gpu}</dd>`:""}${b.ram?`<dt>RAM</dt><dd>${b.ram}</dd>`:""}${b.ssd?`<dt>SSD</dt><dd>${b.ssd}</dd>`:""}${b.no_os?`<dt>ОС</dt><dd>без Windows (можем установить)</dd>`:""}</dl>
-    ${!b.cpu||!b.ram?`<p class="note" style="margin:0;padding:0 14px 12px">Полные характеристики пришлём в WhatsApp</p>`:""}
+
     <div class="price">
       <div class="row"><span class="k">Наличные / QR</span><span class="cash">${fmt(b.cash)}</span></div>
       <div class="row"><span class="k">Рассрочка Kaspi</span><span class="inst">${fmt(b.inst)}</span></div>
