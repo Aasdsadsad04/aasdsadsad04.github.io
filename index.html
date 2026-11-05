@@ -558,7 +558,7 @@ function drawSpec(b){
   const row=(dt,base,o,lab)=>{const nv=o?(lab||o.label):null;
     return nv&&nv!==base?`<dt class="ch">${dt}</dt><dd class="ch"><mark>${nv}</mark>${base?`<s>${base}</s>`:""}</dd>`:(base?`<dt>${dt}</dt><dd>${base}</dd>`:"");};
   el.innerHTML=row("CPU",b.cpu,pick("cpu"))+row("GPU",b.gpu,pick("gpu"))+row("RAM",b.ram,pick("ram"))+row("SSD",b.ssd,pick("ssd"))
-    +row("SSD 2",null,pick("ssd2"),pick("ssd2")&&pick("ssd2").label.replace(/^\+\s*/,""))
+    +row("Диск 2",null,pick("ssd2"),pick("ssd2")&&pick("ssd2").label.replace(/^\+\s*/,""))
     +(pick("mb")?row("Плата",G.mb.current,pick("mb")):"")+(pick("psu")?row("БП",G.psu.current.replace(/^БП\s*/,""),pick("psu"),pick("psu").label.replace(/^БП\s*/,"")):"")
     +row("Монитор",null,pick("mon"));
   const{cpu,gpu}=curParts(b),t=document.getElementById("t"+b.i);
