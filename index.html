@@ -532,7 +532,7 @@ function drawFps(b){
     +`<small>Ориентировочно: ${PRESETS[FP.p].toLowerCase()} настройки, ${FP.r==="qhd"?"2K (2560×1440)":"Full HD"}${FP.dlss?", DLSS «Качество» где есть":""}${changed?", с вашими изменениями":""}. Средний FPS по тестам обзорщиков; зависит от версии игры и карты.</small>`;
 }
 const KI=1.1792,KM=1.15;
-const sgn=d=>d>0?"+"+fmt(d):d<0?"−"+fmt(-d):"без доплаты";
+const sgn=d=>d>0?"+"+fmt(d):d<0?"−"+fmt(-d):"";
 const OPEN={};
 const ICON_CHK=`<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5L20 7"></path></svg>`;
 function groupsOf(b){return b.type==="block"?[...b.opts,{id:"mon",title:"Монитор",current:"Без монитора",items:MON.map(m=>({label:monL(m.name),sub:monS(m.spec),delta:m.price}))}]:b.opts}
@@ -569,9 +569,9 @@ function renderSpec(b){
     const hd=id.startsWith("k_")&&!kitHead?(kitHead=true,`<div class="kithd">В комплекте — можно заменить или убрать</div>`):"";
     if(!g)return `<div class="srow static"><span class="sk">${dt}</span><span class="sv">${baseV[id]}</span></div>`;
     const sel=st[id]??-1,open=OPEN[b.i]===id,perf=id==="cpu"||id==="gpu"||id==="ram",add=id==="ssd2"||id==="mon";
-    const o=sel>=0?g.items[sel]:null,base=baseV[id];
+    const o=sel>=0?g.items[sel]:null,base=baseV[id],same=o&&!o.remove&&!o.delta;
     const fpsCur=perf&&o?optPerf(b,id,sel):0;
-    const val=o?(o.remove?`<span class="rmv">не нужен</span><s>${base}</s>`:`<mark>${clean(id,o.label)}</mark>${base?`<s>${base}</s>`:""}`):(add?`<span class="addv">добавить</span>`:base);
+    const val=same?clean(id,o.label):o?(o.remove?`<span class="rmv">не нужен</span><s>${base}</s>`:`<mark>${clean(id,o.label)}</mark>${base?`<s>${base}</s>`:""}`):(add?`<span class="addv">добавить</span>`:base);
     let rows="";
     if(open){
       const all=[{k:-1,label:add?"Не нужно":base,delta:0,base:!add}].concat(g.items.map((x,k)=>({k,...x})));
@@ -586,9 +586,9 @@ function renderSpec(b){
     }
     const h=perf?hintFor(b,id):"";
     const pn=id==="psu"&&need&&G.psu.watt<need&&st.psu>=0?`Для этой видеокарты нужен блок от ${need}W — поставили автоматически.`:"";
-    return hd+`<button class="srow${o?" ch":""}${open?" open":""}${o&&o.remove?" rm":""}" data-i="${b.i}" data-og="${id}" aria-expanded="${open}" aria-label="${g.title}: заменить">
+    return hd+`<button class="srow${o&&!same?" ch":""}${open?" open":""}${o&&o.remove?" rm":""}" data-i="${b.i}" data-og="${id}" aria-expanded="${open}" aria-label="${g.title}: заменить">
         <span class="sk">${dt}</span><span class="sv">${val}${fpsCur?`<em class="${fpsCur>0?"fu":"fd"}">${pctTxt(fpsCur)} FPS</em>`:""}</span>
-        ${o?`<span class="od ${o.delta<0?"neg":"pos"}">${sgn(o.delta)}</span>`:""}<span class="arr" aria-hidden="true">▾</span>
+        ${o&&!same?`<span class="od ${o.delta<0?"neg":"pos"}">${sgn(o.delta)}</span>`:""}<span class="arr" aria-hidden="true">▾</span>
       </button>${rows}${h&&!open?`<small class="hint shint">${h}</small>`:""}${pn&&!open?`<small class="hint shint">${pn}</small>`:""}`;
   }).join("");
   const{cpu,gpu}=curParts(b),t=document.getElementById("t"+b.i);
@@ -610,7 +610,7 @@ function recalc(b){
   renderSpec(b);drawFps(b);
   const set=(id,v)=>{const el=document.getElementById(id);if(el)el.textContent=v};
   set("c"+b.i,fmt(cash));set("r"+b.i,fmt(inst));set("m"+b.i,fmt(month));
-  set("d"+b.i,changes.length?`С изменениями: ${sgn(add+mon)}${b.perfPct?" · "+pctTxt(b.perfPct)+" FPS в играх":""}`:"");
+  set("d"+b.i,(add+mon||b.perfPct)?`С изменениями: ${[sgn(add+mon),b.perfPct?pctTxt(b.perfPct)+" FPS в играх":""].filter(Boolean).join(" · ")}`:"");
   return b.cur;
 }
 grid.addEventListener("click",e=>{
