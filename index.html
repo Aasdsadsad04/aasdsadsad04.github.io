@@ -121,6 +121,26 @@ body.hascart .up{bottom:calc(90px + env(safe-area-inset-bottom,0px))}
 .fpsbtn:focus-visible{outline:2px solid var(--red);outline-offset:2px}
 .fpsbtn[aria-expanded="true"] .arr{transform:rotate(180deg)}
 .fps{margin:0 14px 12px;display:grid;gap:6px}
+.gpick{margin-top:6px;background:var(--chip)}
+.gbig{margin-top:10px;padding:14px;border-radius:12px;background:var(--chip);border-left:4px solid var(--muted)}
+.gbig.hi{border-left-color:var(--ok)}.gbig.lo{border-left-color:var(--wait)}
+.gbn{font-family:var(--f-num);font-weight:700;font-size:28px;line-height:1.1;font-variant-numeric:tabular-nums}
+.gbn small{font-size:14px;color:var(--muted);font-weight:500}
+.gbl{margin-top:4px;font-size:13px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.gbl em{font-style:normal;font-weight:700;font-size:12px;padding:1px 7px;border-radius:999px}
+.gbl em.fu{background:var(--ok-bg);color:var(--ok)}.gbl em.fd{background:var(--wait-bg);color:var(--wait)}
+.gbl s{color:var(--muted);font-size:12px}
+.lvb{font-weight:700;color:var(--muted)}.gbig.hi .lvb{color:var(--ok)}.gbig.lo .lvb{color:var(--wait)}
+.gbs{margin-top:4px;font-size:12px;color:var(--muted)}
+.ftab{width:100%;border-collapse:separate;border-spacing:4px;margin:8px -4px 4px;font-size:13px}
+.ftab th{font-weight:600;color:var(--muted);text-align:left;font-size:12px;padding:0 4px}
+.ftab thead th{text-align:center}
+.fc{width:100%;font:700 15px var(--f-num);font-variant-numeric:tabular-nums;padding:9px 4px;border-radius:8px;border:1.5px solid transparent;background:var(--chip);color:var(--ink);cursor:pointer}
+.fc.hi{color:var(--ok)}.fc.lo{color:var(--wait)}
+.fc.on{border-color:var(--ink);background:var(--surface)}
+.chip.dlss{margin:2px 0 8px}
+.shs{display:block;font-size:12px;font-weight:500;color:var(--muted)}
+.ftab tbody th{width:30%}
 .gtl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-top:8px}
 @media (min-width:700px){.gtl{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .gt{display:flex;flex-direction:column;gap:3px;padding:10px 11px 11px;border-radius:10px;background:var(--chip);min-width:0}
@@ -438,7 +458,7 @@ function lapCard(b){
       <div class="title"><span class="type lap">${b.gaming?"Игровой ноутбук":"Ноутбук"} · под заказ 3–5 дней</span><strong>${b.title}</strong></div></div>
     <dl class="spec">${b.screen?`<dt>Экран</dt><dd>${b.screen}</dd>`:""}${b.cpu?`<dt>CPU</dt><dd>${b.cpu}</dd>`:""}${b.gpu?`<dt>GPU</dt><dd>${b.gpu}</dd>`:""}${b.ram?`<dt>RAM</dt><dd>${b.ram}</dd>`:""}${b.ssd?`<dt>SSD</dt><dd>${b.ssd}</dd>`:""}${b.no_os?`<dt>ОС</dt><dd>без Windows (можем установить)</dd>`:""}</dl>
 
-    ${/RTX/.test(b.gpu)?`<button class="fpsbtn" data-f="${b.i}" aria-expanded="false"><span>FPS в играх: низкие, высокие, ультра, 2K</span><span class="arr" aria-hidden="true">▾</span></button>
+    ${/RTX/.test(b.gpu)?`<button class="fpsbtn" data-f="${b.i}" aria-expanded="false"><span>FPS в играх — выбрать игру</span><span class="arr" aria-hidden="true">▾</span></button>
     <div class="fps" id="f${b.i}" hidden></div>`:""}
     <div class="price">
       <div class="row"><span class="k">Наличные / QR</span><span class="cash">${fmt(b.cash)}</span></div>
@@ -456,7 +476,7 @@ function card(b){
     <div class="head"><div class="num${b.n?"":" new"}">${b.n||"NEW"}</div>
       <div class="title"><span class="type${b.type==="kit"?" kit":""}">${b.type==="kit"?"Полный комплект":"Системный блок"}</span><strong id="t${b.i}">${name}</strong></div></div>
     ${b.opts&&b.opts.length?`<p class="tapnote">Нажмите на строку, чтобы заменить — дешевле или мощнее</p><div class="specx" id="sp${b.i}"></div>`:`<dl class="spec" id="sp${b.i}"><dt>CPU</dt><dd>${b.cpu}</dd><dt>GPU</dt><dd>${b.gpu}</dd><dt>RAM</dt><dd>${b.ram}</dd><dt>SSD</dt><dd>${b.ssd}</dd></dl>`}
-    <button class="fpsbtn" data-f="${b.i}" aria-expanded="false"><span>FPS в играх: низкие, высокие, ультра, 2K</span><span class="arr" aria-hidden="true">▾</span></button>
+    <button class="fpsbtn" data-f="${b.i}" aria-expanded="false"><span>FPS в играх — выбрать игру</span><span class="arr" aria-hidden="true">▾</span></button>
     <div class="fps" id="f${b.i}" hidden></div>
     ${b.kit&&!(b.opts||[]).some(g=>g.id.startsWith("k_"))?`<div class="inkit"><b>В комплекте</b>${b.kit}</div>`:""}
     <div class="price">
@@ -531,7 +551,7 @@ const idx=(tbl,s,def)=>{for(const[r,v] of tbl)if(r.test(s||""))return v;return d
 // игра: [название, кадры на 1 ед. индекса видеокарты, кадры на 1 ед. индекса процессора, пороги уровней 3/2/1]
 // Настройки FPS-оценки, выбранные клиентом (общие для всех карточек)
 const PRESETS=["Низкие","Средние","Высокие","Ультра"];
-let FP={p:2,r:"fhd",dlss:false,c:0};
+let FP={p:2,r:"fhd",dlss:false,g:"CS2"};
 function isDark(){const t=document.documentElement.dataset.theme;return t?t==="dark":matchMedia("(prefers-color-scheme: dark)").matches}
 function paintTheme(){const d=isDark();document.documentElement.classList.toggle("dark",d);document.getElementById("theme").title=d?"Светлая тема":"Тёмная тема"}
 document.getElementById("theme").addEventListener("click",()=>{const t=isDark()?"light":"dark";document.documentElement.dataset.theme=t;try{localStorage.setItem("tshop_theme",t)}catch(e){}paintTheme();ev("tema-"+t,"Тема: "+(t==="dark"?"тёмная":"светлая"))});
@@ -563,15 +583,27 @@ function fpsControls(){
   return `<div class="fpsset"><div class="chips" role="group" aria-label="Настройки графики">${PRESETS.map((n,k)=>chip("p",k,FP.p===k,n)).join("")}</div>
   <div class="chips" role="group" aria-label="Разрешение и DLSS">${chip("r","fhd",FP.r==="fhd","Full HD")}${chip("r","qhd",FP.r==="qhd","2K")}${chip("dlss",FP.dlss?0:1,FP.dlss,"DLSS "+(FP.dlss?"вкл":"выкл"))}</div></div>`;
 }
+const OPENG={};
+const LV=f=>f>=120?["hi","плавно"]:f>=60?["mid","комфортно"]:["lo","тяжело"];
 function drawFps(b){
   const box=document.getElementById("f"+b.i);if(!box||box.hidden)return;
-  const L=b.type==="laptop",{cpu,gpu,ram}=curParts(b),base=gameFps(b.cpu,b.gpu,FP,L,b.ram),now=gameFps(cpu,gpu,FP,L,ram),changed=cpu!==b.cpu||gpu!==b.gpu||ram!==b.ram;
-  const ORD=GCAT.flatMap(c=>c[1]);
-  box.innerHTML=fpsControls()+`<div class="gtl">`+now.map((x,k)=>({x,o:base[k]})).sort((a,b)=>ORD.indexOf(a.x.n)-ORD.indexOf(b.x.n)).map(({x,o})=>{
-    const r=x.f/o.f,diff=changed&&Math.abs(r-1)>0.02,p=Math.round((r-1)*100),w=v=>Math.max(4,Math.min(100,Math.round(v/x.mx*100)));
-    const lv=x.f>=120?"hi":x.f>=60?"mid":"lo";
-    return `<div class="gt ${lv}"><span class="gtn">${x.n}</span><span class="gtf">${rng(x.f)}<small> FPS</small></span>${diff?`<span class="gtd"><em class="${p>0?"fu":"fd"}">${pctTxt(p)}</em> <s>${rng(o.f)}</s></span>`:""}${FP.dlss&&x.dl&&!noGpu(gpu)?`<span class="gtd">с DLSS</span>`:""}<span class="gtb" aria-hidden="true"><i style="width:${w(x.f)}%"></i></span></div>`}).join("")+`</div>`
-    +`<div class="fpsleg"><span><i style="background:var(--ok)"></i>120+ плавно</span><span><i style="background:var(--ink);opacity:.55"></i>60–120 комфортно</span><span><i style="background:var(--wait)"></i>до 60 тяжело</span></div><small>Ориентировочно: ${PRESETS[FP.p].toLowerCase()} настройки, ${FP.r==="qhd"?"2K (2560×1440)":"Full HD"}${FP.dlss?", DLSS «Качество» где есть":""}${changed?", с вашими изменениями":""}. Средний FPS по тестам обзорщиков; зависит от версии игры и карты.</small>`;
+  const L=b.type==="laptop",{cpu,gpu,ram}=curParts(b),changed=cpu!==b.cpu||gpu!==b.gpu||ram!==b.ram;
+  const ORD=GCAT.flatMap(c=>c[1]),gi=Math.max(0,GAMES.findIndex(g=>g[0]===FP.g)),gname=GAMES[gi][0],hasDl=GAMES[gi][5]&&!noGpu(gpu);
+  const at=(o,c=cpu,g=gpu,r=ram)=>gameFps(c,g,{...FP,...o},L,r)[gi].f;
+  const f=at({}),fo=changed?at({},b.cpu,b.gpu,b.ram):f,pc=Math.round((f/fo-1)*100),lv=LV(f);
+  const cells=PRESETS.map((n,p)=>`<tr><th>${n}</th>${["fhd","qhd"].map(r=>{const v=at({p,r}),on=FP.p===p&&FP.r===r;return `<td><button class="fc ${LV(v)[0]}${on?" on":""}" data-fp="cell" data-p="${p}" data-r="${r}" aria-pressed="${on}">${r10(v)}</button></td>`}).join("")}</tr>`).join("");
+  let sheet="";
+  if(OPENG[b.i]){
+    const all=gameFps(cpu,gpu,FP,L,ram);
+    sheet=`<div class="osheet"><div class="sbg" data-gclose="${b.i}"></div><div class="spanel" role="dialog" aria-label="Выберите игру"><div class="shd"><b>Выберите игру <small class="shs">FPS: ${PRESETS[FP.p].toLowerCase()}, ${FP.r==="qhd"?"2K":"Full HD"}</small></b><button class="sx" data-gclose="${b.i}" aria-label="Закрыть">×</button></div><div class="olist">`+
+      ORD.map(n=>{const x=all.find(a=>a.n===n);return `<button class="orow${n===gname?" on":""}" data-gsel="${n}" data-i="${b.i}"><span class="ock">${n===gname?ICON_CHK:""}</span><span class="on2"><span>${n}</span></span><span class="od">≈ ${rng(x.f)}</span></button>`}).join("")+`</div></div></div>`;
+  }
+  box.innerHTML=`<button class="srow gpick" data-gp="${b.i}" aria-label="Выбрать игру"><span class="sk">Игра</span><span class="sv"><mark>${gname}</mark></span><span class="arr" aria-hidden="true">▾</span></button>${sheet}
+    <div class="gbig ${lv[0]}"><div class="gbn">≈ ${rng(f)} <small>FPS</small></div><div class="gbl"><span class="lvb">${lv[1]}</span>${changed&&Math.abs(pc)>=2?` <em class="${pc>0?"fu":"fd"}">${pctTxt(pc)}</em> <s>${rng(fo)}</s>`:""}</div>
+      <div class="gbs">${PRESETS[FP.p]} настройки · ${FP.r==="qhd"?"2K (2560×1440)":"Full HD (1920×1080)"}${FP.dlss&&hasDl?" · DLSS":""}</div></div>
+    <table class="ftab"><thead><tr><th></th><th>Full HD</th><th>2K</th></tr></thead><tbody>${cells}</tbody></table>
+    ${hasDl?`<button class="chip dlss" data-fp="dlss" aria-pressed="${FP.dlss}">DLSS ${FP.dlss?"включён":"выключен"}</button>`:""}
+    <small>Нажмите на ячейку, чтобы выбрать настройки. Средний FPS по тестам обзорщиков${changed?", с вашими изменениями":""}; зависит от версии игры и карты.</small>`;
 }
 const KI=1.1792,KM=1.15;
 const sgn=d=>d>0?"+"+fmt(d):d<0?"−"+fmt(-d):"";
@@ -667,8 +699,14 @@ grid.addEventListener("click",e=>{
   const c=e.target.closest("[data-close]");if(!c)return;
   const b=D[+c.dataset.close];OPEN[b.i]=null;renderSpec(b);lockScroll();
 });
+grid.addEventListener("click",e=>{
+  const gp=e.target.closest("[data-gp]"),gc=e.target.closest("[data-gclose]"),gs=e.target.closest("[data-gsel]");
+  if(gp){const b=D[+gp.dataset.gp];OPENG[b.i]=!OPENG[b.i];drawFps(b);lockScroll();return}
+  if(gc){const b=D[+gc.dataset.gclose];OPENG[b.i]=false;drawFps(b);lockScroll();return}
+  if(gs){const b=D[+gs.dataset.i];FP.g=gs.dataset.gsel;OPENG[b.i]=false;try{localStorage.setItem("tshop_fps",JSON.stringify(FP))}catch(e){}D.forEach(drawFps);lockScroll();ev("igra-"+FP.g.replace(/\W+/g,"-").toLowerCase(),"FPS: "+FP.g);}
+});
 function lockScroll(){document.body.classList.toggle("sheeton",!!document.querySelector(".osheet"))}
-document.addEventListener("keydown",e=>{if(e.key!=="Escape")return;const c=document.querySelector(".osheet [data-close]");if(c)c.click();});
+document.addEventListener("keydown",e=>{if(e.key!=="Escape")return;const c=document.querySelector(".osheet [data-close],.osheet [data-gclose]");if(c)c.click();});
 grid.addEventListener("click",e=>{
   const r=e.target.closest(".orow");if(!r||r.disabled)return;
   const b=D[+r.dataset.i],g=r.dataset.g;(SEL[b.i]||(SEL[b.i]={}))[g]=+r.dataset.k;OPEN[b.i]=null;
@@ -678,7 +716,7 @@ grid.addEventListener("click",e=>{
 grid.addEventListener("click",e=>{
   const c=e.target.closest("[data-fp]");if(!c)return;
   const k=c.dataset.fp;
-  if(k==="p")FP.p=+c.dataset.v;else if(k==="r")FP.r=c.dataset.v;else FP.dlss=!FP.dlss;
+  if(k==="cell"){FP.p=+c.dataset.p;FP.r=c.dataset.r}else if(k==="p")FP.p=+c.dataset.v;else if(k==="r")FP.r=c.dataset.v;else FP.dlss=!FP.dlss;
   try{localStorage.setItem("tshop_fps",JSON.stringify(FP))}catch(e){}
   D.forEach(b=>{drawFps(b);renderSpec(b)});
   ev("fps-nastroiki","FPS: "+PRESETS[FP.p]+", "+(FP.r==="qhd"?"2K":"Full HD")+(FP.dlss?", DLSS":""));
