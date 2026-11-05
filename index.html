@@ -132,7 +132,7 @@ footer .phone{font-family:var(--f-num);color:var(--ink);user-select:all}
     <p class="lead">Номер сборки — красная цифра на фото в посте, например <span class="tag">1028</span>. Введите его или выберите бюджет ниже.</p>
     <div class="updated"><span class="dot"></span><span><span id="upd">Загружаю цены…</span></span></div>
     <p class="note">В постах указана цена на дату публикации. Актуальная цена — на этой странице.</p>
-    <p class="jump"><a href="#monitors">Мониторы в наличии ↓</a></p>
+    <p class="jump"><a href="#monitors">Мониторы и девайсы в наличии ↓</a></p>
   </header>
 </div>
 
@@ -195,8 +195,9 @@ footer .phone{font-family:var(--f-num);color:var(--ink);user-select:all}
   <div class="count"><span id="count"></span><button class="reset" id="reset" hidden>Сбросить фильтры</button></div>
   <div class="grid" id="grid"></div>
   <section class="mons" id="monitors" hidden>
-    <h2>Мониторы в наличии</h2>
-    <p class="note">Можно взять отдельно или добавить к любой сборке.</p>
+    <h2>Мониторы и девайсы в наличии</h2>
+    <p class="note">Можно взять отдельно или добавить к любой сборке. Рассрочка +15%.</p>
+    <div class="chips" id="mcats" style="margin-top:12px"></div>
     <div class="mlist" id="mlist"></div>
   </section>
 </main>
@@ -298,10 +299,18 @@ window.addEventListener("hashchange",fromHash);
 fetch("prices.json?t="+Date.now()).then(r=>r.json()).then(j=>{
   D=j.builds.map((b,i)=>({i,n:b.number,type:b.type,cpu:b.cpu,gpu:b.gpu,ram:b.ram,ssd:b.ssd,cash:b.cash,inst:b.installment,month:b.monthly,stock:b.in_stock,post:b.post,kit:b.kit||""}));
   document.getElementById("upd").textContent=`Цены обновлены ${j.updated} по ценам поставщиков`;
-  const M=j.monitors||[];
+  const M=j.extras||[];
   if(M.length){
-    document.getElementById("mlist").innerHTML=M.map(m=>{const msg=encodeURIComponent(`Здравствуйте! Интересует монитор ${m.name} за ${fmt(m.price)}`);
-      return `<div class="mon"><b>${m.name}</b><div class="sp">${m.spec}<br>Рассрочка ${fmt(m.installment)} · от ${fmt(m.monthly)}/мес</div><div class="pr"><span>${fmt(m.price)}</span><a href="https://wa.me/77473458952?text=${msg}" target="_blank" rel="noopener">WhatsApp</a></div></div>`}).join("");
+    const cats=[...new Set(M.map(m=>m.cat))];
+    let cur=cats[0];
+    const mc=document.getElementById("mcats"),ml=document.getElementById("mlist");
+    const drawM=()=>{
+      mc.innerHTML=cats.map(c=>`<button class="chip" data-c="${c}" aria-pressed="${c===cur}">${c} · ${M.filter(m=>m.cat===c).length}</button>`).join("");
+      ml.innerHTML=M.filter(m=>m.cat===cur).map(m=>{const msg=encodeURIComponent(`Здравствуйте! Интересует ${m.name} за ${fmt(m.price)}`);
+        return `<div class="mon"><b>${m.name}</b><div class="sp">${m.spec}<br>Рассрочка ${fmt(m.installment)} · от ${fmt(m.monthly)}/мес</div><div class="pr"><span>${fmt(m.price)}</span><a href="https://wa.me/77473458952?text=${msg}" target="_blank" rel="noopener">WhatsApp</a></div></div>`}).join("");
+    };
+    mc.addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;cur=b.dataset.c;drawM();});
+    drawM();
     document.getElementById("monitors").hidden=false;
   } else document.querySelector(".jump").hidden=true;
   buildChips();render();fromHash();

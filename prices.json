@@ -884,8 +884,9 @@
    "monthly": 44800
   }
  ],
- "monitors": [
+ "extras": [
   {
+   "cat": "Мониторы",
    "name": "SANC M2453FKG",
    "spec": "23.8″ · Full HD · IPS · 120 Гц · 1 мс",
    "price": 45000,
@@ -893,6 +894,7 @@
    "monthly": 2200
   },
   {
+   "cat": "Мониторы",
    "name": "Acer CB242Y",
    "spec": "23.8″ · Full HD · IPS · 120 Гц · 1 мс",
    "price": 55000,
@@ -900,6 +902,7 @@
    "monthly": 2700
   },
   {
+   "cat": "Мониторы",
    "name": "SANC M2444PC",
    "spec": "23.8″ · Full HD · IPS · 200 Гц · 1 мс",
    "price": 60000,
@@ -907,6 +910,7 @@
    "monthly": 2900
   },
   {
+   "cat": "Мониторы",
    "name": "SANC 24.5″",
    "spec": "24.5″ · Full HD · IPS · 240 Гц · 1 мс",
    "price": 65000,
@@ -914,6 +918,7 @@
    "monthly": 3200
   },
   {
+   "cat": "Мониторы",
    "name": "SANC M2753FPF",
    "spec": "27″ · Full HD · IPS · 200 Гц · 1 мс",
    "price": 70000,
@@ -921,6 +926,7 @@
    "monthly": 3400
   },
   {
+   "cat": "Мониторы",
    "name": "SANC 27″",
    "spec": "27″ · Full HD · IPS · 240 Гц · 1 мс",
    "price": 75000,
@@ -928,6 +934,7 @@
    "monthly": 3700
   },
   {
+   "cat": "Мониторы",
    "name": "Lenovo Legion 25-10",
    "spec": "24.5″ · Full HD · IPS · 320 Гц",
    "price": 80000,
@@ -935,6 +942,7 @@
    "monthly": 3900
   },
   {
+   "cat": "Мониторы",
    "name": "AOC 25G4SXU",
    "spec": "24.5″ · Full HD · IPS · 310 Гц",
    "price": 90000,
@@ -942,6 +950,7 @@
    "monthly": 4400
   },
   {
+   "cat": "Мониторы",
    "name": "Lenovo Legion 27″",
    "spec": "27″ · 2K QHD 2560×1440 · IPS · 300 Гц · 0.5 мс",
    "price": 110000,
@@ -949,6 +958,7 @@
    "monthly": 5300
   },
   {
+   "cat": "Мониторы",
    "name": "GIGABYTE G27Q3",
    "spec": "27″ · 2K QHD 2560×1440 · Super Speed IPS · 320 Гц · HDR400",
    "price": 115000,
@@ -956,11 +966,100 @@
    "monthly": 5600
   },
   {
+   "cat": "Мониторы",
    "name": "ASUS TUF 24.5″",
    "spec": "24.5″ · Full HD · IPS · 310 Гц",
    "price": 120000,
    "installment": 138000,
    "monthly": 5800
+  },
+  {
+   "cat": "Мыши",
+   "name": "Logitech G102 Lightsync White",
+   "spec": "Проводная · RGB",
+   "price": 15000,
+   "installment": 18000,
+   "monthly": 800
+  },
+  {
+   "cat": "Мыши",
+   "name": "AULA SC580 Wireless Black",
+   "spec": "Беспроводная",
+   "price": 12000,
+   "installment": 14000,
+   "monthly": 600
+  },
+  {
+   "cat": "Мыши",
+   "name": "AULA SC580 Wireless Red",
+   "spec": "Беспроводная",
+   "price": 12000,
+   "installment": 14000,
+   "monthly": 600
+  },
+  {
+   "cat": "Мыши",
+   "name": "Mchose A7 V2 Pro",
+   "spec": "Беспроводная · лёгкая игровая",
+   "price": 25000,
+   "installment": 29000,
+   "monthly": 1300
+  },
+  {
+   "cat": "Клавиатуры",
+   "name": "AULA F75 White / Ice Blue",
+   "spec": "Механическая · беспроводная",
+   "price": 25000,
+   "installment": 29000,
+   "monthly": 1300
+  },
+  {
+   "cat": "Клавиатуры",
+   "name": "AULA F75 Pro Side Printed Black",
+   "spec": "Механическая · беспроводная · RGB",
+   "price": 27000,
+   "installment": 32000,
+   "monthly": 1400
+  },
+  {
+   "cat": "Клавиатуры",
+   "name": "Ajazz AK820 White / Grey",
+   "spec": "Механическая",
+   "price": 15000,
+   "installment": 18000,
+   "monthly": 800
+  },
+  {
+   "cat": "Клавиатуры",
+   "name": "Ajazz AK820 Black",
+   "spec": "Механическая",
+   "price": 15000,
+   "installment": 18000,
+   "monthly": 800
+  },
+  {
+   "cat": "Клавиатуры",
+   "name": "Mchose Ace 68 White",
+   "spec": "Механическая · 65%",
+   "price": 25000,
+   "installment": 29000,
+   "monthly": 1300
+  },
+  {
+   "cat": "Наушники",
+   "name": "AULA G7",
+   "spec": "Беспроводная гарнитура · RGB",
+   "price": 15000,
+   "installment": 18000,
+   "monthly": 800
+  },
+  {
+   "cat": "Наушники",
+   "name": "AULA G7 PRO",
+   "spec": "Беспроводная гарнитура · RGB",
+   "price": 20000,
+   "installment": 23000,
+   "monthly": 1000
   }
  ]
 }
