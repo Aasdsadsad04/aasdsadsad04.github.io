@@ -378,6 +378,7 @@ function render(){
     if(lo&&b.cash<lo)return false;
     if(hi&&b.cash>hi)return false;
     for(const k of ["gpu","cpu","ram","ssd"])if(st[k]!=="all"&&G[k](b)!==st[k])return false;
+    if(/^\d{3,4}$/.test(t))return String(b.n)===t;
     if(t){const hay=((b.n||"")+" "+(b.title||"")+" "+b.cpu+" "+b.gpu+" "+b.ram+" "+b.kit).toLowerCase();if(!hay.includes(t))return false}
     return true;
   });
