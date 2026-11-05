@@ -301,7 +301,7 @@ fetch("prices.json?t="+Date.now()).then(r=>r.json()).then(j=>{
   const M=j.monitors||[];
   if(M.length){
     document.getElementById("mlist").innerHTML=M.map(m=>{const msg=encodeURIComponent(`Здравствуйте! Интересует монитор ${m.name} за ${fmt(m.price)}`);
-      return `<div class="mon"><b>${m.name}</b><div class="sp">${m.spec} · от ${fmt(m.monthly)}/мес</div><div class="pr"><span>${fmt(m.price)}</span><a href="https://wa.me/77473458952?text=${msg}" target="_blank" rel="noopener">WhatsApp</a></div></div>`}).join("");
+      return `<div class="mon"><b>${m.name}</b><div class="sp">${m.spec}<br>Рассрочка ${fmt(m.installment)} · от ${fmt(m.monthly)}/мес</div><div class="pr"><span>${fmt(m.price)}</span><a href="https://wa.me/77473458952?text=${msg}" target="_blank" rel="noopener">WhatsApp</a></div></div>`}).join("");
     document.getElementById("monitors").hidden=false;
   } else document.querySelector(".jump").hidden=true;
   buildChips();render();fromHash();

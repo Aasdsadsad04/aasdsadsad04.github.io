@@ -889,78 +889,78 @@
    "name": "SANC M2453FKG",
    "spec": "23.8″ · Full HD · IPS · 120 Гц · 1 мс",
    "price": 45000,
-   "installment": 54000,
-   "monthly": 2300
+   "installment": 52000,
+   "monthly": 2200
   },
   {
    "name": "Acer CB242Y",
    "spec": "23.8″ · Full HD · IPS · 120 Гц · 1 мс",
    "price": 55000,
-   "installment": 65000,
-   "monthly": 2800
+   "installment": 64000,
+   "monthly": 2700
   },
   {
    "name": "SANC M2444PC",
    "spec": "23.8″ · Full HD · IPS · 200 Гц · 1 мс",
    "price": 60000,
-   "installment": 71000,
-   "monthly": 3000
+   "installment": 69000,
+   "monthly": 2900
   },
   {
    "name": "SANC 24.5″",
    "spec": "24.5″ · Full HD · IPS · 240 Гц · 1 мс",
    "price": 65000,
-   "installment": 77000,
-   "monthly": 3300
+   "installment": 75000,
+   "monthly": 3200
   },
   {
    "name": "SANC M2753FPF",
    "spec": "27″ · Full HD · IPS · 200 Гц · 1 мс",
    "price": 70000,
-   "installment": 83000,
-   "monthly": 3500
+   "installment": 81000,
+   "monthly": 3400
   },
   {
    "name": "SANC 27″",
    "spec": "27″ · Full HD · IPS · 240 Гц · 1 мс",
    "price": 75000,
-   "installment": 89000,
-   "monthly": 3800
+   "installment": 87000,
+   "monthly": 3700
   },
   {
    "name": "Lenovo Legion 25-10",
    "spec": "24.5″ · Full HD · IPS · 320 Гц",
    "price": 80000,
-   "installment": 95000,
-   "monthly": 4000
+   "installment": 92000,
+   "monthly": 3900
   },
   {
    "name": "AOC 25G4SXU",
    "spec": "24.5″ · Full HD · IPS · 310 Гц",
    "price": 90000,
-   "installment": 107000,
-   "monthly": 4500
+   "installment": 104000,
+   "monthly": 4400
   },
   {
    "name": "Lenovo Legion 27″",
    "spec": "27″ · 2K QHD 2560×1440 · IPS · 300 Гц · 0.5 мс",
    "price": 110000,
-   "installment": 130000,
-   "monthly": 5500
+   "installment": 127000,
+   "monthly": 5300
   },
   {
    "name": "GIGABYTE G27Q3",
    "spec": "27″ · 2K QHD 2560×1440 · Super Speed IPS · 320 Гц · HDR400",
    "price": 115000,
-   "installment": 136000,
-   "monthly": 5700
+   "installment": 133000,
+   "monthly": 5600
   },
   {
    "name": "ASUS TUF 24.5″",
    "spec": "24.5″ · Full HD · IPS · 310 Гц",
    "price": 120000,
-   "installment": 142000,
-   "monthly": 6000
+   "installment": 138000,
+   "monthly": 5800
   }
  ]
 }
